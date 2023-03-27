@@ -1,9 +1,23 @@
 <nav>
     <ul>
-        <li><a class="navbar" href="{{ path('main_home') }}" title="Accueil">Accueil</a></li>
-        <li><a class="navbar" href="#" title="monProfil">Mon profil</a></li>
-        <li><a class="navbar" href="#" title="Sites">Sites</a></li>
-        <li><a class="navbar" href="#" title="Villes">Villes</a></li>
+
+        {% if app.user %}
+            <li><a class="navbar" href="{{ path('main_home') }}" title="Accueil">Accueil</a></li>
+            <li><a class="navbar" href="#" title="monProfil">Mon profil</a></li>
+            <li><a class="navbar" href="#" title="Sites">Sites</a></li>
+            <li><a class="navbar" href="#" title="Villes">Villes</a></li>
+            <li><a class="navbar" href="{{ path('app_logout') }}" title="Logout">Logout</a>
+
+        {% if is_granted('ROLE_ADMIN') %}
+                <li><a class="navbar" href="{{ path('app_register') }}" title="admin">Création utilisateur</a></li>
+
+        {% endif %}
+
+        {% else %}
+            <li><a href="{{ path('app_login') }}">Login</a></li>
+
+        {% endif %}
+
 
     </ul>
 
