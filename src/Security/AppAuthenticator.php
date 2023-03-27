@@ -49,7 +49,7 @@ class AppAuthenticator extends AbstractLoginFormAuthenticator
         }
 
         //TODO: changer route
-         return new RedirectResponse($this->urlGenerator->generate('some_route'));
+         return new RedirectResponse($this->urlGenerator->generate('main_home'));
 
     }
 
