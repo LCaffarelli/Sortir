@@ -1,0 +1,33 @@
+*{
+    font-family: 'Rubik', sans-serif;
+}
+
+nav ul{
+    display: flex;
+    justify-content: right;
+    padding: 0;
+}
+
+nav li{
+    padding-right: 15px;
+    list-style: none;
+    font-size: 1.5em;
+}
+
+header {
+    margin: 15px;
+    padding: 15px;
+    text-align: center;
+    height: 7em;
+    vertical-align: middle;
+    background-color: #3b82f6;
+}
+
+.navbar{
+    text-decoration: none;
+}
+
+.element{
+    height: 100px;
+    background-color: #93c5fd;
+}
