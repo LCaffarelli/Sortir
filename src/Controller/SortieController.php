@@ -6,21 +6,25 @@ use App\Entity\Participant;
 use App\Entity\Sortie;
 use App\Form\CreationSortieType;
 use App\Repository\EtatRepository;
+use App\Repository\LieuRepository;
 use App\Repository\SiteRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 #[Route('/sortie', name: 'sortie_')]
 class SortieController extends AbstractController
 {
     #[Route('/creation-sortie', name: 'creation')]
-    public function Sortie(Request $request, EntityManagerInterface $entityManager, EtatRepository $etatRepository, SiteRepository $siteRepository): Response
+    public function Sortie(Request $request, EntityManagerInterface $entityManager, EtatRepository $etatRepository, SiteRepository $siteRepository, LieuRepository $lieuRepository): Response
     {
         $sortie = new Sortie();
 
         $etat = $etatRepository->find(1);
+
+        $lieux = $lieuRepository->findAll();
 
         $site = $siteRepository->find($this->getUser()->getSite()->getId());
 
@@ -49,6 +53,7 @@ class SortieController extends AbstractController
         }
         return $this->render('sortie/creationSortie.html.twig', [
             'sortieForm' => $sortieForm->createView(),
+            'lieux' => $lieux,
         ]);
     }
 
