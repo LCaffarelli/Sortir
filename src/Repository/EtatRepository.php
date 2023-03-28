@@ -26,7 +26,7 @@ class EtatRepository extends ServiceEntityRepository
         $this->getEntityManager()->persist($entity);
 
         if ($flush) {
-            $this->getEntityManager()->flush();//lol
+            $this->getEntityManager()->flush();
         }
     }
 
