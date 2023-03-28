@@ -15,10 +15,16 @@
     {% endif %}
     <section class="connexionUser">
         <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-        <label for="inputPseudo">Pseudo : </label>
-        <input type="text" value="{{ last_username }}" name="pseudo" id="inputPseudo" class="form-control" autocomplete="username" required autofocus><br>
-        <label for="inputPassword">Password : </label>
-        <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required><br>
+
+        <div class="connexion">
+            <label class="labelConnexion" for="inputPseudo">Pseudo : </label>
+            <input type="text" value="{{ last_username }}" name="pseudo" id="inputPseudo" class="inputConnexion" autocomplete="username" required autofocus><br>
+        </div>
+
+        <div class="connexion">
+            <label class="labelConnexion" for="inputPassword">Password : </label>
+            <input type="password" name="password" id="inputPassword" class="inputConnexion" autocomplete="current-password" required><br>
+        </div>
 
         <input type="hidden" name="_csrf_token"
                value="{{ csrf_token('authenticate') }}"
@@ -35,9 +41,9 @@
         </div><br>
 
 
-        <button class="btn_Connexion" type="submit">
-            Connexion
-        </button>
+        <div class="connexion">
+            <input class="btn_Connexion" type="submit" value="Connexion">
+        </div>
 
     </section>
 

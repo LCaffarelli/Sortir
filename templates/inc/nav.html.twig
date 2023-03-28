@@ -1,4 +1,8 @@
 <nav>
+    <img class="imageHeader" src="{{ asset('img/bandeau-nantes.jpg') }}" alt="Vivre à Nantes">
+
+    <a href="{{ path('main_home') }}"><img class="imageLogo" src="{{ asset('img/NomSite.png') }}" alt="Vivre à Nantes"></a>
+
     <ul>
 
         {% if app.user %}
@@ -14,7 +18,7 @@
         {% endif %}
 
         {% else %}
-            <li><a href="{{ path('app_login') }}">Login</a></li>
+            <li><a class="navbar" href="{{ path('app_login') }}">Login</a></li>
 
         {% endif %}
 

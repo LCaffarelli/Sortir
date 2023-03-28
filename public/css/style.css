@@ -3,28 +3,52 @@
 }
 
 nav ul{
+    position: absolute;
+    margin:0;
+    right: 0; top:0;
+    z-index: 2;
     display: flex;
     justify-content: right;
-    padding: 0;
+    width: 100%;
+    height: 80px;
+    line-height: 80px;
+    background-color: darkslategray;
 }
 
 nav li{
-    padding-right: 15px;
+    padding-right: 20px;
     list-style: none;
     font-size: 1.5em;
 }
 
 header {
-    margin: 15px;
-    padding: 15px;
-    text-align: center;
-    height: 7em;
-    vertical-align: middle;
-    background-color: #3b82f6;
+    margin-bottom : 100px;
+    width: 100%;
+    height: 450px;
+    z-index: 2;
+    color: whitesmoke;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-size: auto;
 }
 
+.imageHeader{
+    position: fixed;
+    left: 0; right: 0; top: 0;
+    z-index: 1;
+    width: 100%;
+    height: auto;
+}
+.imageLogo{
+    position: fixed;
+    left: 5px; top: 5px;
+    width: 200px;
+    height: 70px;
+    z-index: 3;
+}
 .navbar{
     text-decoration: none;
+    color: whitesmoke;
 }
 
 .connexionUser{
@@ -32,13 +56,38 @@ header {
     margin-top : 50px;
     margin-bottom: 50px;
     padding:15px;
-    width: 300px;
+    width: 400px;
     height: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: #93c5fd;
+    background-color: darkslategray;
+    border-radius: 10px;
     font-size: 1.1em;
+    color: whitesmoke;
+}
+
+.connexion{
+    display: flex;
+    flex-direction: column;
+}
+.labelConnexion{
+    font-size: 1.2em;
+    padding-bottom: 10px;
+}
+.inputConnexion{
+    font-size: 1.2em;
+}
+.btn_Connexion{
+    margin: auto;
+    height: 40px;
+    width: 200px;
+    border-radius: 5px;
+    font-size: 1em;
+}
+.btn_Connexion:hover{
+    cursor: pointer;
+    background-color: dimgrey;
 }
 
 footer{
@@ -48,5 +97,5 @@ footer{
     padding: 15px;
     text-align: center;
     position: absolute;
-    bottom:0; left:0; right:0;
+    left:0; right:0;
 }
