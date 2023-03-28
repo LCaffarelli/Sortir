@@ -7,6 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[UniqueEntity(fields: ['pseudo'], message: 'There is already an account with this pseudo')]
@@ -17,6 +18,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private ?int $id = null;
 
+    #[Assert\NotBlank(message:"Le pseudo ne peut pas être nul")]
     #[ORM\Column(length: 180, unique: true)]
     private ?string $pseudo = null;
 
@@ -28,19 +30,22 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     #[ORM\Column]
     private ?string $password = null;
-
+    #[Assert\NotBlank(message: "Le nom ne peut pas être nul")]
     #[ORM\Column(length: 255)]
     private ?string $nom = null;
-
+    #[Assert\NotBlank(message: "Le prenom ne peut pas être nul")]
     #[ORM\Column(length: 255)]
     private ?string $prenom = null;
-
+    #[Assert\NotBlank(message: "Le numéro de téléphone ne peut pas être nul")]
+    #[Assert\Length(min:10, minMessage: "numéro incorrect" )]
     #[ORM\Column(length: 10)]
     private ?string $telephone = null;
 
+    #[Assert\Email(message: "Email non valide")]
     #[ORM\Column(length: 255,unique: true)]
     private ?string $email = null;
 
+    #[Assert\Regex(pattern:'/^.+\.(jpg|jpeg|png|gif|bmp)$/', message:"Le fichier saisi n'est pas une image")]
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $image = null;
 
