@@ -40,11 +40,21 @@ class SortieRepository extends ServiceEntityRepository
         }
     }
 
+    public function addUser(Sortie $entity, bool $flush = false): void
+    {
+
+    }
+
+    public function removeUser(Sortie $entity, bool $flush = false): void
+    {
+
+    }
+
     public function triSite()
     {
         $queryBuilder = $this->createQueryBuilder('c');
         $queryBuilder->orderBy('c.nom', 'ASC');
-        $query =$queryBuilder->getQuery();
+        $query = $queryBuilder->getQuery();
         return $query->getResult();
     }
 

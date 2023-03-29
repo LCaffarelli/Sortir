@@ -54,6 +54,7 @@ class UserController extends AbstractController
      }
      #[Route('desistement/{id}', name: 'desistement')]
      public function desistement(){
+        $this->addFlash('success', "Vous êtes bien désinscrit à l'évenement" );
          return $this->redirectToRoute('main_home');
      }
 
