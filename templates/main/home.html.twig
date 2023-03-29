@@ -4,20 +4,20 @@
 
 {% block body %}
 
-{#    <div>#}
-{#        <h2>Filtrer les sorties :</h2>#}
-{#        <label for="site_select">Site : </label>#}
+    <div>
+        <h2>Filtrer les sorties :</h2>
+        <label for="site_select">Site : </label>
 
-{#        <select name="site" id="site_select">#}
-{#            {% for list in sortie %}#}
-{#                <option value="{{ list.site.nom }}"><a href="#"></a>{{ list.site.nom }}</option>#}
-{#            {% endfor %}#}
-{#        </select>#}
-{#        <a href="{{ path('sortie_triSite') }}">#}
-{#            <button type="submit">Rechercher</button>#}
-{#        </a>#}
+        <select name="site" id="site_select">
+            {% for list in sorties %}
+                <option value="{{ list.site.nom }}"><a href="#"></a>{{ list.site.nom }}</option>
+            {% endfor %}
+        </select>
+        <a href="{{ path('sortie_triSite') }}">
+            <button type="submit">Rechercher</button>
+        </a>
 
-{#    </div>#}
+    </div>
 
 
     <h1 class="titreListeCard">Listes des sorties</h1>
