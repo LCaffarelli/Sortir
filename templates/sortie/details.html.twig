@@ -41,9 +41,12 @@
                 <tr><th><a href="{{ path('user_details', {'id': u.id}) }}">{{ u.pseudo }}</a></th><th>{{ u.nom }} {{ u.prenom }}</th></tr>
             {% endfor %}
 
-
-
         </table>
+
+        <form action="{{ path('user_desistement') }}">
+            <input type="hidden" name="_token" value="{{ csrf_token('desistement') }}">
+<button>Se désister</button>
+        </form>
     </div>
 {% endblock %}
 

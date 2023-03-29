@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Sortie;
+use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Request;
@@ -40,14 +41,18 @@ class SortieRepository extends ServiceEntityRepository
         }
     }
 
-    public function addUser(Sortie $entity, bool $flush = false): void
+    public function addUser(User $entity, bool $flush = false): void
     {
 
     }
 
-    public function removeUser(Sortie $entity, bool $flush = false): void
+    public function removeUser(User $entity, bool $flush = false): void
     {
+    $this->getEntityManager()->remove($entity);
 
+    if ($flush){
+        $this->getEntityManager()->flush();
+    }
     }
 
     public function triSite()
