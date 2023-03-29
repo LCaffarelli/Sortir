@@ -4,46 +4,41 @@
 
 {% block body %}
 
-    <h1>Listes des sorties</h1>
-    {% for s in sortie %}
-        <article class="ListSortie">
-            <div class="ensembleSortie">
-                <div class="case">
-                    <div>
+    <h1 class="titreListeCard">Listes des sorties</h1>
+    <section class="ListeCards">
+        {% for s in sortie %}
+            <div class="cards">
+                <div class="card-image">
+                    <img src="{{ asset('img/bowling.jpg') }}"  width="" alt="Image en cours">
+                </div>
+
+                <div class="card-body">
+                    <div class="card-title">
                         <h2><a class="detailSortie" href="">{{ s.nom }}</a></h2>
                     </div>
-                </div>
-                <div class="case">
-                    <h4>Description de la sortie :</h4>
-                    <p>{{ s.infosSortie }}</p>
-                </div>
-                <div class="case">
-                    <div>
+                    <div class="card-description">
+                        <h4>Description de la sortie :</h4>
+                        {{ s.infosSortie }}
+
                         <h4>Date de la sortie :</h4>
                         <p>{{ s.dateHeureDebut.format('d-m-Y') }}</p>
-                    </div>
-                </div>
-                <div class="case">
-                    <div>
+
                         <h4>Clôture :</h4>
                         <p>{{ s.dateLimiteInscription.format('d-m-Y') }}</p>
+
+                        <h4>Inscrits/places :</h4>
+                        <p>{{ s.participants.count }} / {{ s.nbInscriptionsMax }}</p>
+
+                        <h4>Organisateur : </h4>
+                        <p>{{ s.organisateur.nom }}</p>
+
+                        <h4>Etat :</h4>
+                        <p>{{ s.etat.libelle }}</p>
                     </div>
                 </div>
-                <div class="case">
-                    <h4>Inscrits/places :</h4>
-                    <p>{{ s.participants.count }} / {{ s.nbInscriptionsMax }}</p>
-                </div>
-                <div class="case">
-                    <h4>Organisateur : </h4>
-                    <p>{{ s.organisateur.nom }}</p>
-                </div>
-                <div class="case">
-                    <h4>Etat :</h4>
-                    <p>{{ s.etat.libelle }}</p>
-                </div>
             </div>
-        </article>
-    {% endfor %}
+        {% endfor %}
+    </section>
 
 
 {% endblock %}
