@@ -1,26 +1,51 @@
 {% extends 'base.html.twig' %}
-{% block title %} {{ parent() }} | Profil de {{ user.pseudo}} {% endblock %}
+{% block title %} {{ parent() }} | Profil de {{ user.pseudo }} {% endblock %}
 
 
 {% block body %}
-<div>
+    <h1 class="titreListeCard">Profil Participant</h1>
+    <div class="bodyDetailUser">
+        <div class="titreDetailParticipant">
+            <h1>{{ user.pseudo }}</h1>
+        </div>
 
- <h1>{{ user.pseudo }}</h1>
-</div>
+        <div>
+            <div><img src="{{ asset('img/profil.jpg') }}" alt="image profil participant"></div>
 
-<div>
- <div>{{ user.image }}</div>
+        </div>
+        <div>
 
-</div>
- <div>
-  <div>{{ user.nom }} </div>
-  <div>{{ user.prenom }}</div>
-  <div>{{ user.telephone }}</div>
-  <div>{{ user.email }}</div>
-  <div>{{ user.site.nom }}</div>
+            <div>
+                <label for="nom">Nom : </label>
+                {{ user.nom }}
+            </div>
+            <div>
+                <label for="prenom">Prénom : </label>
+                {{ user.prenom }}
+            </div>
+            <div>
+                <label for="tel">Téléphone : </label>
+                {{ user.telephone }}
+            </div>
+            <div>
+                <label for="email">Email : </label>
+                {{ user.email }}</div>
+            <div>
+                <label for="site">Site de rattachement :</label>
+                {{ user.site.nom }}
+            </div>
+            <button onclick="rtn()">Retourner</button>
+            <script>
+                function rtn() {
+                    window.history.back();
+                }
+            </script>
+            <a href="{{ path('main_home') }}">
+                <button>Accueil</button>
+            </a>
+        </div>
+    </div>
 
-
- </div>
 
 {% endblock %}
 

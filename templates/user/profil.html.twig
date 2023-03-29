@@ -2,81 +2,97 @@
 {% block title %}{{ parent() }} | Mon profil {% endblock %}
 
 {% block body %}
-
-    {{ form_start(formUpdate) }}
-    <div>
-        <label for="pseudo">Pseudo : </label>
-        <div>
-            {{ form_errors(formUpdate.pseudo) }}
-            {{ form_widget(formUpdate.pseudo) }}
-        </div>
-    </div>
-
-    <div>
-        <label for="prenom">Prénom :</label>
-        <div>
-            {{ form_errors(formUpdate.prenom) }}
-            {{ form_widget(formUpdate.prenom) }}
-        </div>
-    </div>
-    <div>
-        <label for="nom">Nom :</label>
-        <div>
-            {{ form_errors(formUpdate.nom) }}
-            {{ form_widget(formUpdate.nom) }}
-        </div>
-    </div>
-    <div>
-        <label for="tel">Téléphone :</label>
-        <div>
-            {{ form_errors(formUpdate.telephone) }}
-            {{ form_widget(formUpdate.telephone) }}
-        </div>
-    </div>
-    <div>
-        <label for="email">Email :</label>
-        <div>
-            {{ form_errors(formUpdate.email) }}
-            {{ form_widget(formUpdate.email) }}
-        </div>
-    </div>
+    <h1 class="titreListeCard">Mon Profil</h1>
 
 
-    <div>
-        <label for="site">Site :</label>
-        <div>
-            {{ form_errors(formUpdate.site) }}
-            {{ form_widget(formUpdate.site) }}
-        </div>
-    </div>
+    <div class="bodyDetailUser">
 
-
-    <div>
-        <label for="image">Image de Profil :</label>
-        <div>
-            {{ form_errors(formUpdate.image) }}
-            {{ form_widget(formUpdate.image) }}
-        </div>
-    </div>
-    <div>
-        <label for="mdp"
-               title="Le mot de passe doit contenir au minimum 8 caractères dont une minuscule, une majuscule, un chiffre et un caractère spécial.">Mot
-            de Passe :</label>
-        <div>
-            {{ form_errors(formUpdate.plainPassword) }}
-            {{ form_widget(formUpdate.plainPassword) }}
+        <div class="imageP">
+            <img id="imgUser" src="{{ asset('img/profil.jpg') }}" alt="photo du profil">
         </div>
 
+        {{ form_start(formUpdate) }}
+        <div class="champsDetailUser">
+            <label for="pseudo">Pseudo : </label>
+            <div>
+                {{ form_errors(formUpdate.pseudo) }}
+                {{ form_widget(formUpdate.pseudo) }}
+            </div>
+        </div>
+
+
+        <div class="champsDetailUser">
+            <label for="prenom">Prénom :</label>
+            <div>
+                {{ form_errors(formUpdate.prenom) }}
+                {{ form_widget(formUpdate.prenom) }}
+            </div>
+        </div>
+        <div class="champsDetailUser">
+            <label for="nom">Nom :</label>
+            <div>
+                {{ form_errors(formUpdate.nom) }}
+                {{ form_widget(formUpdate.nom) }}
+            </div>
+        </div>
+        <div class="champsDetailUser">
+            <label for="tel">Téléphone :</label>
+            <div>
+                {{ form_errors(formUpdate.telephone) }}
+                {{ form_widget(formUpdate.telephone) }}
+            </div>
+        </div>
+        <div class="champsDetailUser">
+            <label for="email">Email :</label>
+            <div>
+                {{ form_errors(formUpdate.email) }}
+                {{ form_widget(formUpdate.email) }}
+            </div>
+        </div>
+
+
+        <div class="champsDetailUser">
+            <label for="site">Site :</label>
+            <div>
+                {{ form_errors(formUpdate.site) }}
+                {{ form_widget(formUpdate.site) }}
+            </div>
+        </div>
+
+
+        <div class="champsDetailUser">
+            <label for="image">Image de Profil :</label>
+            <div>
+                {{ form_errors(formUpdate.image) }}
+                {{ form_widget(formUpdate.image) }}
+            </div>
+        </div>
+        <div class="champsDetailUser">
+            <label for="mdp"
+                   title="Le mot de passe doit contenir au minimum 8 caractères dont une minuscule, une majuscule, un chiffre et un caractère spécial.">Mot
+                de Passe :</label>
+            <div>
+                {{ form_errors(formUpdate.plainPassword) }}
+                {{ form_widget(formUpdate.plainPassword) }}
+            </div>
+
+        </div>
+
+
+        {{ form_end(formUpdate) }}
+
+
     </div>
 
 
-
-    {{ form_end(formUpdate) }}
-
-
+    <div class="btn_retour_profil">
+        <button onclick="rtn()">Retourner</button>
+        <script>
+            function rtn() {
+                window.history.back();
+            }
+        </script>
     </div>
-    <a href="{{ path('main_home') }}"><button>Retour</button></a>
-
 
 {% endblock %}
 

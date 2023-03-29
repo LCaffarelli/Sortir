@@ -1,11 +1,12 @@
-*{
+* {
     font-family: 'Rubik', sans-serif;
 }
 
-nav ul{
+nav ul {
     position: fixed;
-    margin:0;
-    right: 0; top:0;
+    margin: 0;
+    right: 0;
+    top: 0;
     z-index: 2;
     display: flex;
     justify-content: right;
@@ -15,14 +16,14 @@ nav ul{
     background-color: darkslategray;
 }
 
-nav li{
+nav li {
     padding-right: 20px;
     list-style: none;
     font-size: 1.5em;
 }
 
 header {
-    padding-bottom : 40px;
+    padding-bottom: 40px;
     width: 100%;
     height: 450px;
     z-index: 2;
@@ -32,30 +33,35 @@ header {
     background-size: auto;
 }
 
-.imageHeader{
+.imageHeader {
     position: relative;
-    left: 0; right: 0; top: 0;
+    left: 0;
+    right: 0;
+    top: 0;
     z-index: 1;
     width: 100%;
     height: auto;
 }
-.imageLogo{
+
+.imageLogo {
     position: fixed;
-    left: 5px; top: 5px;
+    left: 5px;
+    top: 5px;
     width: 200px;
     height: 70px;
     z-index: 3;
 }
-.navbar{
+
+.navbar {
     text-decoration: none;
     color: whitesmoke;
 }
 
-.connexionUser{
-    margin:auto;
-    margin-top : 50px;
+.connexionUser {
+    margin: auto;
+    margin-top: 50px;
     margin-bottom: 50px;
-    padding:15px;
+    padding: 15px;
     width: 400px;
     height: auto;
     display: flex;
@@ -67,47 +73,51 @@ header {
     color: whitesmoke;
 }
 
-.connexion{
+.connexion {
     display: flex;
     flex-direction: column;
 }
-.labelConnexion{
+
+.labelConnexion {
     font-size: 1.2em;
     padding-bottom: 10px;
 }
-.inputConnexion{
+
+.inputConnexion {
     font-size: 1.2em;
 }
-.btn_Connexion{
+
+.btn_Connexion {
     margin: auto;
     height: 40px;
     width: 200px;
     border-radius: 5px;
     font-size: 1em;
 }
-.btn_Connexion:hover{
+
+.btn_Connexion:hover {
     cursor: pointer;
     background-color: dimgrey;
 }
 
-.detailSortie{
+.detailSortie {
     text-decoration: none;
     padding-right: 20px;
 }
 
-li{
+li {
     list-style: none;
 }
 
-.titreListeCard{
+.titreListeCard {
     text-align: center;
     background-color: darkslategray;
-    color:whitesmoke;
+    color: whitesmoke;
 
     margin-bottom: 20px;
 }
 
-.ListeCards{
+.ListeCards {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -129,31 +139,32 @@ li{
     filter: grayscale(0);
 }
 
-.card-title{
+.card-title {
     text-align: center;
 }
+
 .card-body {
-    text-align:left;  /*1*/
+    text-align: left; /*1*/
     padding: 15px 20px; /*2*/
     box-sizing: border-box; /*3*/
 }
 
 .card-image {
-    height: 250px;/*1*/
-    position: relative;/*2*/
-    overflow: hidden;/*3*/
-    border-top-left-radius: 10px ;
-    border-top-right-radius: 10px ;
+    height: 250px; /*1*/
+    position: relative; /*2*/
+    overflow: hidden; /*3*/
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
 .card-image img {
-    width: 100%;/*4*/
+    width: 100%; /*4*/
     /*5 - Méthode de centrage en fonction de la taille de l'image */
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    filter: grayscale(1);/*6*/
+    filter: grayscale(1); /*6*/
     /*7 - Transition */
     transition-property: filter, width;
     transition-duration: .3s;
@@ -161,16 +172,65 @@ li{
 
 }
 
+/*CSS DETAIL PROFIL PARTICIPANT*/
 
+.bodyDetailParticipant {
 
+    color: darkslategray;
+}
 
+.titreDetailParticipant {
+    text-align: center;
+}
 
-footer{
+/*CSS DETAIL PROFIL UTILISATEUR*/
+.bodyDetailUser {
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding: 15px;
+    flex-wrap: wrap;
+    width: 400px;
+    height: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 10px;
+    font-size: 1.1em;
+    color: darkslategray;
+}
+
+.champsDetailUser {
+    padding-bottom: 10px;
+}
+
+.imageP {
+    display: flex;
+    align-content: center;
+    justify-content: left;
+    grid-column: 1/2;
+}
+
+#imgUser {
+    max-width: 850px;
+    height: 400px;
+    padding-top: 50px;
+    padding-right: 100px;
+}
+
+.btn_retour_profil{
+    display: flex;
+    justify-content: center;
+}
+
+footer {
     border-top: 1px solid #D3D3D3;
-    margin-right:15px;
-    margin-left:15px;
+    margin-right: 15px;
+    margin-left: 15px;
     padding: 15px;
     text-align: center;
     position: absolute;
-    left:0; right:0;
+    left: 0;
+    right: 0;
 }

@@ -4,9 +4,10 @@
 
 {% block body %}
 <div>
-    <h1>{{ sortie.nom }}</h1>
+    <h1 class="titreListeCard">{{ sortie.nom }}</h1>
+
 </div>
-    <div>
+    <div class="bodyDetailParticipant">
         <label for="nomSortie">Nom de la sortie : </label>{{ sortie.nom }}
         <br>
         <label for="dateSortie">Date et heure de la sortie : </label>{{ sortie.dateHeureDebut |date ("d/m/Y H:i") }}
