@@ -37,7 +37,7 @@
         <table>
             <tr><th>Pseudo</th><th>Nom</th></tr>
             {% for u in sortie.users %}
-                <tr><th>{{ u.pseudo }}</th><th>{{ u.nom }} {{ u.prenom }}</th></tr>
+                <tr><th><a href="{{ path('user_details', {'id': u.id}) }}">{{ u.pseudo }}</a></th><th>{{ u.nom }} {{ u.prenom }}</th></tr>
             {% endfor %}
 
 
