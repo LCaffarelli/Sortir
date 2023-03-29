@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
@@ -53,6 +55,17 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\JoinColumn(nullable: false)]
     private ?Site $site = null;
 
+    #[ORM\ManyToMany(targetEntity: Sortie::class, mappedBy: 'users')]
+    private Collection $sorties;
+
+    #[ORM\OneToMany(mappedBy: 'organisateur', targetEntity: Sortie::class)]
+    private Collection $mesEvenements;
+
+    public function __construct()
+    {
+        $this->sorties = new ArrayCollection();
+        $this->mesEvenements = new ArrayCollection();
+    }
 
     #[ORM\Column]
     private ?bool $actif = null;
@@ -189,6 +202,63 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function getSite(): ?Site
     {
         return $this->site;
+    }
+
+    /**
+     * @return Collection<int, Sortie>
+     */
+    public function getSorties(): Collection
+    {
+        return $this->sorties;
+    }
+
+    public function addSorty(Sortie $sorty): self
+    {
+        if (!$this->sorties->contains($sorty)) {
+            $this->sorties->add($sorty);
+            $sorty->addParticipant($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSorty(Sortie $sorty): self
+    {
+        if ($this->sorties->removeElement($sorty)) {
+            $sorty->removeParticipant($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Sortie>
+     */
+    public function getMesEvenements(): Collection
+    {
+        return $this->mesEvenements;
+    }
+
+    public function addMesEvenement(Sortie $mesEvenement): self
+    {
+        if (!$this->mesEvenements->contains($mesEvenement)) {
+            $this->mesEvenements->add($mesEvenement);
+            $mesEvenement->setOrganisateur($this);
+        }
+
+        return $this;
+    }
+
+    public function removeMesEvenement(Sortie $mesEvenement): self
+    {
+        if ($this->mesEvenements->removeElement($mesEvenement)) {
+            // set the owning side to null (unless already changed)
+            if ($mesEvenement->getOrganisateur() === $this) {
+                $mesEvenement->setOrganisateur(null);
+            }
+        }
+
+        return $this;
     }
 
     public function setSite(?Site $site): self

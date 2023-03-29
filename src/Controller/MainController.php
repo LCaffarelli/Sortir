@@ -16,19 +16,14 @@ class MainController extends AbstractController
                          UserRepository $userRepository,
                          SortieRepository $sortieRepository): Response
     {
-        $sortie = $sortieRepository->findAll();
-        /*
-        $user=null;
-        foreach ($sortie->getSite() as $site)
-        {
-            $user = $userRepository->find($site->getUsers());
-        }
-        */
-        dump($sortie);
+        $sorties = $sortieRepository->findAll();
+
+//        }
+
 
         return $this->render('main/home.html.twig', [
-            'sortie'=>$sortie,
-            /*'user'=>$user*/
+            'sorties'=>$sorties,
+//            'organisateur_pseudo' => $organisateur_pseudo,
         ]);
     }
 }

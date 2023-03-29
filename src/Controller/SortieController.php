@@ -55,7 +55,7 @@ class SortieController extends AbstractController
         $liste = $sortieRepository->triSite();
 
         return $this->render('main/home.html.twig', [
-            'sortie' => $liste
+//            'sortie' => $liste
         ]);
     }
 

@@ -21,16 +21,13 @@ class Site
     #[ORM\OneToMany(mappedBy: 'site', targetEntity: Sortie::class)]
     private Collection $sorties;
 
-    #[ORM\OneToMany(mappedBy: 'site', targetEntity: Participant::class)]
-    private Collection $participants;
-
     #[ORM\OneToMany(mappedBy: 'site', targetEntity: User::class)]
     private Collection $users;
 
     public function __construct()
     {
         $this->sorties = new ArrayCollection();
-        $this->participants = new ArrayCollection();
+        $this->users = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -74,36 +71,6 @@ class Site
             // set the owning side to null (unless already changed)
             if ($sorty->getSite() === $this) {
                 $sorty->setSite(null);
-            }
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, Participant>
-     */
-    public function getParticipants(): Collection
-    {
-        return $this->participants;
-    }
-
-    public function addParticipant(Participant $participant): self
-    {
-        if (!$this->participants->contains($participant)) {
-            $this->participants->add($participant);
-            $participant->setSite($this);
-        }
-
-        return $this;
-    }
-
-    public function removeParticipant(Participant $participant): self
-    {
-        if ($this->participants->removeElement($participant)) {
-            // set the owning side to null (unless already changed)
-            if ($participant->getSite() === $this) {
-                $participant->setSite(null);
             }
         }
 

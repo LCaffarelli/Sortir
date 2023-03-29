@@ -38,12 +38,12 @@ class Sortie
     #[ORM\JoinColumn(nullable: false)]
     private ?Etat $etat = null;
 
-    #[ORM\ManyToMany(targetEntity: Participant::class, inversedBy: 'sorties')]
-    private Collection $participants;
+    #[ORM\ManyToMany(targetEntity: User::class, inversedBy: 'sorties')]
+    private Collection $users;
 
     #[ORM\ManyToOne(inversedBy: 'mesEvenements')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?Participant $organisateur = null;
+    private ?User $organisateur = null;
 
     #[ORM\ManyToOne(inversedBy: 'sorties')]
     #[ORM\JoinColumn(nullable: false)]
@@ -55,7 +55,7 @@ class Sortie
 
     public function __construct()
     {
-        $this->participants = new ArrayCollection();
+        $this->users = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -148,35 +148,35 @@ class Sortie
     }
 
     /**
-     * @return Collection<int, Participant>
+     * @return Collection<int, User>
      */
-    public function getParticipants(): Collection
+    public function getUsers(): Collection
     {
-        return $this->participants;
+        return $this->users;
     }
 
-    public function addParticipant(Participant $participant): self
+    public function addUser(User $users): self
     {
-        if (!$this->participants->contains($participant)) {
-            $this->participants->add($participant);
+        if (!$this->users->contains($users)) {
+            $this->users->add($users);
         }
 
         return $this;
     }
 
-    public function removeParticipant(Participant $participant): self
+    public function removeUser(User $users): self
     {
-        $this->participants->removeElement($participant);
+        $this->users->removeElement($users);
 
         return $this;
     }
 
-    public function getOrganisateur(): ?Participant
+    public function getOrganisateur(): ?User
     {
         return $this->organisateur;
     }
 
-    public function setOrganisateur(?Participant $organisateur): self
+    public function setOrganisateur(?User $organisateur): self
     {
         $this->organisateur = $organisateur;
 

@@ -4,28 +4,28 @@
 
 {% block body %}
 
-    <div>
-        <h2>Filtrer les sorties :</h2>
-        <label for="site_select">Site : </label>
+{#    <div>#}
+{#        <h2>Filtrer les sorties :</h2>#}
+{#        <label for="site_select">Site : </label>#}
 
-        <select name="site" id="site_select">
-            {% for list in sortie %}
-                <option value="{{ list.site.nom }}"><a href="#"></a>{{ list.site.nom }}</option>
-            {% endfor %}
-        </select>
-        <a href="{{ path('sortie_triSite') }}">
-            <button type="submit">Rechercher</button>
-        </a>
+{#        <select name="site" id="site_select">#}
+{#            {% for list in sortie %}#}
+{#                <option value="{{ list.site.nom }}"><a href="#"></a>{{ list.site.nom }}</option>#}
+{#            {% endfor %}#}
+{#        </select>#}
+{#        <a href="{{ path('sortie_triSite') }}">#}
+{#            <button type="submit">Rechercher</button>#}
+{#        </a>#}
 
-    </div>
+{#    </div>#}
 
 
     <h1 class="titreListeCard">Listes des sorties</h1>
     <section class="ListeCards">
-        {% for s in sortie %}
+        {% for s in sorties %}
             <div class="cards">
                 <div class="card-image">
-                    <img src="{{ asset('img/bowling.jpg') }}"  width="" alt="Image en cours">
+                    <img src="{{ asset('img/bowling.jpg') }}" width="" alt="Image en cours">
                 </div>
 
                 <div class="card-body">
@@ -37,16 +37,16 @@
                         {{ s.infosSortie }}
 
                         <h4>Date de la sortie :</h4>
-                        <p>{{ s.dateHeureDebut.format('d-m-Y') }}</p>
+                        <p>{{ s.dateHeureDebut | date('d/m/y') }}</p>
 
                         <h4>Clôture :</h4>
-                        <p>{{ s.dateLimiteInscription.format('d-m-Y') }}</p>
+                        <p>{{ s.dateLimiteInscription | date('d/m/y') }}</p>
 
                         <h4>Inscrits/places :</h4>
-                        <p>{{ s.participants.count }} / {{ s.nbInscriptionsMax }}</p>
+                        <p>{{ s.users.count }} / {{ s.nbInscriptionsMax }}</p>
 
                         <h4>Organisateur : </h4>
-                        <p>{{ s.organisateur.nom }}</p>
+                        <p>{{ s.organisateur.pseudo }}</p>
 
                         <h4>Etat :</h4>
                         <p>{{ s.etat.libelle }}</p>
