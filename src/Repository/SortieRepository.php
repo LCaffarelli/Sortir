@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Entity\Sortie;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * @extends ServiceEntityRepository<Sortie>
@@ -38,6 +39,18 @@ class SortieRepository extends ServiceEntityRepository
             $this->getEntityManager()->flush();
         }
     }
+
+    public function triSite()
+    {
+        $queryBuilder = $this->createQueryBuilder('c');
+        $queryBuilder->orderBy('c.nom', 'ASC');
+        $query =$queryBuilder->getQuery();
+        return $query->getResult();
+    }
+
+
+
+
 
 //    /**
 //     * @return Sortie[] Returns an array of Sortie objects
