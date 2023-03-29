@@ -55,8 +55,7 @@ class UpdateProfileType extends AbstractType
             ->add('telephone')
             ->add('email')
             ->add('image')
-
-            ->add('site', EntityType::class, ['class'=> Site::class,
+            ->add('site', EntityType::class, ['class' => Site::class,
                 'choice_label' => 'nom',
                 'query_builder' => function (EntityRepository $er) {
                     return $er->createQueryBuilder('s')
@@ -64,22 +63,21 @@ class UpdateProfileType extends AbstractType
                 }
                 ,//Choix liste déroulantes
                 'multiple' => false])
-
             ->add('save', SubmitType::class, [
                 'label' => 'Enregistrer les modifications',
                 'attr' => [
                     'class' => 'btn mt-3 cardButton col-12',
                     'id' => 'loginBtn'
                 ]
-            ])
-        ;
+            ]);
+
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
             'data_class' => User::class,
-            'attr'=>['novalidate'=>'novalidate']
+            'attr' => ['novalidate' => 'novalidate']
         ]);
     }
 }

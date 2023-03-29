@@ -1,14 +1,26 @@
 {% extends 'base.html.twig' %}
-{% block title %} {{ parent() }} | Mon Profil {% endblock %}
+{% block title %} {{ parent() }} | Profil de {{ participant.pseudo}} {% endblock %}
 
 
 {% block body %}
- <h2>{{ user.nom }} {{ user.prenom }}</h2>
- <div>{{ user.pseudo }}</div>
- <div>{{ user.email }}</div>
- <div>{{ user.site }}</div>
- <div>{{ user.telephone }}</div>
- <div></div>
+<div>
+
+ <h1>{{ participant.pseudo }}</h1>
+</div>
+
+<div>
+ <div>{{ participant.image }}</div>
+
+</div>
+ <div>
+  <div>{{ participant.nom }} </div>
+  <div>{{ participant.prenom }}</div>
+  <div>{{ participant.telephone }}</div>
+  <div>{{ participant.email }}</div>
+  <div>{{ participant.site.nom }}</div>
+
+
+ </div>
 
 {% endblock %}
 

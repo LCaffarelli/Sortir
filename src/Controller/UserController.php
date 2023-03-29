@@ -3,8 +3,10 @@
 namespace App\Controller;
 
 
+use App\Entity\Participant;
 use App\Entity\User;
 use App\Form\UpdateProfileType;
+use App\Repository\ParticipantRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -39,6 +41,11 @@ class UserController extends AbstractController
         ]);
 
     }
+#[Route("details/{id}", name: "details")]
+     public function details(int $id,ParticipantRepository $participantRepository){
+        $participant=$participantRepository->find($id);
+        return $this->render("/user/details.html.twig",['participant'=>$participant]);
+     }
 
 
 }

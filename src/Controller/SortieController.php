@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Entity\Participant;
+
 use App\Entity\Sortie;
 use App\Form\CreationSortieType;
 use App\Repository\EtatRepository;
@@ -13,8 +13,9 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\Session\SessionInterface;
+
 use Symfony\Component\Routing\Annotation\Route;
+
 #[Route('/sortie', name: 'sortie_')]
 class SortieController extends AbstractController
 {
@@ -32,7 +33,7 @@ class SortieController extends AbstractController
         $sortieForm = $this->createForm(CreationSortieType::class, $sortie);
 
         $sortieForm->handleRequest($request);
-        if ($sortieForm->isSubmitted() && $sortieForm->isValid()){
+        if ($sortieForm->isSubmitted() && $sortieForm->isValid()) {
             $sortie->setOrganisateur($this->getUser());
             $sortie->setEtat($etat);
             $sortie->setSite($site);
@@ -60,6 +61,11 @@ class SortieController extends AbstractController
     }
 
 
-
+    #[Route("/details/{id}", name: "details")]
+    public function details(SortieRepository $sortieRepository, int $id)
+    {
+        $sortie = $sortieRepository->find($id);
+        return $this->render("/sortie/details.html.twig", ['sortie' => $sortie]);
+    }
 
 }

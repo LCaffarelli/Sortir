@@ -30,7 +30,7 @@
 
                 <div class="card-body">
                     <div class="card-title">
-                        <h2><a class="detailSortie" href="">{{ s.nom }}</a></h2>
+                        <h2><a class="detailSortie" href="{{ path('sortie_details', {'id': s.id}) }}">{{ s.nom }}</a></h2>
                     </div>
                     <div class="card-description">
                         <h4>Description de la sortie :</h4>
