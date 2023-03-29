@@ -48,5 +48,13 @@ class UserController extends AbstractController
         return $this->render("/user/details.html.twig",['user'=>$user]);
      }
 
+     #[Route('inscription/{id}', name:'inscription' )]
+     public function inscription(){
+        return $this->redirectToRoute('main_home');
+     }
+     #[Route('desistement/{id}', name: 'desistement')]
+     public function desistement(){
+         return $this->redirectToRoute('main_home');
+     }
 
 }
