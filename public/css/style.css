@@ -142,8 +142,8 @@ li{
     height: 250px;/*1*/
     position: relative;/*2*/
     overflow: hidden;/*3*/
-    border-radius: 10px ;
-
+    border-top-left-radius: 10px ;
+    border-top-right-radius: 10px ;
 }
 
 .card-image img {
