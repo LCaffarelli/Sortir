@@ -7,9 +7,11 @@ use App\Entity\Sortie;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ButtonType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TimeType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -44,8 +46,14 @@ class CreationSortieType extends AbstractType
                 'multiple' => false])
             ->add('inscrire', CheckboxType::class, [
                 'label'    => 'Je participe : ',
-                'required' => false,
+                'required' => true,
                 'mapped'=>false,
+            ])
+            ->add('publier', SubmitType::class,[
+                'label'=>"publier la sortie",
+            ])
+            ->add('cree', SubmitType::class,[
+                'label'=>"Enregistrer",
             ])
         ;
     }

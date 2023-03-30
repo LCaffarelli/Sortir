@@ -3,6 +3,8 @@
 namespace App\Controller;
 
 
+
+use App\Entity\Etat;
 use App\Entity\Sortie;
 use App\Entity\User;
 use App\Form\CreationSortieType;
@@ -30,8 +32,6 @@ class SortieController extends AbstractController
 
         $user = $userRepository->find($this->getUser()->getId());
 
-        $etat = $etatRepository->find(1);
-
         $lieux = $lieuRepository->findAll();
 
         $site = $siteRepository->find($this->getUser()->getSite()->getId());
@@ -45,8 +45,13 @@ class SortieController extends AbstractController
             if ($data == "on"){
                 $sortie->addUser($user);
             }
+            if ($sortieForm->get('publier')->isClicked()){
+                $sortie->setEtat($entityManager->find(Etat::class, 2));
+            }
+            if ($sortieForm->get('cree')->isClicked()){
+                $sortie->setEtat($entityManager->find(Etat::class, 1));
+            }
             $sortie->setOrganisateur($user);
-            $sortie->setEtat($etat);
             $sortie->setSite($site);
             $entityManager->persist($sortie);
             $entityManager->flush();

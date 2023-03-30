@@ -59,9 +59,14 @@
             {{ form_errors(sortieForm.inscrire) }}
             {{ form_widget(sortieForm.inscrire) }}
         </div>
-
-        <button class="button-create">Create</button>
-
+        <div>
+            {{ form_label(sortieForm.cree) }}
+            {{ form_widget(sortieForm.cree) }}
+        </div>
+        <div>
+            {{ form_label(sortieForm.publier) }}
+            {{ form_widget(sortieForm.publier) }}
+        </div>
 
         {{ form_end(sortieForm) }}
         <button onclick="rtn()">Retour</button>
