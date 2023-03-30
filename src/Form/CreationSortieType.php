@@ -46,7 +46,7 @@ class CreationSortieType extends AbstractType
                 'multiple' => false])
             ->add('inscrire', CheckboxType::class, [
                 'label'    => 'Je participe : ',
-                'required' => true,
+                'required' => false,
                 'mapped'=>false,
             ])
             ->add('publier', SubmitType::class,[
