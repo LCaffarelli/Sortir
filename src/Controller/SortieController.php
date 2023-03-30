@@ -72,13 +72,13 @@ class SortieController extends AbstractController
                 $finInscription = true;
             }
         }
-        if (count($sortie->getUsers()) == $sortie->getNbInscriptionsMax() || $sortie->getDateLimiteInscription() < $date){
+        if (count($sortie->getUsers()) == $sortie->getNbInscriptionsMax() || $sortie->getDateLimiteInscription() < $date) {
             $finInscription = true;
         }
         return $this->render("/sortie/details.html.twig", [
             'sortie' => $sortie,
             'finInscription' => $finInscription,
-            ]);
+        ]);
     }
 
     #[Route('inscription/{id}', name: 'inscription')]
@@ -114,13 +114,14 @@ class SortieController extends AbstractController
         return $this->redirectToRoute('main_home');
     }
 
-    #[Route('/supprimer/{id}', name: 'supprimer')]
-    public function supprimerSortie(int $id,Sortie $sortie, SortieRepository $sortieRepository, EntityManagerInterface $entityManager, Request $request)
+    #[Route('/annuler/{id}', name: 'annuler')]
+    public function annulerSortie(int $id, Sortie $sortie, SortieRepository $sortieRepository,EtatRepository $etatRepository, EntityManagerInterface $entityManager, Request $request)
     {
 
-        if ($this->isCsrfTokenValid('supprimer' .$id, $request->get('_token'))) {
-            $sortieDelete = $sortieRepository->find($id);
-            $entityManager->remove($sortieDelete);
+        if ($this->isCsrfTokenValid('annuler' . $id, $request->get('_token'))) {
+            $sortieAnnulee = $sortieRepository->find($id);
+            $sortieAnnulee->setEtat($etatRepository->find(6));
+            $entityManager->persist($sortieAnnulee);
             $entityManager->flush();
         }
         return $this->redirectToRoute('main_home');

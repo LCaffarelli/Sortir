@@ -1,8 +1,26 @@
 {% extends 'base.html.twig' %}
 
+
 {% block title %}{{ parent() }} | Sortie {{ sortie.nom }}{% endblock %}
 
 {% block body %}
+    <script>
+        function annuler()
+        {
+            let ok = confirm("Etes-vous sûr ?");
+            if (ok)
+            {
+                alert("Votre sortie a été annulée");
+
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+    </script>
+
     <div>
         <h1 class="titreListeCard">{{ sortie.nom }}</h1>
 
@@ -69,10 +87,13 @@
             {% endif %}
         {% endfor %}
 
-        <form action="{{ path('sortie_supprimer',{'id':sortie.id}) }}">
-            <input type="hidden" name="_token" value="{{ csrf_token('supprimer'~sortie.id) }}">
-            <button>Annuler Sortie</button>
-        </form>
+        {% if app.user==sortie.organisateur %}
+            <form action="{{ path('sortie_annuler',{'id':sortie.id}) }}">
+                <input type="hidden" name="_token" value="{{ csrf_token('annuler'~sortie.id) }}">
+                <button onclick="annuler()">Annuler Sortie</button>
+            </form>
+        {% endif %}
+
     </div>
 {% endblock %}
 

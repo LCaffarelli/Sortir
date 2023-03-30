@@ -64,7 +64,12 @@
 
 
         {{ form_end(sortieForm) }}
-
+        <button onclick="rtn()">Retour</button>
+        <script>
+            function rtn() {
+                window.history.back();
+            }
+        </script>
     </fieldset>
 {% endblock %}
 
