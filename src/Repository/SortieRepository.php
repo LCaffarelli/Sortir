@@ -2,9 +2,11 @@
 
 namespace App\Repository;
 
+use App\Entity\Site;
 use App\Entity\Sortie;
 use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\Query\Expr\Join;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -55,9 +57,10 @@ class SortieRepository extends ServiceEntityRepository
     }
     }
 
-    public function triSite()
+    public function choixSite(Site $entity)
     {
         $queryBuilder = $this->createQueryBuilder('c');
+        $queryBuilder->where('c.site ='.$entity->getId());
         $queryBuilder->orderBy('c.nom', 'ASC');
         $query = $queryBuilder->getQuery();
         return $query->getResult();

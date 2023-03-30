@@ -5,6 +5,7 @@ namespace App\Controller;
 
 use App\Entity\Sortie;
 use App\Form\CreationSortieType;
+use App\Form\FiltresType;
 use App\Repository\EtatRepository;
 use App\Repository\LieuRepository;
 use App\Repository\SiteRepository;
@@ -48,18 +49,6 @@ class SortieController extends AbstractController
             'lieux' => $lieux,
         ]);
     }
-
-
-    #[Route('/tri', name: 'triSite')]
-    public function triSite(SortieRepository $sortieRepository): Response
-    {
-        $liste = $sortieRepository->triSite();
-
-        return $this->render('main/home.html.twig', [
-//            'sortie' => $liste
-        ]);
-    }
-
 
     #[Route("/details/{id}", name: "details")]
     public function details(SortieRepository $sortieRepository, int $id)
