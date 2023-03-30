@@ -46,12 +46,18 @@
                 {{ form_errors(sortieForm.infosSortie) }}
                 {{ form_widget(sortieForm.infosSortie) }}
             </div>
-        </div><div>
+        </div>
+        <div>
             {{ form_label(sortieForm.lieu) }}
             <div>
                 {{ form_errors(sortieForm.lieu) }}
                 {{ form_widget(sortieForm.lieu) }}
             </div>
+        </div>
+        <div>
+            {{ form_label(sortieForm.inscrire) }}
+            {{ form_errors(sortieForm.inscrire) }}
+            {{ form_widget(sortieForm.inscrire) }}
         </div>
 
         <button class="button-create">Create</button>

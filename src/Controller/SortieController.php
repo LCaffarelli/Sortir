@@ -24,9 +24,11 @@ use Symfony\Component\Routing\Annotation\Route;
 class SortieController extends AbstractController
 {
     #[Route('/creation-sortie', name: 'creation')]
-    public function Sortie(Request $request, EntityManagerInterface $entityManager, EtatRepository $etatRepository, SiteRepository $siteRepository, LieuRepository $lieuRepository): Response
+    public function Sortie(Request $request, EntityManagerInterface $entityManager, EtatRepository $etatRepository, SiteRepository $siteRepository, LieuRepository $lieuRepository, UserRepository $userRepository): Response
     {
         $sortie = new Sortie();
+
+        $user = $userRepository->find($this->getUser()->getId());
 
         $etat = $etatRepository->find(1);
 
@@ -37,8 +39,13 @@ class SortieController extends AbstractController
         $sortieForm = $this->createForm(CreationSortieType::class, $sortie);
 
         $sortieForm->handleRequest($request);
+
         if ($sortieForm->isSubmitted() && $sortieForm->isValid()) {
-            $sortie->setOrganisateur($this->getUser());
+            $data = $sortieForm->get('inscrire')->getData();
+            if ($data == "on"){
+                $sortie->addUser($user);
+            }
+            $sortie->setOrganisateur($user);
             $sortie->setEtat($etat);
             $sortie->setSite($site);
             $entityManager->persist($sortie);
@@ -60,6 +67,11 @@ class SortieController extends AbstractController
         $sortie = $sortieRepository->find($id);
         $finInscription = false;
         $date = new \DateTime("now");
+        foreach ($sortie->getUsers() as $user){
+            if ($user->getId() == $this->getUser()->getId()){
+                $finInscription = true;
+            }
+        }
         if (count($sortie->getUsers()) == $sortie->getNbInscriptionsMax() || $sortie->getDateLimiteInscription() < $date){
             $finInscription = true;
         }
