@@ -52,24 +52,4 @@ class UserController extends AbstractController
         return $this->render("/user/details.html.twig", ['user' => $user]);
     }
 
-    #[Route('inscription/{id}', name: 'inscription')]
-    public function inscription()
-    {
-        return $this->redirectToRoute('main_home');
-    }
-
-    #[Route('desistement', name: 'desistement')]
-    public function desistement(User $user, Sortie $sortie, SortieRepository $sortieRepository, Request $request, EntityManagerInterface $entityManager)
-    {
-        if ($this->isCsrfTokenValid('desistement' . $sortie->getId(), $request->get('_token'))) {
-            foreach ($sortie->getUsers() as $user) {
-                $sortieRepository->removeUser($user);
-            }
-            $entityManager->flush();
-            return $this->redirectToRoute('main_home');
-        }
-        $this->addFlash('success', "Vous êtes bien désinscrit à l'évenement");
-        return $this->redirectToRoute('main_home');
-    }
-
 }

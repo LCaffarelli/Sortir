@@ -10,6 +10,7 @@ use App\Repository\EtatRepository;
 use App\Repository\LieuRepository;
 use App\Repository\SiteRepository;
 use App\Repository\SortieRepository;
+use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -55,6 +56,22 @@ class SortieController extends AbstractController
     {
         $sortie = $sortieRepository->find($id);
         return $this->render("/sortie/details.html.twig", ['sortie' => $sortie]);
+    }
+
+    #[Route('inscription/{id}', name: 'inscription')]
+    public function inscription(Sortie $sortie, UserRepository $userRepository, EntityManagerInterface $entityManager, Request $request)
+    {
+        if ($this->isCsrfTokenValid('inscription' . $sortie->getId(), $request->get('_token'))) {
+            $sessionUser = $this->getUser()->getId();
+
+            $user = $userRepository->find($sessionUser);
+
+            $addParticipant = $sortie->addUser($user);
+
+            $entityManager->persist($addParticipant);
+            $entityManager->flush($addParticipant);
+        }
+        return $this->redirectToRoute('main_home');
     }
 
 }

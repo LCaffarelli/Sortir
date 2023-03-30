@@ -43,20 +43,6 @@ class SortieRepository extends ServiceEntityRepository
         }
     }
 
-    public function addUser(User $entity, bool $flush = false): void
-    {
-
-    }
-
-    public function removeUser(User $entity, bool $flush = false): void
-    {
-    $this->getEntityManager()->remove($entity);
-
-    if ($flush){
-        $this->getEntityManager()->flush();
-    }
-    }
-
     public function choixSite(Site $entity)
     {
         $queryBuilder = $this->createQueryBuilder('c');

@@ -43,9 +43,9 @@
 
         </table>
 
-        <form action="{{ path('user_desistement') }}">
-            <input type="hidden" name="_token" value="{{ csrf_token('desistement') }}">
-<button>Se désister</button>
+        <form action="{{ path('sortie_inscription', {'id': sortie.id}) }}">
+            <input type="hidden" name="_token" value="{{ csrf_token('inscription'~sortie.id) }}">
+              <button>s'inscrire</button>
         </form>
     </div>
 {% endblock %}
