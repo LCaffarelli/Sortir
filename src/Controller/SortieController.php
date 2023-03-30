@@ -3,18 +3,14 @@
 namespace App\Controller;
 
 
-
 use App\Entity\Etat;
 use App\Entity\Sortie;
-use App\Entity\User;
 use App\Form\CreationSortieType;
-use App\Form\FiltresType;
 use App\Repository\EtatRepository;
 use App\Repository\LieuRepository;
 use App\Repository\SiteRepository;
 use App\Repository\SortieRepository;
 use App\Repository\UserRepository;
-use Doctrine\DBAL\Types\DateType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -42,13 +38,13 @@ class SortieController extends AbstractController
 
         if ($sortieForm->isSubmitted() && $sortieForm->isValid()) {
             $data = $sortieForm->get('inscrire')->getData();
-            if ($data == "on"){
+            if ($data == "on") {
                 $sortie->addUser($user);
             }
-            if ($sortieForm->get('publier')->isClicked()){
+            if ($sortieForm->get('publier')->isClicked()) {
                 $sortie->setEtat($entityManager->find(Etat::class, 2));
             }
-            if ($sortieForm->get('cree')->isClicked()){
+            if ($sortieForm->get('cree')->isClicked()) {
                 $sortie->setEtat($entityManager->find(Etat::class, 1));
             }
             $sortie->setOrganisateur($user);
@@ -72,8 +68,8 @@ class SortieController extends AbstractController
         $sortie = $sortieRepository->find($id);
         $finInscription = false;
         $date = new \DateTime("now");
-        foreach ($sortie->getUsers() as $user){
-            if ($user->getId() == $this->getUser()->getId()){
+        foreach ($sortie->getUsers() as $user) {
+            if ($user->getId() == $this->getUser()->getId()) {
                 $finInscription = true;
             }
         }
@@ -120,15 +116,17 @@ class SortieController extends AbstractController
     }
 
     #[Route('/annuler/{id}', name: 'annuler')]
-    public function annulerSortie(int $id, Sortie $sortie, SortieRepository $sortieRepository,EtatRepository $etatRepository, EntityManagerInterface $entityManager, Request $request)
+    public function annulerSortie(int $id, Sortie $sortie, SortieRepository $sortieRepository, EtatRepository $etatRepository, EntityManagerInterface $entityManager, Request $request)
     {
 
         if ($this->isCsrfTokenValid('annuler' . $id, $request->get('_token'))) {
             $sortieAnnulee = $sortieRepository->find($id);
             $sortieAnnulee->setEtat($etatRepository->find(6));
+
             $entityManager->persist($sortieAnnulee);
             $entityManager->flush();
+            return $this->redirectToRoute('main_home');
         }
-        return $this->redirectToRoute('main_home');
+        return $this->render('/sortie/annuler.html.twig', ['sortie' => $sortie]);
     }
 }

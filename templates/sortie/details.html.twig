@@ -4,22 +4,6 @@
 {% block title %}{{ parent() }} | Sortie {{ sortie.nom }}{% endblock %}
 
 {% block body %}
-    <script>
-        function annuler()
-        {
-            let ok = confirm("Etes-vous sûr ?");
-            if (ok)
-            {
-                alert("Votre sortie a été annulée");
-
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-    </script>
 
     <div>
         <h1 class="titreListeCard">{{ sortie.nom }}</h1>
@@ -90,7 +74,9 @@
         {% if app.user==sortie.organisateur %}
             <form action="{{ path('sortie_annuler',{'id':sortie.id}) }}">
                 <input type="hidden" name="_token" value="{{ csrf_token('annuler'~sortie.id) }}">
-                <button onclick="annuler()">Annuler Sortie</button>
+
+                <button><a href="{{ path('sortie_annuler',{'id':sortie.id}) }}">Annuler</a></button>
+
             </form>
         {% endif %}
 
