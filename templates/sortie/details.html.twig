@@ -66,9 +66,13 @@
                     <button>Desister</button>
                 </form>
 
-
             {% endif %}
         {% endfor %}
+
+        <form action="{{ path('sortie_supprimer',{'id':sortie.id}) }}">
+            <input type="hidden" name="_token" value="{{ csrf_token('supprimer'~sortie.id) }}">
+            <button>Annuler Sortie</button>
+        </form>
     </div>
 {% endblock %}
 
