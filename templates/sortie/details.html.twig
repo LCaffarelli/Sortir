@@ -57,9 +57,9 @@
 
 
 
-        <form action="{{ path('sortie_desistement',{'id':app.user.id}) }}" method="get">
+        <form action="{{ path('sortie_desistement',{'id':sortie.id}) }}" method="get">
 
-            <input type="hidden" name="_token" value="{{ csrf_token('desistement'~app.user.id) }}">
+            <input type="hidden" name="_token" value="{{ csrf_token('desistement'~sortie.id) }}">
             <button>Desister</button>
         </form>
 
