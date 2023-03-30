@@ -3,16 +3,17 @@
 {% block title %}{{ parent() }} | Sortie {{ sortie.nom }}{% endblock %}
 
 {% block body %}
-<div>
-    <h1 class="titreListeCard">{{ sortie.nom }}</h1>
+    <div>
+        <h1 class="titreListeCard">{{ sortie.nom }}</h1>
 
-</div>
+    </div>
     <div class="bodyDetailParticipant">
         <label for="nomSortie">Nom de la sortie : </label>{{ sortie.nom }}
         <br>
         <label for="dateSortie">Date et heure de la sortie : </label>{{ sortie.dateHeureDebut |date ("d/m/Y H:i") }}
         <br>
-        <label for="dateLimite">Date limite d'inscription : </label>{{ sortie.dateLimiteInscription | date ("d/m/Y H:i")}}
+        <label for="dateLimite">Date limite d'inscription
+            : </label>{{ sortie.dateLimiteInscription | date ("d/m/Y H:i") }}
         <br>
         <label for="nbLimiteParticipants">Nombre de participants : </label>{{ sortie.nbInscriptionsMax }}
         <br>
@@ -36,17 +37,32 @@
     <div>
         <label for="participantSortie">Liste des participants inscrits :</label>
         <table>
-            <tr><th>Pseudo</th><th>Nom</th></tr>
+            <tr>
+                <th>Pseudo</th>
+                <th>Nom</th>
+            </tr>
             {% for u in sortie.users %}
-                <tr><th><a href="{{ path('user_details', {'id': u.id}) }}">{{ u.pseudo }}</a></th><th>{{ u.nom }} {{ u.prenom }}</th></tr>
+                <tr>
+                    <th><a href="{{ path('user_details', {'id': u.id}) }}">{{ u.pseudo }}</a></th>
+                    <th>{{ u.nom }} {{ u.prenom }}</th>
+                </tr>
             {% endfor %}
 
         </table>
 
         <form action="{{ path('sortie_inscription', {'id': sortie.id}) }}">
             <input type="hidden" name="_token" value="{{ csrf_token('inscription'~sortie.id) }}">
-              <button>s'inscrire</button>
+            <button>s'inscrire</button>
         </form>
+
+
+
+        <form action="{{ path('sortie_desistement',{'id':app.user.id}) }}" method="get">
+
+            <input type="hidden" name="_token" value="{{ csrf_token('desistement'~app.user.id) }}">
+            <button>Desister</button>
+        </form>
+
     </div>
 {% endblock %}
 
