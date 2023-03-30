@@ -56,13 +56,18 @@
         </form>
 
 
+        {% for user in sortie.users %}
 
-        <form action="{{ path('sortie_desistement',{'id':sortie.id}) }}" method="get">
+            {% if user.id==app.user.id %}
+                <form action="{{ path('sortie_desistement',{'id':sortie.id}) }}" method="get">
 
-            <input type="hidden" name="_token" value="{{ csrf_token('desistement'~sortie.id) }}">
-            <button>Desister</button>
-        </form>
+                    <input type="hidden" name="_token" value="{{ csrf_token('desistement'~sortie.id) }}">
+                    <button>Desister</button>
+                </form>
 
+
+            {% endif %}
+        {% endfor %}
     </div>
 {% endblock %}
 
