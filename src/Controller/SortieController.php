@@ -12,6 +12,7 @@ use App\Repository\LieuRepository;
 use App\Repository\SiteRepository;
 use App\Repository\SortieRepository;
 use App\Repository\UserRepository;
+use Doctrine\DBAL\Types\DateType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -57,7 +58,15 @@ class SortieController extends AbstractController
     {
 
         $sortie = $sortieRepository->find($id);
-        return $this->render("/sortie/details.html.twig", ['sortie' => $sortie]);
+        $finInscription = false;
+        $date = new \DateTime("now");
+        if (count($sortie->getUsers()) == $sortie->getNbInscriptionsMax() || $sortie->getDateLimiteInscription() < $date){
+            $finInscription = true;
+        }
+        return $this->render("/sortie/details.html.twig", [
+            'sortie' => $sortie,
+            'finInscription' => $finInscription,
+            ]);
     }
 
     #[Route('inscription/{id}', name: 'inscription')]
