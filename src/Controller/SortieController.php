@@ -93,4 +93,15 @@ class SortieController extends AbstractController
         return $this->redirectToRoute('main_home');
     }
 
+    #[Route('/supprimer/{id}', name: 'supprimer')]
+    public function supprimerSortie(Sortie $sortie, SortieRepository $sortieRepository, EntityManagerInterface $entityManager, Request $request){
+        if($this->isCsrfTokenValid('supprimer'.$sortie->getId(),$request->get('token'))){
+            foreach ($sortie->getUsers() as $user){
+                $entityManager->remove($user);
+            }
+            $entityManager->remove($sortie);
+            $entityManager->flush();
+        }
+        return $this->redirectToRoute('main_home');
+    }
 }

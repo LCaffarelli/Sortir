@@ -50,6 +50,7 @@
 
         </table>
 
+
         <form action="{{ path('sortie_inscription', {'id': sortie.id}) }}">
             <input type="hidden" name="_token" value="{{ csrf_token('inscription'~sortie.id) }}">
             <button>s'inscrire</button>
