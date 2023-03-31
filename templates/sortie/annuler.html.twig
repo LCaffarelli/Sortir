@@ -33,12 +33,15 @@
     </div>
 
     <div>
-        <label for="motifAnnulation">Motif : </label><input type="text" size="75" name="motifAnnulation">
+        {{ form_start(AnnulationType) }}
+        {{ form_widget(AnnulationType) }}
 
         <form action="{{ path('sortie_annuler',{'id':sortie.id}) }}">
             <input type="hidden" name="_token" value="{{ csrf_token('annuler'~sortie.id) }}">
             <button onclick="annuler()">Annuler Sortie</button>
         </form>
+        {{ form_end(AnnulationType) }}
+
 
     </div>
 

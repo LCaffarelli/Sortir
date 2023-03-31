@@ -22,7 +22,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class SortieController extends AbstractController
 {
     #[Route('/creation-sortie', name: 'creation')]
-    public function Sortie(Request $request, EntityManagerInterface $entityManager, EtatRepository $etatRepository, SiteRepository $siteRepository, LieuRepository $lieuRepository, UserRepository $userRepository): Response
+    public function Sortie(Request $request, EntityManagerInterface $entityManager, SiteRepository $siteRepository, LieuRepository $lieuRepository, UserRepository $userRepository): Response
     {
         $sortie = new Sortie();
 
@@ -118,15 +118,21 @@ class SortieController extends AbstractController
     #[Route('/annuler/{id}', name: 'annuler')]
     public function annulerSortie(int $id, Sortie $sortie, SortieRepository $sortieRepository, EtatRepository $etatRepository, EntityManagerInterface $entityManager, Request $request)
     {
+        $sortieAnnulee = $sortieRepository->find($id);
+        $sortieAnnuleeForm = $this->createForm(AnnulationType::class, $sortie);
+        $sortieAnnuleeForm->handleRequest($request);
 
-        if ($this->isCsrfTokenValid('annuler' . $id, $request->get('_token'))) {
-            $sortieAnnulee = $sortieRepository->find($id);
-            $sortieAnnulee->setEtat($etatRepository->find(6));
+        if($sortieAnnuleeForm->isValid() && $sortieAnnuleeForm->isSubmitted()){
+            if ($this->isCsrfTokenValid('annuler' . $id, $request->get('_token'))) {
 
-            $entityManager->persist($sortieAnnulee);
-            $entityManager->flush();
-            return $this->redirectToRoute('main_home');
+                $sortieAnnulee->setEtat($etatRepository->find(6));
+
+                $entityManager->persist($sortieAnnulee);
+                $entityManager->flush();
+                return $this->redirectToRoute('main_home');
+            }
         }
+
         return $this->render('/sortie/annuler.html.twig', ['sortie' => $sortie]);
     }
 }

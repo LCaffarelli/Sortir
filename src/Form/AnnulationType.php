@@ -12,17 +12,9 @@ class AnnulationType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('nom')
-            ->add('dateHeureDebut')
-            ->add('duree')
-            ->add('dateLimiteInscription')
-            ->add('nbInscriptionsMax')
+
             ->add('infosSortie')
-            ->add('etat')
-            ->add('users')
-            ->add('organisateur')
-            ->add('site')
-            ->add('lieu')
+
         ;
     }
 
