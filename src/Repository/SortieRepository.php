@@ -58,10 +58,10 @@ class SortieRepository extends ServiceEntityRepository
 //        }
 //    }
 
-    public function choixSite(Site $entity)
+    public function filtre(Site $site)
     {
         $queryBuilder = $this->createQueryBuilder('c');
-        $queryBuilder->where('c.site ='.$entity->getId());
+        $queryBuilder->where('c.site ='.$site->getid());
         $queryBuilder->orderBy('c.nom', 'ASC');
         $query = $queryBuilder->getQuery();
         return $query->getResult();

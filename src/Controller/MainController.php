@@ -35,7 +35,7 @@ class MainController extends AbstractController
             foreach ($sites as $site ){
                 $param = $site;
             }
-            $sortie = $sortieRepository->choixSite($param);
+            $sortie = $sortieRepository->filtre($param);
 
             return $this->render('main/home.html.twig', [
                 'sites' => $siteForm->createView(),

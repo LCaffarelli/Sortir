@@ -1,5 +1,8 @@
 {% extends 'base.html.twig' %}
 
+
+{% block title %}{{ parent() }} | Création d'une sortie{% endblock %}
+
 {% block body %}
     <fieldset id="fieldset-creation-sortie">
         <legend>Ma Sortie</legend>
@@ -49,10 +52,41 @@
         </div>
         <div>
             {{ form_label(sortieForm.lieu) }}
-            <div>
-                {{ form_errors(sortieForm.lieu) }}
+            <div id="lieu">
                 {{ form_widget(sortieForm.lieu) }}
+                {{ form_errors(sortieForm.lieu) }}
             </div>
+
+            <section>
+
+            </section>
+
+            <script>
+                //événement : choix du lieu
+                //document.getElementById('lieu').addEventListener("click", );
+                let section = document.querySelector('section')
+                let requestURL ='https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json';
+                let request = new XMLHttpRequest();
+
+
+                request.open('GET', requestURL);
+                request.responseType ='json';
+                request.send();
+
+                request.onload = function(){
+                    let ville = request.response;
+                    remplissageDiv(ville);
+
+                }
+
+                function remplissageDiv(jsonObj){
+                    let myH3 = document.createElement('h3');
+                    myH3.textContent = jsonObj['squadName'];
+                    section.appendChild(myH3);
+                }
+
+            </script>
+
         </div>
         <div>
             {{ form_label(sortieForm.inscrire) }}
@@ -78,7 +112,5 @@
     </fieldset>
 {% endblock %}
 
-{% block title %}
 
-{% endblock %}
 
