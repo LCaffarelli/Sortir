@@ -35,6 +35,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[Assert\NotBlank(message: "Le nom ne peut pas être nul")]
     #[ORM\Column(length: 255)]
     private ?string $nom = null;
+
     #[Assert\NotBlank(message: "Le prenom ne peut pas être nul")]
     #[ORM\Column(length: 255)]
     private ?string $prenom = null;
