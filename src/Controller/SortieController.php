@@ -5,6 +5,7 @@ namespace App\Controller;
 
 use App\Entity\Etat;
 use App\Entity\Sortie;
+use App\Form\AnnulationType;
 use App\Form\CreationSortieType;
 use App\Repository\EtatRepository;
 use App\Repository\LieuRepository;
@@ -118,21 +119,21 @@ class SortieController extends AbstractController
     #[Route('/annuler/{id}', name: 'annuler')]
     public function annulerSortie(int $id, Sortie $sortie, SortieRepository $sortieRepository, EtatRepository $etatRepository, EntityManagerInterface $entityManager, Request $request)
     {
-        $sortieAnnulee = $sortieRepository->find($id);
+        $sortie = $sortieRepository->find($id);
         $sortieAnnuleeForm = $this->createForm(AnnulationType::class, $sortie);
         $sortieAnnuleeForm->handleRequest($request);
 
-        if($sortieAnnuleeForm->isValid() && $sortieAnnuleeForm->isSubmitted()){
+        if($sortieAnnuleeForm->isSubmitted() && $sortieAnnuleeForm->isValid()){
             if ($this->isCsrfTokenValid('annuler' . $id, $request->get('_token'))) {
 
-                $sortieAnnulee->setEtat($etatRepository->find(6));
+                $sortie->setEtat($etatRepository->find(6));
 
-                $entityManager->persist($sortieAnnulee);
+                $entityManager->persist($sortie);
                 $entityManager->flush();
                 return $this->redirectToRoute('main_home');
             }
         }
 
-        return $this->render('/sortie/annuler.html.twig', ['sortie' => $sortie]);
+        return $this->render('/sortie/annuler.html.twig', ['sortieAnnuleeForm' => $sortieAnnuleeForm->createView(), 'sortie'=>$sortie]);
     }
 }

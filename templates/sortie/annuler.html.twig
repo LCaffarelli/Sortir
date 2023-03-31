@@ -33,14 +33,14 @@
     </div>
 
     <div>
-        {{ form_start(AnnulationType) }}
-        {{ form_widget(AnnulationType) }}
+        {{ form_start(sortieAnnuleeForm) }}
+        {{ form_widget(sortieAnnuleeForm) }}
 
         <form action="{{ path('sortie_annuler',{'id':sortie.id}) }}">
             <input type="hidden" name="_token" value="{{ csrf_token('annuler'~sortie.id) }}">
             <button onclick="annuler()">Annuler Sortie</button>
         </form>
-        {{ form_end(AnnulationType) }}
+        {{ form_end(sortieAnnuleeForm) }}
 
 
     </div>
