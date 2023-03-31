@@ -52,40 +52,13 @@
         </div>
         <div>
             {{ form_label(sortieForm.lieu) }}
-            <div id="lieu">
+            <div>
                 {{ form_widget(sortieForm.lieu) }}
                 {{ form_errors(sortieForm.lieu) }}
             </div>
 
-            <section>
-
-            </section>
-
-            <script>
-                //événement : choix du lieu
-                //document.getElementById('lieu').addEventListener("click", );
-                let section = document.querySelector('section')
-                let requestURL = 'https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json';
-                let request = new XMLHttpRequest();
-
-
-                request.open('GET', requestURL);
-                request.responseType = 'json';
-                request.send();
-
-                request.onload = function () {
-                    let ville = request.response;
-                    remplissageDiv(ville);
-
-                }
-
-                function remplissageDiv(jsonObj) {
-                    let myH3 = document.createElement('h3');
-                    myH3.textContent = jsonObj['squadName'];
-                    section.appendChild(myH3);
-                }
-
-            </script>
+            {#Affichage dynamique de l'adresse des lieux#}
+            <article></article>
 
         </div>
         <div>
@@ -102,7 +75,6 @@
             {{ form_widget(sortieForm.publier) }}
         </div>
 
-
         {{ form_end(sortieForm) }}
         <button onclick="rtn()">Retour</button>
         <script>
@@ -110,6 +82,52 @@
                 window.history.back();
             }
         </script>
+
+
+
+        {#affichage dynamique des adresses de lieux#}
+        <script>
+            const select = document.querySelector("#creation_sortie_lieu");
+            select.addEventListener('change', (event) => {
+                let id = `${event.target.value}` ;
+                let requestURL ='http://localhost/Sortir/public/lieu/'+id;
+                let request = new XMLHttpRequest();
+
+                request.open('GET', requestURL);
+                request.responseType ='json';
+                request.send();
+
+                request.onload = function(){
+                    let ville = request.response;
+                    remplissageDiv(ville);
+                }
+            })
+
+            function remplissageDiv(jsonObj){
+
+                let article = document.querySelector('article');
+                article.innerHTML='';
+                let ville = document.createElement('h4');
+                let rue = document.createElement('p');
+                let codePostal = document.createElement('p');
+                let latitude = document.createElement('p');
+                let longitude = document.createElement('p');
+
+                ville.textContent = 'Ville : ' + jsonObj['ville'];
+                rue.textContent = 'Rue : ' + jsonObj['Rue'];
+                codePostal.textContent = 'Code postal : ' + jsonObj['code'];
+                latitude.textContent = 'Latitude : ' + jsonObj['latitude'];
+                longitude.textContent = 'Longitude : ' + jsonObj['longitude'];
+
+                article.appendChild(ville);
+                article.appendChild(rue);
+                article.appendChild(codePostal);
+                article.appendChild(latitude);
+                article.appendChild(longitude);
+            }
+        </script>
+
+
     </fieldset>
 {% endblock %}
 
