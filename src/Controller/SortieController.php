@@ -74,7 +74,10 @@ class SortieController extends AbstractController
                 $finInscription = true;
             }
         }
+
         if (count($sortie->getUsers()) == $sortie->getNbInscriptionsMax() || $sortie->getDateLimiteInscription() < $date) {
+            $finInscription = true;
+        }else if ($sortie->getEtat()->getId() == 6){
             $finInscription = true;
         }
         return $this->render("/sortie/details.html.twig", [
