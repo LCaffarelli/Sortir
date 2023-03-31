@@ -6,6 +6,7 @@ use App\Class\FiltresSorties;
 use App\Entity\Sortie;
 use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\Tools\Pagination\Paginator;
 use Doctrine\Persistence\ManagerRegistry;
 
 
@@ -87,7 +88,21 @@ class SortieRepository extends ServiceEntityRepository
         return $query->getResult();
     }
 
+    public function findAllWithDateLessThanOneMonth()
+    {
+        $now = new \DateTime();
+        $dateFiltre = $now->sub(new \DateInterval('P1M'));
 
+        $queryBuilder = $this->createQueryBuilder('s');
+
+        $queryBuilder->andWhere('s.dateHeureDebut >= :n30days');
+        $queryBuilder->setParameter('n30days', $dateFiltre);
+        $queryBuilder->orderBy('s.dateHeureDebut', 'ASC');
+        $query = $queryBuilder->getQuery();
+
+        return $query->getResult();
+
+    }
 
 
 

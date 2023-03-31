@@ -8,6 +8,9 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
+use Symfony\Component\Validator\Constraints as Assert;
+
+
 #[ORM\Entity(repositoryClass: SortieRepository::class)]
 class Sortie
 {
@@ -19,16 +22,21 @@ class Sortie
     #[ORM\Column(length: 255)]
     private ?string $nom = null;
 
+
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    #[Assert\Assert\DateTime]
     private ?\DateTimeInterface $dateHeureDebut = null;
 
     #[ORM\Column(type: Types::TIME_MUTABLE)]
     private ?\DateTimeInterface $duree = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
+    #[Assert\Assert\DateTime]
     private ?\DateTimeInterface $dateLimiteInscription = null;
 
     #[ORM\Column]
+    #[Assert\Positive(message :'Le nombre de participants doit être positif.')]
+    #[Assert\GreaterThanOrEqual(2, message: 'Le nombre de participants minimum est de 2 personnes.')]
     private ?int $nbInscriptionsMax = null;
 
     #[ORM\Column(type: Types::TEXT)]
@@ -57,6 +65,7 @@ class Sortie
     {
         $this->users = new ArrayCollection();
     }
+
 
     public function getId(): ?int
     {

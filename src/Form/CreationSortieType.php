@@ -32,7 +32,8 @@ class CreationSortieType extends AbstractType
             ])
             ->add('dateLimiteInscription', DateType::class, [
                 'html5' => true,
-                'widget' => 'single_text'
+                'widget' => 'single_text',
+
             ])
             ->add('nbInscriptionsMax')
             ->add('infosSortie')
