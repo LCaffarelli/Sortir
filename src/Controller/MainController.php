@@ -35,6 +35,10 @@ class MainController extends AbstractController
 
             $sortie = $sortieRepository->filtre($filtres, $userCo, $date);
 
+            $filtres = new FiltresSorties();
+
+            $siteForm = $this->createForm(FiltresSortieType::class, $filtres);
+
             return $this->render('main/home.html.twig', [
                 'sites' => $siteForm->createView(),
                 'sorties' => $sortie,
