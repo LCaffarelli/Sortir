@@ -5,9 +5,12 @@ namespace App\Form;
 use App\Entity\Site;
 use App\Entity\User;
 use Doctrine\ORM\EntityRepository;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+
+use Symfony\Component\Validator\Constraints\File;
 use Symfony\Component\Validator\Constraints\Regex;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
@@ -54,7 +57,8 @@ class UpdateProfileType extends AbstractType
             ->add('prenom')
             ->add('telephone')
             ->add('email')
-            ->add('image')
+            ->add('image', FileType::class, ['mapped' => false, 'required' => false, 'constraints' => [new File(['maxSize' => '1024k',
+                'mimeTypes' => ['image/jpeg', 'image/png','image/gif','image/svg+xml'], 'mimeTypesMessage' => 'Please upload a valid image'])]])
             ->add('site', EntityType::class, ['class' => Site::class,
                 'choice_label' => 'nom',
                 'query_builder' => function (EntityRepository $er) {
