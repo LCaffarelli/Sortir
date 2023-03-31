@@ -74,6 +74,7 @@ class SortieRepository extends ServiceEntityRepository
         if (!empty($filtres->inscrit) && empty($filtres->nonInscrit)) {
             $queryBuilder->andWhere(':user MEMBER OF c.users')
                 ->setParameter('user', $userCo);
+
         }
 
         if (!empty($filtres->nonInscrit) && empty($filtres->inscrit)) {
