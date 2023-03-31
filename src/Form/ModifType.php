@@ -24,21 +24,17 @@ class ModifType extends AbstractType
                 'html5' => true,
                 'widget' => 'single_text'
             ])
-
             ->add('dateLimiteInscription', DateType::class, [
                 'html5' => true,
                 'widget' => 'single_text'
             ])
-
             ->add('nbInscriptionsMax')
             ->add('duree', TimeType::class, [
                 'html5' => true,
                 'widget' => 'single_text'
             ])
-
             ->add('infosSortie')
-
-            ->add('lieu', EntityType::class, ['class'=> Lieu::class,
+            ->add('lieu', EntityType::class, ['class' => Lieu::class,
                 'choice_label' => 'nom',
                 'query_builder' => function (EntityRepository $er) {
                     return $er->createQueryBuilder('s')
@@ -46,14 +42,12 @@ class ModifType extends AbstractType
                 }
                 ,//Choix liste déroulantes
                 'multiple' => false])
-
-            ->add('publier', SubmitType::class,[
-                'label'=>"Publier la sortie",
+            ->add('publier', SubmitType::class, [
+                'label' => "Publier la sortie",
             ])
-            ->add('cree', SubmitType::class,[
-                'label'=>"Enregistrer",
-            ])
-        ;
+            ->add('cree', SubmitType::class, [
+                'label' => "Enregistrer",
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

@@ -28,7 +28,7 @@ class RegistrationFormType extends AbstractType
             ->add('telephone')
             ->add('email')
             ->add('image')
-         ->add('site', EntityType::class, ['class'=> Site::class,
+            ->add('site', EntityType::class, ['class' => Site::class,
                 'choice_label' => 'nom',
                 'query_builder' => function (EntityRepository $er) {
                     return $er->createQueryBuilder('s')
@@ -36,7 +36,6 @@ class RegistrationFormType extends AbstractType
                 }
                 ,//Choix liste déroulantes
                 'multiple' => false])
-
             ->add('plainPassword', PasswordType::class, [
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller
@@ -53,8 +52,7 @@ class RegistrationFormType extends AbstractType
                         'max' => 4096,
                     ]),
                 ],
-            ])
-        ;
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

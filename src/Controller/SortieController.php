@@ -170,11 +170,11 @@ class SortieController extends AbstractController
     }
 
     #[Route('delete/{id}', name: 'delete')]
-    public function delete(SortieRepository $sortieRepository, Sortie $sortie,int $id, EntityManagerInterface $entityManager, Request $request)
+    public function delete(SortieRepository $sortieRepository, Sortie $sortie, int $id, EntityManagerInterface $entityManager, Request $request)
     {
         $sortieDelete = $sortieRepository->find($id);
         if ($this->isCsrfTokenValid('delete' . $id, $request->get('_token'))) {
-            foreach ($sortie->getUsers() as $user){
+            foreach ($sortie->getUsers() as $user) {
                 $entityManager->remove($user);
             }
             $entityManager->remove($sortieDelete);

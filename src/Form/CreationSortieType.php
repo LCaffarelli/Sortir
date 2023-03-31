@@ -36,7 +36,7 @@ class CreationSortieType extends AbstractType
             ])
             ->add('nbInscriptionsMax')
             ->add('infosSortie')
-            ->add('lieu', EntityType::class, ['class'=> Lieu::class,
+            ->add('lieu', EntityType::class, ['class' => Lieu::class,
                 'choice_label' => 'nom',
                 'query_builder' => function (EntityRepository $er) {
                     return $er->createQueryBuilder('s')
@@ -45,18 +45,16 @@ class CreationSortieType extends AbstractType
                 ,//Choix liste déroulantes
                 'multiple' => false])
             ->add('inscrire', CheckboxType::class, [
-                'label'    => 'Je participe : ',
+                'label' => 'Je participe : ',
                 'required' => false,
-                'mapped'=>false,
+                'mapped' => false,
             ])
-            ->add('publier', SubmitType::class,[
-                'label'=>"Publier la sortie",
+            ->add('publier', SubmitType::class, [
+                'label' => "Publier la sortie",
             ])
-            ->add('cree', SubmitType::class,[
-                'label'=>"Enregistrer",
-            ])
-
-        ;
+            ->add('cree', SubmitType::class, [
+                'label' => "Enregistrer",
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

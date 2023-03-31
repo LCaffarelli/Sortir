@@ -14,7 +14,7 @@ class LieuController extends AbstractController
     {
         $affichageLieu = $lieuRepository->find($id);
 
-        if(!$affichageLieu){
+        if (!$affichageLieu) {
             throw $this->createNotFoundException("Le lieu n'existe pas");
         }
         return $this->json([

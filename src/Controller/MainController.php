@@ -17,8 +17,8 @@ use Symfony\Component\Routing\Annotation\Route;
 class MainController extends AbstractController
 {
     #[Route('/accueil', name: 'main_home')]
-    public function home(UserRepository $userRepository,
-                         Request $request,
+    public function home(UserRepository   $userRepository,
+                         Request          $request,
                          SortieRepository $sortieRepository): Response
     {
         $filtres = new FiltresSorties();
@@ -40,14 +40,22 @@ class MainController extends AbstractController
             $siteForm = $this->createForm(FiltresSortieType::class, $filtres);
 
             return $this->render('main/home.html.twig', [
+
                 'sites' => $siteForm->createView(),
+
                 'sorties' => $sortie,
+
             ]);
         } else {
+
             $sorties = $sortieRepository->findAll();
+
             return $this->render('main/home.html.twig', [
+
                 'sites' => $siteForm,
+
                 'sorties' => $sorties,
+
             ]);
         }
     }

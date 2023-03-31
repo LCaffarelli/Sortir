@@ -12,10 +12,7 @@ class AnnulationType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-
-            ->add('infosSortie')
-
-        ;
+            ->add('infosSortie');
     }
 
     public function configureOptions(OptionsResolver $resolver): void
