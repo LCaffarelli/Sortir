@@ -27,7 +27,7 @@ class MainController extends AbstractController
 
         $siteForm = $this->createForm(FiltresSortieType::class, $filtres);
 
-        $siteForm->handleRequest($request);
+        $siteForm->handleRequest($request);//todo
 
         if ($siteForm->isSubmitted() && $siteForm->isValid()) {
 
