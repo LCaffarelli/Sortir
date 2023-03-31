@@ -2,7 +2,9 @@
 
 namespace App\Controller;
 
+use App\Class\FiltresSorties;
 use App\Entity\Sortie;
+use App\Form\FiltresSortieType;
 use App\Form\FiltresType;
 use App\Repository\SiteRepository;
 use App\Repository\SortieRepository;
@@ -19,9 +21,9 @@ class MainController extends AbstractController
                          Request $request,
                          SortieRepository $sortieRepository): Response
     {
-        $sortie = new Sortie();
+        $filtres = new FiltresSorties();
 
-        $siteForm = $this->createForm(FiltresType::class, $sortie);
+        $siteForm = $this->createForm(FiltresSortieType::class, $filtres);
 
         $siteForm->handleRequest($request);
 
