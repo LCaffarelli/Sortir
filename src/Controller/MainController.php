@@ -24,6 +24,7 @@ class MainController extends AbstractController
         $filtres = new FiltresSorties();
 
         $userCo = $userRepository->find($this->getUser()->getId());
+        $userCo = $userRepository->find($this->getUser()->getId());
 
         $siteForm = $this->createForm(FiltresSortieType::class, $filtres);
 
