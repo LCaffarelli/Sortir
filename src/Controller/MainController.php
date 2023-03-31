@@ -17,11 +17,13 @@ use Symfony\Component\Routing\Annotation\Route;
 class MainController extends AbstractController
 {
     #[Route('/accueil', name: 'main_home')]
-    public function home(SiteRepository $siteRepository,
+    public function home(UserRepository $userRepository,
                          Request $request,
                          SortieRepository $sortieRepository): Response
     {
         $filtres = new FiltresSorties();
+
+        $userCo = $userRepository->find($this->getUser()->getId());
 
         $siteForm = $this->createForm(FiltresSortieType::class, $filtres);
 
@@ -29,13 +31,9 @@ class MainController extends AbstractController
 
         if ($siteForm->isSubmitted() && $siteForm->isValid()) {
 
-            $data = $siteForm->get('site')->getData();
-            $sites = $siteRepository->findBy(['id' => $data->getId()]);
+            $date = date('Y-m-d');
 
-            foreach ($sites as $site ){
-                $param = $site;
-            }
-            $sortie = $sortieRepository->filtre($param);
+            $sortie = $sortieRepository->filtre($filtres, $userCo, $date);
 
             return $this->render('main/home.html.twig', [
                 'sites' => $siteForm->createView(),

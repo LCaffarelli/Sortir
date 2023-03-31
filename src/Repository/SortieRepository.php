@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use App\Class\FiltresSorties;
 use App\Entity\Site;
 use App\Entity\Sortie;
 use App\Entity\User;
@@ -9,6 +10,7 @@ use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\Query\Expr\Join;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Validator\Constraints\Date;
 
 /**
  * @extends ServiceEntityRepository<Sortie>
@@ -43,29 +45,51 @@ class SortieRepository extends ServiceEntityRepository
         }
     }
 
-    public function addUser(User $entity, bool $flush = false): void
-    {
-
-    }
-
-//    public function removeUser(User $entity,Sortie $sortie,SortieRepository $sortieRepository, bool $flush = false): void
-//    {
-//        $this->find($sortie->getId());
-//        $this->getEntityManager()->remove($entity);
-//
-//        if ($flush) {
-//            $this->getEntityManager()->flush();
-//        }
-//    }
-
-    public function filtre(Site $site)
+    public function filtre(FiltresSorties $filtres, User $userCo, $date)
     {
         $queryBuilder = $this->createQueryBuilder('c');
-        $queryBuilder->where('c.site ='.$site->getid());
         $queryBuilder->orderBy('c.nom', 'ASC');
+
+        if (!empty($filtres->Sites)){
+            $queryBuilder->andWhere('c.site = :site')
+                ->setParameter('site', $filtres->Sites->getId());
+        }
+
+        if (!empty($filtres->textRecherche)){
+            $queryBuilder->andWhere('c.nom LIKE :keywords')
+                ->setParameter('keywords', '%'.$filtres->textRecherche.'%');
+        }
+
+        if (!empty($filtres->firstDate) && !empty($filtres->secondeDate)){
+            $queryBuilder->andWhere('c.dateHeureDebut BETWEEN :startDate AND :endDate')
+                ->setParameter('startDate', $filtres->firstDate)
+                ->setParameter('endDate', $filtres->secondeDate);
+        }
+
+        if (!empty($filtres->organisateur)){
+            $queryBuilder->andWhere('c.organisateur = :user')
+                ->setParameter('user', $userCo->getId());
+        }
+
+        if (!empty($filtres->inscrit) && empty($filtres->nonInscrit)){
+            $queryBuilder->andWhere(':user MEMBER OF c.users')
+                ->setParameter('user', $userCo);
+        }
+
+        if (!empty($filtres->nonInscrit) && empty($filtres->inscrit)){
+            $queryBuilder->andWhere(":user NOT MEMBER OF c.users")
+                ->setParameter('user', $userCo);
+        }
+
+        if (!empty($filtres->oldSortie)){
+            $queryBuilder->andWhere('c.dateHeureDebut < :date')
+                ->setParameter('date', $date);
+        }
+
         $query = $queryBuilder->getQuery();
         return $query->getResult();
     }
+
 
 
 

@@ -5,19 +5,69 @@
 {% block body %}
 
     <div>
-        <h2>Filtrer les sorties :</h2>
+            <h2>Filtrer les sorties :</h2>
 
-        {{ form_start(sites) }}
+            {{ form_start(sites) }}
 
         <div>
-            {{ form_label(sites) }}
-            {{ form_widget(sites) }}
-            {{ form_errors(sites) }}
+            {{ form_label(sites.Sites) }}
+            <div>
+                {{ form_errors(sites.Sites) }}
+                {{ form_widget(sites.Sites) }}
+            </div>
+        </div>
+
+        <div>
+            {{ form_label(sites.textRecherche) }}
+            <div>
+                {{ form_errors(sites.textRecherche) }}
+                {{ form_widget(sites.textRecherche) }}
+            </div>
+        </div>
+
+        <div>
+            {{ form_label(sites.firstDate) }}
+            <div>
+                {{ form_errors(sites.firstDate) }}
+                {{ form_widget(sites.firstDate) }}
+                {{ form_errors(sites.secondeDate) }}
+                {{ form_widget(sites.secondeDate) }}
+            </div>
+        </div>
+        <div>
+            {{ form_label(sites.organisateur) }}
+            <div>
+                {{ form_errors(sites.organisateur) }}
+                {{ form_widget(sites.organisateur) }}
+            </div>
+        </div>
+        <div>
+            {{ form_label(sites.inscrit) }}
+            <div>
+                {{ form_errors(sites.inscrit) }}
+                {{ form_widget(sites.inscrit) }}
+            </div>
+        </div>
+        <div>
+            {{ form_label(sites.nonInscrit) }}
+            <div>
+                {{ form_errors(sites.nonInscrit) }}
+                {{ form_widget(sites.nonInscrit) }}
+            </div>
+        </div>
+        <div>
+            {{ form_label(sites.oldSortie) }}
+            <div>
+                {{ form_errors(sites.oldSortie) }}
+                {{ form_widget(sites.oldSortie) }}
+            </div>
         </div>
 
 
-        <input type="submit" value="submit">
-        {{ form_end(sites) }}
+
+
+            <input type="submit" value="submit">
+            {{ form_end(sites) }}
 
     </div>
 

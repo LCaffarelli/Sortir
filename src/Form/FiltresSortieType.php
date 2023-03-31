@@ -40,7 +40,7 @@ class FiltresSortieType extends AbstractType
             ->add('secondeDate', DateType::class, [
                 'required' => false,
                 'html5' => true,
-                'widget' => 'single_text'
+                'widget' => 'single_text',
             ])
             ->add('organisateur', CheckboxType::class, [
                 'label' => 'Mes sorties',
@@ -58,6 +58,7 @@ class FiltresSortieType extends AbstractType
                 'label' => 'Sorties passées',
                 'required' => false,
             ]);
+
     }
 
     public function configureOptions(OptionsResolver $resolver): void
