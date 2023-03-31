@@ -45,6 +45,8 @@ class SortieRepository extends ServiceEntityRepository
 
     public function filtre(FiltresSorties $filtres, User $userCo, $date)
     {
+        $now = new \DateTime();
+        $dateFiltre = $now->sub(new \DateInterval('P1M'));
         $queryBuilder = $this->createQueryBuilder('c');
         $queryBuilder->orderBy('c.nom', 'ASC');
 
@@ -84,6 +86,8 @@ class SortieRepository extends ServiceEntityRepository
                 ->setParameter('date', $date);
         }
 
+        $queryBuilder->andWhere('c.dateHeureDebut >= :n30days');
+        $queryBuilder->setParameter('n30days', $dateFiltre);
         $query = $queryBuilder->getQuery();
         return $query->getResult();
     }

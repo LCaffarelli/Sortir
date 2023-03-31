@@ -25,11 +25,11 @@ class MainController extends AbstractController
 
         $userCo = $userRepository->find($this->getUser()->getId());
 
-        $siteForm = $this->createForm(FiltresSortieType::class, $filtres);
+        $filtresForm = $this->createForm(FiltresSortieType::class, $filtres);
 
-        $siteForm->handleRequest($request);
+        $filtresForm->handleRequest($request);
 
-        if ($siteForm->isSubmitted() && $siteForm->isValid()) {
+        if ($filtresForm->isSubmitted() && $filtresForm->isValid()) {
 
             $date = date('Y-m-d');
 
@@ -37,11 +37,11 @@ class MainController extends AbstractController
 
             $filtres = new FiltresSorties();
 
-            $siteForm = $this->createForm(FiltresSortieType::class, $filtres);
+            $filtresForm = $this->createForm(FiltresSortieType::class, $filtres);
 
             return $this->render('main/home.html.twig', [
 
-                'sites' => $siteForm->createView(),
+                'filtres' => $filtresForm->createView(),
 
                 'sorties' => $sortie,
 
@@ -52,7 +52,7 @@ class MainController extends AbstractController
 
             return $this->render('main/home.html.twig', [
 
-                'sites' => $siteForm,
+                'filtres' => $filtresForm,
 
                 'sorties' => $sorties,
 

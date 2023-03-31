@@ -7,65 +7,65 @@
     <div>
         <h2>Filtrer les sorties :</h2>
 
-        {{ form_start(sites) }}
+        {{ form_start(filtres) }}
 
         <div>
-            {{ form_label(sites.Sites) }}
+            {{ form_label(filtres.Sites) }}
             <div>
-                {{ form_errors(sites.Sites) }}
-                {{ form_widget(sites.Sites) }}
-            </div>
-        </div>
-
-        <div>
-            {{ form_label(sites.textRecherche) }}
-            <div>
-                {{ form_errors(sites.textRecherche) }}
-                {{ form_widget(sites.textRecherche) }}
+                {{ form_errors(filtres.Sites) }}
+                {{ form_widget(filtres.Sites) }}
             </div>
         </div>
 
         <div>
-            {{ form_label(sites.firstDate) }}
+            {{ form_label(filtres.textRecherche) }}
             <div>
-                {{ form_errors(sites.firstDate) }}
-                {{ form_widget(sites.firstDate) }}
-                {{ form_errors(sites.secondeDate) }}
-                {{ form_widget(sites.secondeDate) }}
+                {{ form_errors(filtres.textRecherche) }}
+                {{ form_widget(filtres.textRecherche) }}
+            </div>
+        </div>
+
+        <div>
+            {{ form_label(filtres.firstDate) }}
+            <div>
+                {{ form_errors(filtres.firstDate) }}
+                {{ form_widget(filtres.firstDate) }}
+                {{ form_errors(filtres.secondeDate) }}
+                {{ form_widget(filtres.secondeDate) }}
             </div>
         </div>
         <div>
-            {{ form_label(sites.organisateur) }}
+            {{ form_label(filtres.organisateur) }}
             <div>
-                {{ form_errors(sites.organisateur) }}
-                {{ form_widget(sites.organisateur) }}
+                {{ form_errors(filtres.organisateur) }}
+                {{ form_widget(filtres.organisateur) }}
             </div>
         </div>
         <div>
-            {{ form_label(sites.inscrit) }}
+            {{ form_label(filtres.inscrit) }}
             <div>
-                {{ form_errors(sites.inscrit) }}
-                {{ form_widget(sites.inscrit) }}
+                {{ form_errors(filtres.inscrit) }}
+                {{ form_widget(filtres.inscrit) }}
             </div>
         </div>
         <div>
-            {{ form_label(sites.nonInscrit) }}
+            {{ form_label(filtres.nonInscrit) }}
             <div>
-                {{ form_errors(sites.nonInscrit) }}
-                {{ form_widget(sites.nonInscrit) }}
+                {{ form_errors(filtres.nonInscrit) }}
+                {{ form_widget(filtres.nonInscrit) }}
             </div>
         </div>
         <div>
-            {{ form_label(sites.oldSortie) }}
+            {{ form_label(filtres.oldSortie) }}
             <div>
-                {{ form_errors(sites.oldSortie) }}
-                {{ form_widget(sites.oldSortie) }}
+                {{ form_errors(filtres.oldSortie) }}
+                {{ form_widget(filtres.oldSortie) }}
             </div>
         </div>
 
 
         <input type="submit" value="submit">
-        {{ form_end(sites) }}
+        {{ form_end(filtres) }}
 
     </div>
 
