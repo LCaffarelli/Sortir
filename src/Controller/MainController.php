@@ -45,7 +45,6 @@ class MainController extends AbstractController
             ]);
         } else {
             $sorties = $sortieRepository->findAll();
-            dump($siteForm->getData());
             return $this->render('main/home.html.twig', [
                 'sites' => $siteForm,
                 'sorties' => $sorties,
