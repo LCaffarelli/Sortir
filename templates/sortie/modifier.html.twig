@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }} | Modifier sa sortie {% endblock %}
+{% block body %}
+    {{ form_start(sortieModif) }}
+    <form action="{{ path('sortie_modifier',{'id':sortie.id}) }}">
+        <input type="hidden" name="_token" value="{{ csrf_token('modifier'~sortie.id) }}">
+
+        {{ form_widget(sortieModif) }}
+        <button><a href="{{ path('main_home') }}">Retour</a></button>
+
+    </form>
+    <form action="{{ path('sortie_delete',{'id':sortie.id}) }}">
+        <input type="hidden" name="_token" value="{{ csrf_token('delete'~sortie.id) }}">
+        <button>Supprimer</button>
+    </form>
+    {{ form_end(sortieModif) }}
+
+{% endblock %}
+
+

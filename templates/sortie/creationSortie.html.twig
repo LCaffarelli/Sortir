@@ -65,21 +65,21 @@
                 //événement : choix du lieu
                 //document.getElementById('lieu').addEventListener("click", );
                 let section = document.querySelector('section')
-                let requestURL ='https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json';
+                let requestURL = 'https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json';
                 let request = new XMLHttpRequest();
 
 
                 request.open('GET', requestURL);
-                request.responseType ='json';
+                request.responseType = 'json';
                 request.send();
 
-                request.onload = function(){
+                request.onload = function () {
                     let ville = request.response;
                     remplissageDiv(ville);
 
                 }
 
-                function remplissageDiv(jsonObj){
+                function remplissageDiv(jsonObj) {
                     let myH3 = document.createElement('h3');
                     myH3.textContent = jsonObj['squadName'];
                     section.appendChild(myH3);
@@ -101,6 +101,7 @@
             {{ form_label(sortieForm.publier) }}
             {{ form_widget(sortieForm.publier) }}
         </div>
+
 
         {{ form_end(sortieForm) }}
         <button onclick="rtn()">Retour</button>

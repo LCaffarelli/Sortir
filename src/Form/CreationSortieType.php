@@ -50,11 +50,12 @@ class CreationSortieType extends AbstractType
                 'mapped'=>false,
             ])
             ->add('publier', SubmitType::class,[
-                'label'=>"publier la sortie",
+                'label'=>"Publier la sortie",
             ])
             ->add('cree', SubmitType::class,[
                 'label'=>"Enregistrer",
             ])
+
         ;
     }
 

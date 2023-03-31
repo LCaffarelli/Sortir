@@ -4,22 +4,22 @@
 
 {% block body %}
 
+    <div>
+        <h2>Filtrer les sorties :</h2>
+
+        {{ form_start(sites) }}
+
         <div>
-            <h2>Filtrer les sorties :</h2>
-
-            {{ form_start(sites) }}
-
-            <div>
-                {{ form_label(sites) }}
-                {{ form_widget(sites) }}
-                {{ form_errors(sites) }}
-            </div>
-
-
-            <input type="submit" value="submit">
-            {{ form_end(sites) }}
-
+            {{ form_label(sites) }}
+            {{ form_widget(sites) }}
+            {{ form_errors(sites) }}
         </div>
+
+
+        <input type="submit" value="submit">
+        {{ form_end(sites) }}
+
+    </div>
 
 
 
@@ -34,10 +34,16 @@
 
                 <div class="card-body">
                     <div class="card-title">
-                        <h2><a class="detailSortie" href="{{ path('sortie_details', {'id': s.id}) }}">{{ s.nom }}</a></h2>
+                        <h2><a class="detailSortie" href="{{ path('sortie_details', {'id': s.id}) }}">{{ s.nom }}</a>
+                        </h2>
                     </div>
                     <div class="card-description">
-                        <h4>Description de la sortie :</h4>
+                        {% if s.etat.id==6 %}
+                            <h4>Motif d'annulation : </h4>
+                        {% else %}
+                            <h4>Description de la sortie :</h4>
+                        {% endif %}
+
                         {{ s.infosSortie }}
 
                         <h4>Date de la sortie :</h4>
@@ -47,7 +53,12 @@
                         <p>{{ s.dateLimiteInscription | date('d/m/y') }}</p>
 
                         <h4>Inscrits/places :</h4>
-                        <p>{{ s.users.count }} / {{ s.nbInscriptionsMax }}</p>
+                        {% if s.users.count==s.nbInscriptionsMax %}
+                            <p>COMPLET</p>
+                        {% else %}
+                            <p>{{ s.users.count }} / {{ s.nbInscriptionsMax }}</p>
+                        {% endif %}
+
 
                         <h4>Organisateur : </h4>
                         <p>{{ s.organisateur.pseudo }}</p>
