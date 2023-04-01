@@ -7,7 +7,6 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
-
 use Symfony\Component\Validator\Constraints as Assert;
 
 
@@ -24,14 +23,15 @@ class Sortie
 
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
-    #[Assert\Assert\DateTime]
+    #[Assert\GreaterThan(value:'today', message: "Vous ne pouvez pas créer une sortie avec une date antérieur à celle d'aujourd'hui")]
     private ?\DateTimeInterface $dateHeureDebut = null;
 
     #[ORM\Column(type: Types::TIME_MUTABLE)]
     private ?\DateTimeInterface $duree = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
-    #[Assert\Assert\DateTime]
+
+    #[Assert\LessThan(propertyPath: "dateHeureDebut" , message: "La date limite d'inscription ne peut pas être après le début de votre sortie")]
     private ?\DateTimeInterface $dateLimiteInscription = null;
 
     #[ORM\Column]
@@ -40,6 +40,7 @@ class Sortie
     private ?int $nbInscriptionsMax = null;
 
     #[ORM\Column(type: Types::TEXT)]
+    #[Assert\NotBlank(message: "Vous devez donner une description à votre événement.")]
     private ?string $infosSortie = null;
 
     #[ORM\ManyToOne(inversedBy: 'sorties')]

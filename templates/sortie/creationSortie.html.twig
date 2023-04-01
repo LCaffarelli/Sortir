@@ -4,6 +4,7 @@
 {% block title %}{{ parent() }} | Création d'une sortie{% endblock %}
 
 {% block body %}
+    <script src="{{ asset('js/creationSortie.js') }}" defer></script>
     <fieldset id="fieldset-creation-sortie">
         <legend>Ma Sortie</legend>
         {{ form_start(sortieForm) }}
@@ -76,60 +77,31 @@
         </div>
 
         {{ form_end(sortieForm) }}
-        <button onclick="rtn()">Retour</button>
+        <div class="btn_retour_crea">
+            <a href="{{ path('main_home') }}"><button>Retour</button></a>
+        </div>
         <script>
             function rtn() {
                 window.history.back();
             }
-        </script>
-
-
 
         {#affichage dynamique des adresses de lieux#}
-        <script>
+
             const select = document.querySelector("#creation_sortie_lieu");
             select.addEventListener('change', (event) => {
                 let id = `${event.target.value}` ;
                 let requestURL ='http://localhost/Sortir/public/lieu/'+id;
                 let request = new XMLHttpRequest();
-
                 request.open('GET', requestURL);
                 request.responseType ='json';
                 request.send();
-
                 request.onload = function(){
                     let ville = request.response;
                     remplissageDiv(ville);
                 }
             })
-
-            function remplissageDiv(jsonObj){
-
-                let article = document.querySelector('article');
-                article.innerHTML='';
-                let ville = document.createElement('h4');
-                let rue = document.createElement('p');
-                let codePostal = document.createElement('p');
-                let latitude = document.createElement('p');
-                let longitude = document.createElement('p');
-
-                ville.textContent = 'Ville : ' + jsonObj['ville'];
-                rue.textContent = 'Rue : ' + jsonObj['Rue'];
-                codePostal.textContent = 'Code postal : ' + jsonObj['code'];
-                latitude.textContent = 'Latitude : ' + jsonObj['latitude'];
-                longitude.textContent = 'Longitude : ' + jsonObj['longitude'];
-
-                article.appendChild(ville);
-                article.appendChild(rue);
-                article.appendChild(codePostal);
-                article.appendChild(latitude);
-                article.appendChild(longitude);
-            }
         </script>
 
 
     </fieldset>
 {% endblock %}
-
-
-

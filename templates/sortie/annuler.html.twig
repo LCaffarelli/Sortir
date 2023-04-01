@@ -2,22 +2,8 @@
 {% block title %}{{ parent() }} | Annuler ma sortie{% endblock %}
 
 {% block body %}
-
+    <script src="{{ asset('js/annulerSortie.js') }}" defer></script>
     <h1>Annuler ma sortie</h1>
-    <script>
-        function annuler() {
-            let ok = confirm("Etes-vous sûr ?");
-            if (ok) {
-                alert("Votre sortie a été annulée");
-
-                return true;
-            } else {
-                return false;
-            }
-        }
-    </script>
-
-
 
     <div>
         <label for="nomSortie">Nom de la sortie : </label>{{ sortie.nom }}
