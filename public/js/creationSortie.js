@@ -16,4 +16,5 @@ function remplissageDiv(jsonObj){
     article.appendChild(codePostal);
     article.appendChild(latitude);
     article.appendChild(longitude);
+
 }

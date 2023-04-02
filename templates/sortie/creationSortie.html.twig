@@ -59,7 +59,25 @@
             </div>
 
             {#Affichage dynamique de l'adresse des lieux#}
-            <article></article>
+            <article>
+                <script>
+                    {#affichage dynamique des adresses de lieux#}
+
+                    const select = document.querySelector("#creation_sortie_lieu");
+                    select.addEventListener('change', (event) => {
+                        let id = `${event.target.value}` ;
+                        let requestURL ='http://localhost/Sortir/public/lieu/'+id;
+                        let request = new XMLHttpRequest();
+                        request.open('GET', requestURL);
+                        request.responseType ='json';
+                        request.send();
+                        request.onload = function(){
+                            let ville = request.response;
+                            remplissageDiv(ville);
+                        }
+                    })
+                </script>
+            </article>
 
         </div>
         <div>
@@ -80,27 +98,7 @@
         <div class="btn_retour_crea">
             <a href="{{ path('main_home') }}"><button>Retour</button></a>
         </div>
-        <script>
-            function rtn() {
-                window.history.back();
-            }
 
-        {#affichage dynamique des adresses de lieux#}
-
-            const select = document.querySelector("#creation_sortie_lieu");
-            select.addEventListener('change', (event) => {
-                let id = `${event.target.value}` ;
-                let requestURL ='http://localhost/Sortir/public/lieu/'+id;
-                let request = new XMLHttpRequest();
-                request.open('GET', requestURL);
-                request.responseType ='json';
-                request.send();
-                request.onload = function(){
-                    let ville = request.response;
-                    remplissageDiv(ville);
-                }
-            })
-        </script>
 
 
     </fieldset>

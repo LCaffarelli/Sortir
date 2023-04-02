@@ -171,7 +171,17 @@ li {
     transition-timing-function: ease;
 
 }
+/*CSS DETAIL SORTIE*/
+.tab{
+    width: 301px;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
 
+th,td{
+    border: 1px solid darkorange;
+    padding: 10px;
+}
 /*CSS DETAIL PROFIL PARTICIPANT*/
 
 .bodyDetailParticipant {
