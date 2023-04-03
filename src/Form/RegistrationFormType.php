@@ -7,9 +7,11 @@ use App\Entity\User;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\File;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
@@ -28,7 +30,8 @@ class RegistrationFormType extends AbstractType
 
             ->add('email')
 
-            ->add('image')
+           // ->add('image', FileType::class, ['mapped' => false, 'required' => false, 'constraints' => [new File(['maxSize' => '1024k',
+               // 'mimeTypes' => ['image/jpeg', 'image/png','image/gif','image/svg+xml'], 'mimeTypesMessage' => 'Please upload a valid image'])]])
 
             ->add('site', EntityType::class, ['class' => Site::class,
                 'choice_label' => 'nom',

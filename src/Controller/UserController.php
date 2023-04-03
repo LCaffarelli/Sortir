@@ -7,7 +7,9 @@ use App\Entity\Participant;
 use App\Form\UpdateProfileType;
 use App\Repository\ParticipantRepository;
 use App\Repository\UserRepository;
+use Doctrine\DBAL\Exception;
 use Doctrine\ORM\EntityManagerInterface;
+use PDO;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Request;
@@ -20,27 +22,22 @@ use Symfony\Component\String\Slugger\SluggerInterface;
 class UserController extends AbstractController
 {
     #[Route('profil', name: 'profil')]
-    public function profil(EntityManagerInterface $entityManager, SluggerInterface $slugger,UserPasswordHasherInterface $userPasswordHasher, Request $request)
+    public function profil(EntityManagerInterface $entityManager, UserRepository $userRepository, SluggerInterface $slugger, UserPasswordHasherInterface $userPasswordHasher, Request $request)
     {
-        $user = $this->getUser();
+        $user = $userRepository->find($this->getUser()->getId());
         $formUpdate = $this->createForm(UpdateProfileType::class, $user);
         $formUpdate->handleRequest($request);
-
         if ($formUpdate->isSubmitted() && $formUpdate->isValid()) {
-            $img =$formUpdate->get('image')->getData();
+            $img = $formUpdate->get('image')->getData();
             if ($img) {
                 $originalFilename = pathinfo($img->getClientOriginalName(), PATHINFO_FILENAME);
-
                 $safeFilename = $slugger->slug($originalFilename);
                 $newFilename = $safeFilename . '-' . uniqid() . '.' . $img->guessExtension();
-
                 try {
                     $img->move($this->getParameter('images_directory'), $newFilename);
                     $user->setImage($newFilename);
                 } catch (FileException $e) {
-
                 }
-
             }
             $user->setPassword(
                 $userPasswordHasher->hashPassword(
@@ -52,8 +49,7 @@ class UserController extends AbstractController
             $this->addFlash('success', 'Profil mis à jour !');
             return $this->redirectToRoute('main_home');
         }
-
-        return $this->render('user/profil.html.twig', ['user' => $user,
+        return $this->render('user/profil.html.twig', ['user' => $this->getUser(),
             'formUpdate' => $formUpdate->createView(),
         ]);
 

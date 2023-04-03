@@ -36,13 +36,17 @@
             {{ form_errors(registrationForm.email) }}
             {{ form_widget(registrationForm.email) }}
         </div>
-    </div><div>
-        {{ form_label(registrationForm.image) }}
-        <div>
-            {{ form_errors(registrationForm.image) }}
-            {{ form_widget(registrationForm.image) }}
-        </div>
-    </div><div>
+    </div>
+
+{#    <div>#}
+{#        {{ form_label(registrationForm.image) }}#}
+{#        <div>#}
+{#            {{ form_errors(registrationForm.image) }}#}
+{#            {{ form_widget(registrationForm.image) }}#}
+{#        </div>#}
+{#    </div>#}
+
+    <div>
         {{ form_label(registrationForm.site) }}
         <div>
             {{ form_errors(registrationForm.site) }}
