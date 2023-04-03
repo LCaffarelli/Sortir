@@ -1,30 +1,45 @@
+<script src="{{ asset('js/main.js') }}"  defer></script>
 <nav>
-    <img class="imageHeader" src="{{ asset('img/afterwork2.png') }}" alt="Vivre à Nantes">
+    <div id="mySidenav" class="sidenav">
 
-    <a href="{{ path('main_home') }}"><img class="imageLogo" src="{{ asset('img/NomSite2.png') }}" alt="Vivre à Nantes"></a>
+        <a href="{{ path('main_home') }}"><img class="imageLogo" src="{{ asset('img/NomSite.png') }}" alt="Nom du site"></a>
 
-    <ul>
+        <a href="#" id="closeBtn" class="close">X</a>
 
-        {% if app.user %}
-            <li><a class="navbar" href="{{ path('main_home') }}" title="Accueil">Accueil</a></li>
-            <li><a class="navbar" href="{{ path('user_profil') }}" title="monProfil">Mon profil</a></li>
-            <li><a class="navbar" href="{{ path('sortie_creation') }}" title="Creation Sortie">Création sortie</a></li>
+        <ul>
+            <div class="blocNavBar" id="blockNavBar">
+                {% if app.user %}
 
-            {% if is_granted('ROLE_ADMIN') %}
-                <li><a class="navbar" href="#" title="Sites">Sites</a></li>
-                <li><a class="navbar" href="#" title="Villes">Villes</a></li>
-                <li><a class="navbar" href="{{ path('app_register') }}" title="admin">Création utilisateur</a></li>
+                    <li><a class="navbar" href="{{ path('main_home') }}" title="Accueil">Accueil</a></li>
+                    <li><a class="navbar" href="{{ path('user_profil') }}" title="monProfil">Mon profil</a></li>
+                    <li><a class="navbar" href="{{ path('sortie_creation') }}" title="Creation Sortie">Création sortie</a></li>
 
-            {% endif %}
+                    {% if is_granted('ROLE_ADMIN') %}
 
-            <li><a class="navbar" href="{{ path('app_logout') }}" title="Logout">Logout</a>
+                        <li><a class="navbar" href="#" title="Sites">Sites</a></li>
+                        <li><a class="navbar" href="#" title="Villes">Villes</a></li>
+                        <li><a class="navbar" href="{{ path('app_register') }}" title="admin">Création utilisateur</a></li>
 
+                    {% endif %}
 
+                <li><a class="navbar" href="{{ path('app_logout') }}" title="Logout">Logout</a>
 
+                {% endif %}
+            </div>
 
-        {% endif %}
+            <a href="#" id="openBtn">
+                  <span class="burger-icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </span>
+            </a>
 
+        </ul>
+    </div>
 
-    </ul>
-
+    <div class="imageEnTete">
+        <img class="imageHeader" src="{{ asset('img/afterbandeau.jpg') }}" alt="Vivre à Nantes">
+    </div>
 </nav>
+
