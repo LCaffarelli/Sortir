@@ -24,8 +24,6 @@ class RegistrationFormType extends AbstractType
 
             ->add('prenom')
 
-            ->add('pseudo')
-
             ->add('telephone')
 
             ->add('email')

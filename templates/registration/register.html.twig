@@ -7,12 +7,56 @@
 
     {{ form_start(registrationForm) }}
    {{ form_widget(registrationForm) }}
-
+    <div>
+        {{ form_label(registrationForm.pseudo) }}
+        <div>
+            {{ form_errors(registrationForm.pseudo) }}
+            {{ form_widget(registrationForm.pseudo) }}
+        </div>
+    </div><div>
+        {{ form_label(registrationForm.nom) }}
+        <div>
+            {{ form_errors(registrationForm.nom) }}
+            {{ form_widget(registrationForm.nom) }}
+        </div>
+    </div><div>
+        {{ form_label(registrationForm.prenom) }}
+        <div>
+            {{ form_errors(registrationForm.prenom) }}
+            {{ form_widget(registrationForm.prenom) }}
+        </div>
+    </div><div>
+        {{ form_label(registrationForm.telephone) }}
+        <div>
+            {{ form_errors(registrationForm.telephone) }}
+            {{ form_widget(registrationForm.telephone) }}
+        </div>
+    </div><div>
+        {{ form_label(registrationForm.email) }}
+        <div>
+            {{ form_errors(registrationForm.email) }}
+            {{ form_widget(registrationForm.email) }}
+        </div>
+    </div><div>
+        {{ form_label(registrationForm.image) }}
+        <div>
+            {{ form_errors(registrationForm.image) }}
+            {{ form_widget(registrationForm.image) }}
+        </div>
+    </div><div>
+        {{ form_label(registrationForm.site) }}
+        <div>
+            {{ form_errors(registrationForm.site) }}
+            {{ form_widget(registrationForm.site) }}
+        </div>
+    </div><div>
+        {{ form_label(registrationForm.plainPassword) }}
+        <div>
+            {{ form_errors(registrationForm.plainPassword) }}
+            {{ form_widget(registrationForm.plainPassword) }}
+        </div>
+    </div>
 
         <button type="submit" class="btn">Register</button>
     {{ form_end(registrationForm) }}
-
-    <a href="{{ path('app_registration_csv') }}">lol</a>
-
-
 {% endblock %}
