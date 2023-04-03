@@ -18,13 +18,20 @@ class RegistrationFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            //->add('pseudo')
-            ->add('nom')
-            ->add('prenom')
             ->add('pseudo')
+
+            ->add('nom')
+
+            ->add('prenom')
+
+            ->add('pseudo')
+
             ->add('telephone')
+
             ->add('email')
+
             ->add('image')
+
             ->add('site', EntityType::class, ['class' => Site::class,
                 'choice_label' => 'nom',
                 'query_builder' => function (EntityRepository $er) {
