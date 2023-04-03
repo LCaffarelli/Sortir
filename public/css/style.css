@@ -7,7 +7,7 @@ nav ul {
     margin: 0;
     right: 0;
     top: 0;
-    z-index: 2;
+    z-index: 4;
     display: flex;
     justify-content: right;
     width: 100%;
@@ -25,10 +25,10 @@ nav li {
     padding-right: 20px;
     list-style: none;
     font-size: 1.5em;
+    height: 70px;
 }
 
 header {
-    padding-bottom: 40px;
     width: 100%;
     height: 45%;
     z-index: 2;
@@ -43,11 +43,9 @@ header {
     left: 0;
     right: 0;
     top: 0;
-    z-index: 1;
     width: 100%;
-    height: 50vh;
-    margin-top: 50px;
-    margin-bottom: 50px;
+    height: 50%;
+    margin-top: 100px;
 }
 
 .imageLogo {
@@ -56,7 +54,7 @@ header {
     top: 5px;
     width: 250px;
     height: 70px;
-    z-index: 3;
+    z-index: 5;
 }
 
 .navbar {
@@ -66,6 +64,72 @@ header {
 .navbar:hover{
     color: #111111;
 }
+
+/*----------------Mise en forme des filtres-----------------------*/
+.sectionFiltre{
+    margin: 0 180px 0 180px;
+    border: 1px solid black;
+    padding: 10px;
+}
+
+.filtreSortie{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(5, 1fr) ;
+    grid-column-gap: 0px ;
+    grid-row-gap: 15px;
+}
+.filtre1{
+    grid-area: 1/1/2/2;
+    display: flex;
+    flex-direction: row;
+}
+.filtre2{
+    grid-area: 2/1/3/2;
+    display: flex;
+    flex-direction: row;
+}
+.filtre3{
+    grid-area: 3/1/4/2;
+    display: flex;
+    flex-direction: row;
+}
+.filtre4{
+    grid-area: 4/1/5/2;
+    display: flex;
+    flex-direction: row;
+}
+.filtre5{
+    grid-area: 1/2/2/3;
+    display: flex;
+    flex-direction: row;
+}
+.filtre6{
+    grid-area: 2/2/3/3;
+    display: flex;
+    flex-direction: row;
+}
+.filtre7{
+    grid-area: 3/2/4/3;
+    display: flex;
+    flex-direction: row;
+}
+.filtre8{
+    grid-area: 4/2/5/3;
+    display: flex;
+    flex-direction: row;
+}
+.filtre9{
+    grid-area: 5/2/6/3;
+    text-align: right;
+}
+.filtreWidget{
+    padding-left: 25px;
+}
+.btn_valid{
+    margin: 0 150px 0 150px;
+}
+/*-----------------------END--------------------------*/
 
 .connexionUser {
     margin: auto;
@@ -212,9 +276,8 @@ th,td{
     margin: auto;
     margin-top: 50px;
     margin-bottom: 50px;
-    padding: 15px;
     flex-wrap: wrap;
-    width: 400px;
+    width: 300px;
     height: auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -240,13 +303,18 @@ th,td{
     max-width: 850px;
     height: 400px;
     padding-top: 50px;
-    padding-right: 100px;
+    padding-right: 80px;
+}
+
+#update_profile_plainPassword_first{
+    margin-bottom: 15px;
 }
 
 .btn_retour_profil{
     display: flex;
     justify-content: center;
 }
+
 
 footer {
     border-top: 1px solid #D3D3D3;
@@ -261,47 +329,47 @@ footer {
 
 /*responsive*/
 
-@media (max-width: 1100px) {
+@media (max-width: 1200px) {
 
     .blocNavBar{
-        padding-right: 15px;
+        padding-right: 10px;
     }
     nav li {
-        padding-right: 10px;
-        list-style: none;
         font-size: 1.2em;
     }
 
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1070px) {
 
     .blocNavBar{
-        padding-right: 10px;
+        padding-right: 8px;
     }
     nav li {
-        padding-right: 10px;
-        list-style: none;
         font-size: 1em;
     }
 
 }
 
-@media (max-width: 850px) {
+@media (max-width: 950px) {
 
-    .imageHeader{
-        visibility: hidden;
-    }
     /*Bloc contenant les différents liens*/
-    .blocNavBar{
+    .blocNavBar {
         visibility: hidden;
     }
-    .blocNavBar.active{
+
+    .filtreSortie{
+        display: grid;
+        grid-template-columns: 1fr ;
+        gap:20px;
+    }
+
+    .blocNavBar.active {
         margin-top: 150px;
         display: flex;
         flex-direction: column;
         transition-duration: 0.8s;
-        visibility:visible;
+        visibility: visible;
     }
 
     /* Sidenav menu */
@@ -322,7 +390,6 @@ footer {
         text-decoration: none;
         font-size: 25px;
         color: #818181;
-        display: block;
     }
 
     .sidenav a:hover {
@@ -350,12 +417,13 @@ footer {
         font-size: 36px;
     }
 
-    .burger-icon{
+    .burger-icon {
         position: fixed;
         right: 20px;
         top: 20px;
         z-index: 5;
     }
+
     /* Icône burger */
     .burger-icon span {
         margin: 6px 0;
@@ -366,6 +434,64 @@ footer {
         border-radius: 10px;
     }
 
+    /*Affichage profil en mode smartphone*/
+    .bodyDetailUser {
+        grid-template-columns: 1fr;
+    }
 
+    .imageP {
+        justify-content: center;
+        padding-bottom: 20px;
+    }
+
+    #imgUser {
+        max-width: 650px;
+        height: 200px;
+        padding: 0 0 0 0;
+
+    }
+
+    .champsDetailUser {
+        margin-left: 90px;
+    }
+
+    .affichagePassword {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #update_profile_save {
+        margin-left: 100px;
+        margin-right: 100px;
+    }
+
+    .sectionFiltre{
+        margin: 0 0px 0 0px;
+        border: 1px solid black;
+        padding: 10px;
+    }
+    .filtreSortie{
+
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-column-gap: 0px ;
+    }
+    .filtre1{grid-area: 1/1/2/2;}
+    .filtre2{grid-area: 2/1/3/2;}
+    .filtre3{grid-area: 3/1/4/2;}
+    .filtre4{grid-area: 4/1/5/2;}
+    .filtre5{grid-area: 1/2/2/3;}
+    .filtre6{grid-area: 2/2/3/3;}
+    .filtre7{grid-area: 3/2/4/3;}
+    .filtre8{grid-area: 4/2/5/3;}
+    .filtre9{grid-area: 5/2/6/3;}
+}
+
+@media (max-width: 500px){
+    .CreationSortie{
+        display:none;
+
+    }
 
 }
+

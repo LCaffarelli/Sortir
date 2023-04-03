@@ -12,7 +12,7 @@
 
                     <li><a class="navbar" href="{{ path('main_home') }}" title="Accueil">Accueil</a></li>
                     <li><a class="navbar" href="{{ path('user_profil') }}" title="monProfil">Mon profil</a></li>
-                    <li><a class="navbar" href="{{ path('sortie_creation') }}" title="Creation Sortie">Création sortie</a></li>
+                    <li class="CreationSortie"><a id="CreationSortie" class="navbar" href="{{ path('sortie_creation') }}" title="Creation Sortie">Création sortie</a></li>
 
                     {% if is_granted('ROLE_ADMIN') %}
 

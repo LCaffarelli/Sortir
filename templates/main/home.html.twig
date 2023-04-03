@@ -3,74 +3,78 @@
 {% block title %}{{ parent() }} | Home {% endblock %}
 
 {% block body %}
-
-    <div>
+    <section class="sectionFiltre">
         <h2>Filtrer les sorties :</h2>
 
         {{ form_start(filtres) }}
+        <div class="filtreSortie">
+            <div class="filtre1">
+                {{ form_label(filtres.Sites) }}
+                <div class="filtreWidget">
+                    {{ form_errors(filtres.Sites) }}
+                    {{ form_widget(filtres.Sites) }}
+                </div>
+            </div>
 
-        <div>
-            {{ form_label(filtres.Sites) }}
-            <div>
-                {{ form_errors(filtres.Sites) }}
-                {{ form_widget(filtres.Sites) }}
+            <div class="filtre2">
+                {{ form_label(filtres.textRecherche) }}
+                <div class="filtreWidget">
+                    {{ form_errors(filtres.textRecherche) }}
+                    {{ form_widget(filtres.textRecherche) }}
+                </div>
+            </div>
+
+            <div class="filtre3">
+                Entre :
+                <div class="filtreWidget">
+                    {{ form_errors(filtres.firstDate) }}
+                    {{ form_widget(filtres.firstDate) }}
+                    et
+                    {{ form_errors(filtres.secondeDate) }}
+                    {{ form_widget(filtres.secondeDate) }}
+                </div>
+            </div>
+
+            <div class="filtre4"></div>
+
+            <div class="filtre5">
+                <div class="filtreWidget">
+                    {{ form_errors(filtres.organisateur) }}
+                    {{ form_widget(filtres.organisateur) }}
+                </div>
+                {{ form_label(filtres.organisateur) }}
+            </div>
+
+            <div class="filtre6">
+                <div class="filtreWidget">
+                    {{ form_errors(filtres.inscrit) }}
+                    {{ form_widget(filtres.inscrit) }}
+                </div>
+                {{ form_label(filtres.inscrit) }}
+            </div>
+
+            <div class="filtre7">
+                <div class="filtreWidget">
+                    {{ form_errors(filtres.nonInscrit) }}
+                    {{ form_widget(filtres.nonInscrit) }}
+                </div>
+                {{ form_label(filtres.nonInscrit) }}
+            </div>
+
+            <div class="filtre8">
+                <div class="filtreWidget">
+                    {{ form_errors(filtres.oldSortie) }}
+                    {{ form_widget(filtres.oldSortie) }}
+                </div>
+                {{ form_label(filtres.oldSortie) }}
+            </div>
+
+            <div class="filtre9">
+                <input class="btn_valid" type="submit" value="submit">
+                {{ form_end(filtres) }}
             </div>
         </div>
-
-        <div>
-            {{ form_label(filtres.textRecherche) }}
-            <div>
-                {{ form_errors(filtres.textRecherche) }}
-                {{ form_widget(filtres.textRecherche) }}
-            </div>
-        </div>
-
-        <div>
-            {{ form_label(filtres.firstDate) }}
-            <div>
-                {{ form_errors(filtres.firstDate) }}
-                {{ form_widget(filtres.firstDate) }}
-                {{ form_errors(filtres.secondeDate) }}
-                {{ form_widget(filtres.secondeDate) }}
-            </div>
-        </div>
-        <div>
-            {{ form_label(filtres.organisateur) }}
-            <div>
-                {{ form_errors(filtres.organisateur) }}
-                {{ form_widget(filtres.organisateur) }}
-            </div>
-        </div>
-        <div>
-            {{ form_label(filtres.inscrit) }}
-            <div>
-                {{ form_errors(filtres.inscrit) }}
-                {{ form_widget(filtres.inscrit) }}
-            </div>
-        </div>
-        <div>
-            {{ form_label(filtres.nonInscrit) }}
-            <div>
-                {{ form_errors(filtres.nonInscrit) }}
-                {{ form_widget(filtres.nonInscrit) }}
-            </div>
-        </div>
-        <div>
-            {{ form_label(filtres.oldSortie) }}
-            <div>
-                {{ form_errors(filtres.oldSortie) }}
-                {{ form_widget(filtres.oldSortie) }}
-            </div>
-        </div>
-
-
-        <input type="submit" value="submit">
-        {{ form_end(filtres) }}
-
-    </div>
-
-
-
+    </section>
 
     <h1 class="titreListeCard">Listes des sorties</h1>
     <section class="ListeCards">

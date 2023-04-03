@@ -71,7 +71,7 @@
             <label for="mdp"
                    title="Le mot de passe doit contenir au minimum 8 caractères dont une minuscule, une majuscule, un chiffre et un caractère spécial.">Mot
                 de Passe :</label>
-            <div>
+            <div class="affichagePassword">
                 {{ form_errors(formUpdate.plainPassword) }}
                 {{ form_widget(formUpdate.plainPassword) }}
             </div>

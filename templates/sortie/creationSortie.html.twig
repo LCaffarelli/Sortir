@@ -5,6 +5,7 @@
 
 {% block body %}
     <script src="{{ asset('js/creationSortie.js') }}" defer></script>
+    <h1 class="titreListeCard">Creation Sortie</h1>
     <fieldset id="fieldset-creation-sortie">
         <legend>Ma Sortie</legend>
         {{ form_start(sortieForm) }}
@@ -62,7 +63,6 @@
             <article>
                 <script>
                     {#affichage dynamique des adresses de lieux#}
-
                     const select = document.querySelector("#creation_sortie_lieu");
                     let id = `${select.value}` ;
                     let requestURL ='http://localhost/Sortir/public/lieu/'+id;
