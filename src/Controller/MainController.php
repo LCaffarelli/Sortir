@@ -3,10 +3,8 @@
 namespace App\Controller;
 
 use App\Class\FiltresSorties;
-use App\Entity\Sortie;
 use App\Form\FiltresSortieType;
 use App\Form\FiltresType;
-use App\Repository\SiteRepository;
 use App\Repository\SortieRepository;
 use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;

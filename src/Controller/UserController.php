@@ -4,11 +4,8 @@ namespace App\Controller;
 
 
 use App\Entity\Participant;
-use App\Entity\Sortie;
-use App\Entity\User;
 use App\Form\UpdateProfileType;
 use App\Repository\ParticipantRepository;
-use App\Repository\SortieRepository;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -39,13 +36,12 @@ class UserController extends AbstractController
 
                 try {
                     $img->move($this->getParameter('images_directory'), $newFilename);
-
+                    $user->setImage($newFilename);
                 } catch (FileException $e) {
 
                 }
 
             }
-            $user->setImage($newFilename);
             $user->setPassword(
                 $userPasswordHasher->hashPassword(
                     $user,
