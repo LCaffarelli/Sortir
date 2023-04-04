@@ -79,7 +79,7 @@ class SortieController extends AbstractController
             }
         }
 
-        if (count($sortie->getUsers()) == $sortie->getNbInscriptionsMax() || $sortie->getDateLimiteInscription() > $date) {
+        if (count($sortie->getUsers()) == $sortie->getNbInscriptionsMax() || $sortie->getDateLimiteInscription() < $date) {
             $finInscription = true;
         } else if ($sortie->getEtat()->getId() != 2) {
             $finInscription = true;
