@@ -9,6 +9,7 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TimeType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -28,7 +29,7 @@ class ModifType extends AbstractType
                 'html5' => true,
                 'widget' => 'single_text'
             ])
-            ->add('nbInscriptionsMax')
+            ->add('nbInscriptionsMax', NumberType::class)
             ->add('duree', TimeType::class, [
                 'html5' => true,
                 'widget' => 'single_text'

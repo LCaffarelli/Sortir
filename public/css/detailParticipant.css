@@ -1,0 +1,27 @@
+/*CSS DETAIL PROFIL PARTICIPANT*/
+
+.bodyDetailParticipant {
+
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+    width: 300px;
+    height: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 10px;
+    font-size: 1.1em;
+    color: darkorange;
+}
+
+.titreDetailParticipant {
+    text-align: center;
+}
+
+.img{
+    max-width: 250px;
+    padding-right: 50px;
+}
