@@ -13,7 +13,10 @@ nav ul {
     width: 100%;
     height: 80px;
     line-height: 80px;
-    background-color: darkorange;
+    background-color: #011F39;
+    -webkit-box-shadow: 0px 1px 11px 0px #5E5E5E;
+    box-shadow: 0px 1px 11px 0px #5E5E5E;
+    opacity: 80%;
 }
 
 .blocNavBar{
@@ -67,10 +70,12 @@ header {
 
 /*----------------Mise en forme des filtres-----------------------*/
 .sectionFiltre{
-    margin: 0 180px 0 180px;
-    border: 1px solid black;
+    margin: 100px 180px 30px 180px;
+    border: none;
     border-radius: 10px;
     padding: 5px;
+    background-color: #FFFFFF;
+    opacity: 95%;
 }
 
 .filtreSortie{
@@ -79,6 +84,7 @@ header {
     grid-template-rows: repeat(5, 1fr) ;
     grid-column-gap: 0px ;
     grid-row-gap: 15px;
+
 }
 .filtre1{
     grid-area: 1/1/2/2;
@@ -186,9 +192,13 @@ li {
 
 .titreListeCard {
     text-align: center;
-    background-color: darkorange;
-    color: whitesmoke;
+    margin-left: 20vh;
+    background-color: #bdbdbd;
+    color: #282828;
     margin-bottom: 20px;
+    border-radius: 10px;
+    width: 80vw;
+    display: none;
 }
 
 .ListeCards {
@@ -206,10 +216,12 @@ li {
     background-color: white; /*3*/
     box-shadow: 1px 5px 20px #999; /*4*/
     border-radius: 10px;
+    opacity: 97%;
 }
 
 .card:hover .card-image img { /*6*/
     width: 160%;
+    opacity: 1;
 }
 
 .card-title {
@@ -239,6 +251,7 @@ li {
     transform: translate(-50%, -50%);
     filter: grayscale(1); /*6*/
     /*7 - Transition */
+    opacity: 100%;
 }
 
 .card-image img:hover{
@@ -246,6 +259,7 @@ li {
     transition-property: filter, width;
     transition-duration: .3s;
     transition-timing-function: ease;
+    opacity: 100%;
 }
 /*CSS DETAIL SORTIE*/
 .tab{
@@ -508,7 +522,7 @@ footer {
 }
 
 .btn::after {
-    content: 'delete';
+    content: 'supprimer';
     position: absolute;
     top: -130%;
     left: 50%;
@@ -545,7 +559,12 @@ footer {
     opacity: 1;
     top: -160%;
 }
-
+ html{
+     background-color: #4E6375;
+     background-image: url("../img/Sans titre.png");
+     background-repeat: no-repeat;
+     background-attachment: fixed;
+ }
 
 
 
