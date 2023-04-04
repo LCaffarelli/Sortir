@@ -38,14 +38,6 @@
         </div>
     </div>
 
-{#    <div>#}
-{#        {{ form_label(registrationForm.image) }}#}
-{#        <div>#}
-{#            {{ form_errors(registrationForm.image) }}#}
-{#            {{ form_widget(registrationForm.image) }}#}
-{#        </div>#}
-{#    </div>#}
-
     <div>
         {{ form_label(registrationForm.site) }}
         <div>
@@ -59,7 +51,7 @@
             {{ form_widget(registrationForm.plainPassword) }}
         </div>
     </div>
+    <button type="submit" class="btn">Enregistrer</button>
 
-        <button type="submit" class="btn">Register</button>
     {{ form_end(registrationForm) }}
 {% endblock %}

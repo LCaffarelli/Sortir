@@ -3,6 +3,7 @@
 
 
 {% block body %}
+    <script src="{{ asset('js/profilParticipant.js') }}" defer></script>
     <h1 class="titreListeCard">Profil Participant</h1>
     <div class="bodyDetailUser">
         <div class="titreDetailParticipant">
@@ -10,7 +11,7 @@
         </div>
 
         <div>
-            <div><img src="{{ asset('img/'~user.image) }}" alt="image profil participant"></div>
+            <div><img src="{{ asset('img/profil/'~user.image) }}" alt="image profil participant"></div>
 
         </div>
         <div>
@@ -34,7 +35,7 @@
                 <label for="site">Site de rattachement :</label>
                 {{ user.site.nom }}
             </div>
-            <button onclick="rtn()">Retour</button>
+            <button onclick="precedent()">Retour</button>
             <a href="{{ path('main_home') }}">
                 <button>Accueil</button>
             </a>

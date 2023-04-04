@@ -7,9 +7,9 @@
 
     <div class="bodyDetailUser">
 
-            <div class="imageP">
-                <img id="imgUser" src="{{ asset('img/profil/'~user.image) }}" alt="photo du profil">
-            </div>
+        <div class="imageP">
+            <img id="imgUser" src="{{ asset('img/profil/'~user.image) }}" alt="photo du profil">
+        </div>
 
         {{ form_start(formUpdate) }}
         <div class="champsDetailUser">
@@ -78,8 +78,10 @@
 
         </div>
 
-
         {{ form_end(formUpdate) }}
+        <div>
+            <a href="{{ path('main_home') }}"><button>Retour</button></a>
+        </div>
 
 
     </div>

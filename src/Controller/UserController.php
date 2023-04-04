@@ -49,7 +49,7 @@ class UserController extends AbstractController
             $this->addFlash('success', 'Profil mis à jour !');
             return $this->redirectToRoute('main_home');
         }
-        return $this->render('user/profil.html.twig', ['user' => $this->getUser(),
+        return $this->render('user/profil.html.twig', ['user' => $user,
             'formUpdate' => $formUpdate->createView(),
         ]);
 
