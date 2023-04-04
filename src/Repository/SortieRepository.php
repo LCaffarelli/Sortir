@@ -101,6 +101,9 @@ class SortieRepository extends ServiceEntityRepository
 
         $queryBuilder->andWhere('s.dateHeureDebut >= :n30days');
         $queryBuilder->setParameter('n30days', $dateFiltre);
+        $queryBuilder->andWhere('s.etat >= 2');
+        $queryBuilder->orWhere('s.etat = 1 AND s.organisateur = :user');
+        $queryBuilder->setParameter('user', $id);
         $queryBuilder->orderBy('s.dateHeureDebut', 'ASC');
         $query = $queryBuilder->getQuery();
 
