@@ -69,7 +69,8 @@ header {
 .sectionFiltre{
     margin: 0 180px 0 180px;
     border: 1px solid black;
-    padding: 10px;
+    border-radius: 10px;
+    padding: 5px;
 }
 
 .filtreSortie{
@@ -124,7 +125,7 @@ header {
     text-align: right;
 }
 .filtreWidget{
-    padding-left: 25px;
+    padding-left: 10px;
 }
 .btn_valid{
     margin: 0 150px 0 150px;
@@ -187,7 +188,6 @@ li {
     text-align: center;
     background-color: darkorange;
     color: whitesmoke;
-
     margin-bottom: 20px;
 }
 
@@ -200,13 +200,12 @@ li {
 
 .cards {
     margin-bottom: 20px;
-    margin-left: 0;
-    margin-right: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
     width: 400px; /*1*/
     background-color: white; /*3*/
     box-shadow: 1px 5px 20px #999; /*4*/
     border-radius: 10px;
-
 }
 
 .card:hover .card-image img { /*6*/
@@ -348,7 +347,33 @@ footer {
     nav li {
         font-size: 1em;
     }
+}
 
+@media (max-width: 1100px) {
+
+    .sectionFiltre{
+        margin: 0 0px 0 0px;
+        border: 1px solid black;
+        padding: 10px;
+    }
+    .filtreSortie{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-column-gap: 0px ;
+        grid-row-gap: 10px;
+        grid-row-gap: 10px;
+        text-align: center;
+        font-size: 0.9em;
+    }
+    .filtre1{grid-area: 1/1;}
+    .filtre2{grid-area: 2/1;}
+    .filtre3{grid-area: 3/1;}
+    .filtre4{grid-area: 4/1;}
+    .filtre5{grid-area: 5/1;}
+    .filtre6{grid-area: 6/1;}
+    .filtre7{grid-area: 7/1;}
+    .filtre8{grid-area: 8/1;}
+    .filtre9{grid-area: 9/1; text-align: center;}
 }
 
 @media (max-width: 950px) {
@@ -465,26 +490,6 @@ footer {
         margin-right: 100px;
     }
 
-    .sectionFiltre{
-        margin: 0 0px 0 0px;
-        border: 1px solid black;
-        padding: 10px;
-    }
-    .filtreSortie{
-
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-column-gap: 0px ;
-    }
-    .filtre1{grid-area: 1/1/2/2;}
-    .filtre2{grid-area: 2/1/3/2;}
-    .filtre3{grid-area: 3/1/4/2;}
-    .filtre4{grid-area: 4/1/5/2;}
-    .filtre5{grid-area: 1/2/2/3;}
-    .filtre6{grid-area: 2/2/3/3;}
-    .filtre7{grid-area: 3/2/4/3;}
-    .filtre8{grid-area: 4/2/5/3;}
-    .filtre9{grid-area: 5/2/6/3;}
 }
 
 @media (max-width: 500px){
@@ -493,5 +498,8 @@ footer {
 
     }
 
+
 }
+
+
 
