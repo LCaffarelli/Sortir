@@ -92,7 +92,7 @@ class SortieRepository extends ServiceEntityRepository
         return $query->getResult();
     }
 
-    public function findAllWithDateLessThanOneMonth()
+    public function findAllWithDateLessThanOneMonth(int $id)
     {
         $now = new \DateTime();
         $dateFiltre = $now->sub(new \DateInterval('P1M'));

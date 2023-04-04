@@ -46,7 +46,7 @@ class MainController extends AbstractController
             ]);
         } else {
 
-            $sorties = $sortieRepository->findAllWithDateLessThanOneMonth();
+            $sorties = $sortieRepository->findAllWithDateLessThanOneMonth($this->getUser()->getId());
 
             return $this->render('main/home.html.twig', [
 
