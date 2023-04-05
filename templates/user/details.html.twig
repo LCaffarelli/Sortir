@@ -7,47 +7,54 @@
 
     <div class="bodyDetailParticipant">
         <div class="cardSortie">
-            <div class="titreDetailParticipant">
+
+            <div class="div1">
                 <h1>{{ user.pseudo }}</h1>
             </div>
             <br>
-
-            <div >
-                <img class="img" src="{{ asset('img/profil/'~user.image) }}" alt="image profil participant">
+            <div class="div2">
+                <div>
+                    <img class="img" src="{{ asset('img/profil/'~user.image) }}" alt="image profil participant">
+                </div>
             </div>
 
-            <div>
+            <div class="div3">
                 <div>
-                    <label for="nom">Nom : </label>
-                    {{ user.nom }}
+                    <div>
+                        <label for="nom">Nom : </label>
+                        {{ user.nom }}
+                    </div>
+                    <br>
+                    <div>
+                        <label for="prenom">Prénom : </label>
+                        {{ user.prenom }}
+                    </div>
+                    <br>
+                    <div>
+                        <label for="tel">Téléphone : </label>
+                        {{ user.telephone }}
+                    </div>
+                    <br>
+                    <div>
+                        <label for="email">Email : </label>
+                        {{ user.email }}
+                    </div>
+                    <br>
+                    <div>
+                        <label for="site">Site de rattachement :</label>
+                        {{ user.site.nom }}
+                    </div>
+                    <br>
                 </div>
-                <br>
-                <div>
-                    <label for="prenom">Prénom : </label>
-                    {{ user.prenom }}
+                <div class="div4">
+                    <div class="btnDetailParticipant">
+                        <button onclick="precedent()">Retour</button>
+                        <a href="{{ path('main_home') }}">
+                            <button>Accueil</button>
+                        </a>
+                    </div>
                 </div>
-                <br>
-                <div>
-                    <label for="tel">Téléphone : </label>
-                    {{ user.telephone }}
-                </div>
-                <br>
-                <div>
-                    <label for="email">Email : </label>
-                    {{ user.email }}
-                </div>
-                <br>
-                <div>
-                    <label for="site">Site de rattachement :</label>
-                    {{ user.site.nom }}
-                </div>
-                <br>
-                <div class="btnDetailParticipant">
-                    <button onclick="precedent()">Retour</button>
-                    <a href="{{ path('main_home') }}">
-                        <button>Accueil</button>
-                    </a>
-                </div>
+
 
             </div>
 

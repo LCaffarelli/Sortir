@@ -47,7 +47,6 @@ class CreationSortieType extends AbstractType
                 ,//Choix liste déroulantes
                 'multiple' => false])
             ->add('inscrire', CheckboxType::class, [
-                'label' => 'Je participe : ',
                 'required' => false,
                 'mapped' => false,
             ])
