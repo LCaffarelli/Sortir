@@ -1,7 +1,6 @@
-* {
+*{
     font-family: 'Rubik', sans-serif;
 }
-
 nav ul {
     position: fixed;
     margin: 0;
@@ -52,11 +51,11 @@ header {
 }
 
 .imageLogo {
+    top: -55px;
+    left: 1px;
     position: fixed;
-    left: 5px;
-    top: 5px;
-    width: 250px;
-    height: 70px;
+    width: 175px;
+    height: 175px;
     z-index: 5;
 }
 
@@ -65,7 +64,7 @@ header {
     color: whitesmoke;
 }
 .navbar:hover{
-    color: #111111;
+    color: #e69a20;
 }
 
 /*----------------Mise en forme des filtres-----------------------*/
@@ -74,8 +73,8 @@ header {
     border: none;
     border-radius: 10px;
     padding: 5px;
-    background-color: #FFFFFF;
-    opacity: 95%;
+    background-color: #ececec;
+    opacity: 80%;
 }
 
 .sectionFiltre label{
@@ -220,7 +219,7 @@ li {
     background-color: white; /*3*/
     box-shadow: 1px 5px 20px #999; /*4*/
     border-radius: 10px;
-    opacity: 97%;
+    opacity: 85%;
 }
 
 .card:hover .card-image img { /*6*/
@@ -382,7 +381,7 @@ footer {
     }
 
     .sidenav a:hover {
-        color: #111;
+        color: #e69a20;
     }
 
     .sidenav ul {
@@ -461,7 +460,10 @@ footer {
         display:none;
 
     }
-
+    .sectionFiltre {
+        margin-top: 15vh;
+        margin-bottom: 5vh;
+    }
 
 }
 
@@ -511,10 +513,13 @@ footer {
 }
  html{
      background-color: #4E6375;
-     background-image: url("../img/fondPaul1.jpg");
+     background-image: url("../img/FONDSite.png");
      background-repeat: no-repeat;
      background-attachment: fixed;
+     background-size: cover;
  }
  body{
      margin-top: 7vh;
+
  }
+
