@@ -4,51 +4,55 @@
 
 {% block body %}
     <link rel="stylesheet" href="{{ asset('css/detailParticipant.css') }}">
-    <h1 class="titreListeCard">Profil Participant</h1>
+
     <div class="bodyDetailParticipant">
-        <div class="titreDetailParticipant">
-            <h1>{{ user.pseudo }}</h1>
-        </div>
-        <br>
+        <div class="cardSortie">
+            <div class="titreDetailParticipant">
+                <h1>{{ user.pseudo }}</h1>
+            </div>
+            <br>
 
-        <div >
-            <img class="img" src="{{ asset('img/profil/'~user.image) }}" alt="image profil participant">
-        </div>
-
-        <div>
-            <div>
-                <label for="nom">Nom : </label>
-                {{ user.nom }}
-            </div>
-            <br>
-            <div>
-                <label for="prenom">Prénom : </label>
-                {{ user.prenom }}
-            </div>
-            <br>
-            <div>
-                <label for="tel">Téléphone : </label>
-                {{ user.telephone }}
-            </div>
-            <br>
-            <div>
-                <label for="email">Email : </label>
-                {{ user.email }}
-            </div>
-            <br>
-            <div>
-                <label for="site">Site de rattachement :</label>
-                {{ user.site.nom }}
-            </div>
-            <br>
-            <div class="btnDetailParticipant">
-                <button onclick="precedent()">Retour</button>
-                <a href="{{ path('main_home') }}">
-                    <button>Accueil</button>
-                </a>
+            <div >
+                <img class="img" src="{{ asset('img/profil/'~user.image) }}" alt="image profil participant">
             </div>
 
+            <div>
+                <div>
+                    <label for="nom">Nom : </label>
+                    {{ user.nom }}
+                </div>
+                <br>
+                <div>
+                    <label for="prenom">Prénom : </label>
+                    {{ user.prenom }}
+                </div>
+                <br>
+                <div>
+                    <label for="tel">Téléphone : </label>
+                    {{ user.telephone }}
+                </div>
+                <br>
+                <div>
+                    <label for="email">Email : </label>
+                    {{ user.email }}
+                </div>
+                <br>
+                <div>
+                    <label for="site">Site de rattachement :</label>
+                    {{ user.site.nom }}
+                </div>
+                <br>
+                <div class="btnDetailParticipant">
+                    <button onclick="precedent()">Retour</button>
+                    <a href="{{ path('main_home') }}">
+                        <button>Accueil</button>
+                    </a>
+                </div>
+
+            </div>
+
         </div>
+
     </div>
 
 

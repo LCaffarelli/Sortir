@@ -1,23 +1,21 @@
 .bodyDetailParticipant {
 
-    margin: auto;
-    margin-top: 50px;
-    margin-bottom: 50px;
-    flex-wrap: wrap;
-    width: 300px;
-    height: auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    flex-direction: column;
+    display: flex;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
     justify-content: center;
+}
+.cardSortie {
+    margin-bottom: 9%;
+    margin-top: 4%;
+
+    width: 400px; /*1*/
+    background-color: rgba(255, 255, 255, 0.7);
+    box-shadow: 1px 5px 20px #999; /*4*/
     border-radius: 10px;
-    font-size: 1.1em;
-    color: darkorange;
+    opacity: 97%;
 }
 
-.titreDetailParticipant {
-    text-align: end;
-}
 
 label {
     font-style: oblique;
