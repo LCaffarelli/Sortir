@@ -44,7 +44,7 @@ class ModifType extends AbstractType
                 ,//Choix liste déroulantes
                 'multiple' => false])
             ->add('publier', SubmitType::class, [
-                'label' => "Publier la sortie",
+                'label' => "Publier",
             ])
             ->add('cree', SubmitType::class, [
                 'label' => "Enregistrer",

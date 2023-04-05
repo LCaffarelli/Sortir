@@ -4,88 +4,109 @@
 {% block body %}
     <link rel="stylesheet" href="{{ asset('css/modifierSortie.css') }}">
     <script src="{{ asset('js/modificationSortie.js') }}" defer></script>
+    <div class="bodyModifierSortie">
+        <div class="cardSortie">
+            <h2>Modifier votre sortie : </h2>
+            {{ form_start(sortieModif) }}
 
-    {{ form_start(sortieModif) }}
+            <form action="{{ path('sortie_modifier',{'id':sortie.id}) }}">
+                <input type="hidden" name="_token" value="{{ csrf_token('modifier'~sortie.id) }}">
+                <div class="div1">
+                    <div>
+                        <div>
+                            <label id="labelNom" for="nom">Nom : </label>
+                            <div>
+                                {{ form_errors(sortieModif.nom) }}
+                                {{ form_widget(sortieModif.nom) }}
+                            </div>
+                        </div>
 
-    <form action="{{ path('sortie_modifier',{'id':sortie.id}) }}">
-        <input type="hidden" name="_token" value="{{ csrf_token('modifier'~sortie.id) }}">
 
-        <div class="bodyModifierSortie">
-            <div>
-                <label id="labelNom" for="nom">Nom : </label>
+                        <div>
+                            <label id="labelDateHeureDebut" for="dateHeureDebut"> Date début de la sortie : </label>
+                            <div>
+                                {{ form_errors(sortieModif.dateHeureDebut) }}
+                                {{ form_widget(sortieModif.dateHeureDebut) }}
+                            </div>
 
-                {{ form_errors(sortieModif.nom) }}
-                {{ form_widget(sortieModif.nom) }}
+                        </div>
 
+                        <div>
+                            <label id="labelDuree" for="duree">Durée : </label>
+                            <div>
+                                {{ form_errors(sortieModif.duree) }}
+                                {{ form_widget(sortieModif.duree) }}
+                            </div>
+                        </div>
+
+
+                        <div>
+                            <label id="labeldateLimiteInscription" for="dateLimiteInscription">Date limite d'inscription
+                                : </label>
+                            <div>
+                                {{ form_errors(sortieModif.dateLimiteInscription) }}
+                                {{ form_widget(sortieModif.dateLimiteInscription) }}
+                            </div>
+
+                        </div>
+
+                        <div>
+                            <label id="labelNbInscriptionsMax" for="nbInscriptionsMax">Nombre maximum de participants
+                                : </label>
+                            <div>
+                                {{ form_errors(sortieModif.nbInscriptionsMax) }}
+                                {{ form_widget(sortieModif.nbInscriptionsMax) }}
+                            </div>
+                        </div>
+
+                        <div>
+                            <label id="labelDescription" for="infosSortie">Description et informations : </label>
+                            <div>
+                                {{ form_errors(sortieModif.infosSortie) }}
+                                {{ form_widget(sortieModif.infosSortie) }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+
+                <div class="div2">
+                    <div>
+                        <label id="labelLieu" for="lieu">Lieu : </label>
+                        {{ form_errors(sortieModif.lieu) }}
+                        {{ form_widget(sortieModif.lieu) }}
+
+                    </div>
+                    <br>
+                    <div>Adresse :</div>
+                    <br>
+                    <article>
+
+                        <script>
+
+                        </script>
+                    </article>
+                </div>
+
+                <br>
+                <div class="div3">
+                    {{ form_widget(sortieModif) }}
+                </div>
+            </form>
+
+            {{ form_end(sortieModif) }}
+            <div class="div4">
+
+                    <a href="{{ path('main_home') }}">
+                        <button>Retour</button>
+                    </a>
+                    <form action="{{ path('sortie_delete',{'id':sortie.id}) }}">
+                        <input type="hidden" name="_token" value="{{ csrf_token('delete'~sortie.id) }}">
+                        <button>Supprimer</button>
+                    </form>
             </div>
-            <br>
-            <div>
-                <label id="labelDateHeureDebut" for="dateHeureDebut"> Date début de la sortie : </label>
-                {{ form_errors(sortieModif.dateHeureDebut) }}
-                {{ form_widget(sortieModif.dateHeureDebut) }}
-            </div>
-            <br>
-
-            <div>
-                <label id="labelDuree" for="duree">Durée : </label>
-                {{ form_errors(sortieModif.duree) }}
-                {{ form_widget(sortieModif.duree) }}
-            </div>
-            <br>
-
-            <div>
-                <label id="labeldateLimiteInscription" for="dateLimiteInscription">Date limite d'inscription : </label>
-                {{ form_errors(sortieModif.dateLimiteInscription) }}
-                {{ form_widget(sortieModif.dateLimiteInscription) }}
-            </div>
-            <br>
-
-            <div>
-                <label id="labelNbInscriptionsMax" for="nbInscriptionsMax">Nombre de participants : </label>
-                {{ form_errors(sortieModif.nbInscriptionsMax) }}
-                {{ form_widget(sortieModif.nbInscriptionsMax) }}
-            </div>
-            <br>
-
-            <div>
-                <label id="labelDescription" for="infosSortie">Description et informations : </label>
-                {{ form_errors(sortieModif.infosSortie) }}
-                {{ form_widget(sortieModif.infosSortie) }}
-            </div>
-            <br>
-
-            <div>
-                <label id="labelLieu" for="lieu">Lieu : </label>
-                {{ form_errors(sortieModif.lieu) }}
-                {{ form_widget(sortieModif.lieu) }}
-
-            </div>
-            <br>
-            <article>
-                <script>
-
-                </script>
-            </article>
 
         </div>
-        <br>
-        <div class="boutonModif">
-            {{ form_widget(sortieModif) }}
-        </div>
-    </form>
-
-
-    {{ form_end(sortieModif) }}
-    <div class="autreBTN">
-        <a href="{{ path('main_home') }}">
-            <button>Retour</button>
-        </a>
-        <form action="{{ path('sortie_delete',{'id':sortie.id}) }}">
-            <input type="hidden" name="_token" value="{{ csrf_token('delete'~sortie.id) }}">
-            <button >Supprimer
-
-            </button>
-        </form>
     </div>
 
 

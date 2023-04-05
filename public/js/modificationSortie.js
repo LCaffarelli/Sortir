@@ -1,30 +1,23 @@
 function remplissageDiv(jsonObj) {
     let article = document.querySelector('article');
     article.innerHTML = '';
-    let ville = document.createElement('h4');
-    let rue = document.createElement('p');
-    let codePostal = document.createElement('p');
-    let latitude = document.createElement('p');
-    let longitude = document.createElement('p');
+    let rue = document.createElement('div');
+    let codePostal = document.createElement('div');
+    let ville = document.createElement('div');
+    let latitude = document.createElement('div');
+    let longitude = document.createElement('div');
 
     ville.textContent = jsonObj['ville'];
     rue.textContent = jsonObj['Rue'];
     codePostal.textContent =jsonObj['code'];
-    latitude.textContent = 'Latitude : ' + jsonObj['latitude'];
-    longitude.textContent = 'Longitude : ' + jsonObj['longitude'];
-
-    const adresse = document.createTextNode("Adresse : ");
-    const textNode = document.createTextNode(rue.innerText + ", " + codePostal.innerText + " " + ville.innerText+"  ("+latitude.innerHTML + " " + longitude.innerText+" )");
+    latitude.textContent = '( Latitude : ' + jsonObj['latitude'] +', Longitude : ' + jsonObj['longitude']+')' ;
 
 
-    article.appendChild(adresse);
-    article.appendChild(textNode);
+    article.appendChild(rue);
+    article.appendChild(codePostal);
+    article.appendChild(ville);
+    article.appendChild(latitude);
 
-    // article.appendChild(ville);
-    // article.appendChild(rue);
-    // article.appendChild(codePostal);
-    // article.appendChild(latitude);
-    // article.appendChild(longitude);
 }
 
 const select = document.querySelector("#modif_lieu");
