@@ -1,0 +1,54 @@
+/*CSS DETAIL PROFIL UTILISATEUR*/
+.bodyDetailUser {
+    margin: auto;
+    margin-top: 5%;
+    margin-bottom: 4%;
+    flex-wrap: wrap;
+    width: 300px;
+    height: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 10px;
+    font-size: 1.2em;
+    color: darkorange;
+}
+
+.champsDetailUser {
+    padding-bottom: 10px;
+}
+
+.imageP {
+
+    display: flex;
+    align-content: center;
+    justify-content: left;
+    grid-column: 1/2;
+}
+
+#imgUser {
+    max-width: 850px;
+    height: 400px;
+    padding-top: 50px;
+    padding-right: 80px;
+}
+
+#update_profile_plainPassword_first{
+    margin-bottom: 15px;
+}
+
+.btn_retour_profil{
+    display: flex;
+    justify-content: end;
+
+}
+
+#update_profile_save{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 18%;
+}
+#btnRetourDetail{
+    margin-right: 54%;
+}

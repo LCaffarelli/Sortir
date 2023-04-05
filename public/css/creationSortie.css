@@ -1,0 +1,13 @@
+.cardSortie {
+    margin-bottom: 9%;
+    margin-top: 4%;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 400px; /*1*/
+    background-color: white; /*3*/
+    box-shadow: 1px 5px 20px #999; /*4*/
+    border-radius: 10px;
+    opacity: 97%;
+    display: flex;
+    justify-content: center;
+}

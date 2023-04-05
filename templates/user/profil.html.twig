@@ -2,7 +2,7 @@
 {% block title %}{{ parent() }} | Mon profil {% endblock %}
 
 {% block body %}
-
+    <link rel="stylesheet" href="{{ asset('css/detailProfilUser.css') }}">
     <div class="bodyDetailUser">
 
         <div class="imageP">
@@ -75,10 +75,10 @@
             </div>
 
         </div>
-
         {{ form_end(formUpdate) }}
-        <div>
-            <a href="{{ path('main_home') }}"><button>Retour</button></a>
+        <br>
+        <div class="btn_retour_profil">
+            <a id="btnRetourDetail" href="{{ path('main_home') }}"><button>Retour</button></a>
         </div>
 
 

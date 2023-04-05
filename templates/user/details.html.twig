@@ -5,7 +5,7 @@
 {% block body %}
     <link rel="stylesheet" href="{{ asset('css/detailParticipant.css') }}">
     <h1 class="titreListeCard">Profil Participant</h1>
-    <div class="bodyDetailUser">
+    <div class="bodyDetailParticipant">
         <div class="titreDetailParticipant">
             <h1>{{ user.pseudo }}</h1>
         </div>
@@ -41,10 +41,13 @@
                 {{ user.site.nom }}
             </div>
             <br>
-            <button onclick="precedent()">Retour</button>
-            <a href="{{ path('main_home') }}">
-                <button>Accueil</button>
-            </a>
+            <div class="btnDetailParticipant">
+                <button onclick="precedent()">Retour</button>
+                <a href="{{ path('main_home') }}">
+                    <button>Accueil</button>
+                </a>
+            </div>
+
         </div>
     </div>
 

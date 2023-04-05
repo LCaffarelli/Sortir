@@ -5,9 +5,10 @@
 
 {% block body %}
     <script src="{{ asset('js/creationSortie.js') }}" defer></script>
-    <h1 class="titreListeCard">Creation Sortie</h1>
-    <fieldset id="fieldset-creation-sortie">
-        <legend>Ma Sortie</legend>
+    <link rel="stylesheet" href="{{ asset('css/creationSortie.css') }}">
+
+    <div class="cardSortie">
+
         {{ form_start(sortieForm) }}
 
         <div>
@@ -83,11 +84,12 @@
         </div>
 
         {{ form_end(sortieForm) }}
+
         <div class="btn_retour_crea">
             <a href="{{ path('main_home') }}"><button>Retour</button></a>
         </div>
 
 
 
-    </fieldset>
+    </div>
 {% endblock %}

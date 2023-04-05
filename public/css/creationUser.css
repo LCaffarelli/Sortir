@@ -1,0 +1,17 @@
+.bodyCreationUser{
+    margin: auto;
+    margin-top: 5%;
+    margin-bottom: 7%;
+    flex-wrap: wrap;
+    width: min-content;
+    display: flex;
+    justify-content: center;
+    font-size: 1.2em;
+    color: darkorange;
+}
+
+.btnCreaUser{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 26%;
+}

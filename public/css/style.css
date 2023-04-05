@@ -277,60 +277,6 @@ th,td{
     border: 1px solid darkorange;
     padding: 10px;
 }
-/*CSS DETAIL PROFIL PARTICIPANT*/
-
-.bodyDetailParticipant {
-
-    color: darkorange;
-}
-
-.titreDetailParticipant {
-    text-align: center;
-}
-
-/*CSS DETAIL PROFIL UTILISATEUR*/
-.bodyDetailUser {
-    margin: auto;
-    margin-top: 50px;
-    margin-bottom: 50px;
-    flex-wrap: wrap;
-    width: 300px;
-    height: auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    flex-direction: column;
-    justify-content: center;
-    border-radius: 10px;
-    font-size: 1.1em;
-    color: darkorange;
-}
-
-.champsDetailUser {
-    padding-bottom: 10px;
-}
-
-.imageP {
-    display: flex;
-    align-content: center;
-    justify-content: left;
-    grid-column: 1/2;
-}
-
-#imgUser {
-    max-width: 850px;
-    height: 400px;
-    padding-top: 50px;
-    padding-right: 80px;
-}
-
-#update_profile_plainPassword_first{
-    margin-bottom: 15px;
-}
-
-.btn_retour_profil{
-    display: flex;
-    justify-content: center;
-}
 
 
 footer {

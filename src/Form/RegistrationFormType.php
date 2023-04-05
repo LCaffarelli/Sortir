@@ -30,8 +30,6 @@ class RegistrationFormType extends AbstractType
 
             ->add('email')
 
-           // ->add('image', FileType::class, ['mapped' => false, 'required' => false, 'constraints' => [new File(['maxSize' => '1024k',
-               // 'mimeTypes' => ['image/jpeg', 'image/png','image/gif','image/svg+xml'], 'mimeTypesMessage' => 'Please upload a valid image'])]])
 
             ->add('site', EntityType::class, ['class' => Site::class,
                 'choice_label' => 'nom',
