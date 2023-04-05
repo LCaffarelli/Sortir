@@ -52,7 +52,7 @@ class FiltresSortieType extends AbstractType
                 'required' => false,
             ])
             ->add('nonInscrit', CheckboxType::class, [
-                'label' => 'Sorties Auxquelles je ne suis pas inscrit(e)',
+                'label' => 'Sorties auxquelles je ne suis pas inscrit(e)',
                 'required' => false,
             ])
             ->add('oldSortie', CheckboxType::class, [
