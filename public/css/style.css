@@ -512,14 +512,17 @@ footer {
     top: -160%;
 }
  html{
-     background-color: #4E6375;
-     background-image: url("../img/FONDSite.png");
+     background-image: url("../img/fondtransapante.png");
      background-repeat: no-repeat;
      background-attachment: fixed;
      background-size: cover;
  }
+html * {
+    opacity: 1;
+}
  body{
      margin-top: 7vh;
+     opacity: 1;
 
  }
 
