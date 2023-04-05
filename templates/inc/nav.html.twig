@@ -17,12 +17,12 @@
                     {% if is_granted('ROLE_ADMIN') %}
 
                         <li><a class="navbar" href="#" title="Sites">Sites</a></li>
-                        <li><a class="navbar" href="#" title="Villes">Ville</a></li>
-                        <li><a class="navbar" href="{{ path('app_register') }}" title="admin">Création utilisateur</a></li>
+                        <li><a class="navbar" href="#" title="Villes">Villes</a></li>
+                        <li><a class="navbar" href="{{ path('app_register') }}" title="admin">Inscrire un élève</a></li>
 
                     {% endif %}
 
-                <li><a class="navbar" href="{{ path('app_logout') }}" title="Logout">Logout</a>
+                <li><a class="navbar" href="{{ path('app_logout') }}" title="Logout">Se déconnecter</a>
 
                 {% endif %}
             </div>

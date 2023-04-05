@@ -5,63 +5,87 @@
 {% block body %}
     <link rel="stylesheet" href="{{ asset('css/creationUser.css') }}">
     <div class="bodyCreationUser">
-        {{ form_start(registrationForm) }}
-        <div>
-            <label for="pseudo">Pseudo de l'élève :</label>
-            {{ form_errors(registrationForm.pseudo) }}
-            {{ form_widget(registrationForm.pseudo) }}
+        <div class="cardSortie">
+            <div class="div1">
+
+                {{ form_start(registrationForm) }}
+                <div>
+                    <label for="pseudo">Pseudo de l'élève :</label>
+                    <div>
+                        {{ form_errors(registrationForm.pseudo) }}
+                        {{ form_widget(registrationForm.pseudo) }}
+                    </div>
+                </div>
+                <br>
+
+                <div>
+                    <label for="nom">Nom de l'élève :</label>
+                    <div>
+                        {{ form_errors(registrationForm.nom) }}
+                        {{ form_widget(registrationForm.nom) }}
+                    </div>
+                </div>
+                <br>
+
+                <div>
+                    <label for="prenom">Prénom de l'élève :</label>
+                    <div>
+                        {{ form_errors(registrationForm.prenom) }}
+                        {{ form_widget(registrationForm.prenom) }}
+                    </div>
+                </div>
+                <br>
+
+                <div>
+                    <label for="tel">Numéro de téléphone de l'élève :</label>
+                    <div>
+                        {{ form_errors(registrationForm.telephone) }}
+                        {{ form_widget(registrationForm.telephone) }}
+                    </div>
+                </div>
+                <br>
+
+                <div>
+                    <label for="email">Email de l'élève :</label>
+                    <div>
+                        {{ form_errors(registrationForm.email) }}
+                        {{ form_widget(registrationForm.email) }}
+                    </div>
+                </div>
+                <br>
+
+                <div>
+                    <label for="site">Site d'affectation :</label>
+                    <div>
+                        {{ form_errors(registrationForm.site) }}
+                        {{ form_widget(registrationForm.site) }}
+                    </div>
+
+                </div>
+                <br>
+
+                <div>
+                    <label for="nom">Mot de passe provisoire :</label>
+                    <div>
+                        {{ form_errors(registrationForm.plainPassword) }}
+                        {{ form_widget(registrationForm.plainPassword) }}
+                    </div>
+                </div>
+                <br>
+                <div class="div2">
+                    <div>
+                        <button class="btnCreaUser" type="submit">Enregistrer</button>
+                    </div>
+                </div>
+
+
+                {{ form_end(registrationForm) }}
+            </div>
+
+
         </div>
-        <br>
-
-        <div>
-            <label for="nom">Nom de l'élève :</label>
-            {{ form_errors(registrationForm.nom) }}
-            {{ form_widget(registrationForm.nom) }}
-        </div>
-        <br>
-
-        <div>
-            <label for="prenom">Prénom de l'élève :</label>
-                {{ form_errors(registrationForm.prenom) }}
-                {{ form_widget(registrationForm.prenom) }}
-
-        </div>
-        <br>
-
-        <div>
-            <label for="tel">Numéro de téléphone de l'élève :</label>
-                {{ form_errors(registrationForm.telephone) }}
-                {{ form_widget(registrationForm.telephone) }}
-        </div>
-        <br>
-
-        <div>
-            <label for="email">Email de l'élève :</label>
-                {{ form_errors(registrationForm.email) }}
-                {{ form_widget(registrationForm.email) }}
-        </div>
-        <br>
-
-        <div>
-            <label for="site">Site d'affectation :</label>
-                {{ form_errors(registrationForm.site) }}
-                {{ form_widget(registrationForm.site) }}
-        </div>
-        <br>
-
-        <div>
-            <label for="nom">Mot de passe provisoire :</label>
-                {{ form_errors(registrationForm.plainPassword) }}
-                {{ form_widget(registrationForm.plainPassword) }}
-        </div>
-        <br>
-        <div >
-            <button class="btnCreaUser" type="submit">Enregistrer</button>
-        </div>
-
-
-        {{ form_end(registrationForm) }}
 
     </div>
+
 
 {% endblock %}

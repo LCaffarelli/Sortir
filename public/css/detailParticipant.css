@@ -19,11 +19,17 @@
     text-align: end;
 }
 
-.img{
+label {
+    font-style: oblique;
+    font-weight: bold;
+}
+
+.img {
     max-width: 250px;
     padding-right: 50px;
 }
-.btnDetailParticipant{
+
+.btnDetailParticipant {
     display: flex;
     justify-content: space-between;
 }

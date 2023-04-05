@@ -1,5 +1,4 @@
 
-
 .bodyDetailUser {
     display: flex;
     grid-template-columns: repeat(5, 1fr);
@@ -7,14 +6,20 @@
     justify-content: center;
 }
 
-.titrePseudo{
-  text-align: center;
+.titrePseudo {
+    text-align: center;
 }
+
 .div1 {
     grid-area: 1 / 1 / 2 / 2;
     display: flex;
     flex-direction: row;
     margin-top: 5%;
+}
+
+label {
+    font-style: oblique;
+    font-weight: bold;
 }
 
 .div2 {

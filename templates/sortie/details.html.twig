@@ -4,111 +4,128 @@
 {% block title %}{{ parent() }} | Sortie {{ sortie.nom }}{% endblock %}
 
 {% block body %}
+    <link rel="stylesheet" href="{{ asset('css/detailSortie.css') }}">
 
-    <div>
-        <h1 class="titreListeCard">{{ sortie.nom }}</h1>
-    </div>
+    <div class="bodyDetailSortie">
+        <div class="cardSortie">
 
-    <div class="bodyDetailParticipant">
+            <div class="div1">
+                <h1>{{ sortie.nom }}</h1>
+            </div>
 
-        <div>
-            <label for="nomSortie">Nom de la sortie : </label>{{ sortie.nom }}
-        </div>
-        <br>
-        <div>
-            <label for="dateSortie">Date et heure de la sortie : </label>{{ sortie.dateHeureDebut |date ("d/m/Y H:i") }}
-        </div>
-        <br>
-        <div>
-            <label for="dateLimite">Date limite d'inscription
-                : </label>{{ sortie.dateLimiteInscription | date ("d/m/Y H:i") }}
-        </div>
-        <br>
-        <div>
-            <label for="nbLimiteParticipants">Nombre de participants : </label>{{ sortie.nbInscriptionsMax }}
-        </div>
-        <br>
-        <div>
-            <label for="dureeSortie">Durée : </label>{{ sortie.duree |date ('H:i') }}
-        </div>
-        <br>
-        <div>
-            <label for="descSortie">Description et infos : </label>{{ sortie.infosSortie }}
-        </div>
-        <br>
-        <div>
-            <label for="lieuSortie">Lieu : </label>
-            <p>{{ sortie.lieu.nom }}</p>
-            <p>{{ sortie.lieu.rue }}</p>
-            <p>{{ sortie.lieu.ville.codePostal }}, {{ sortie.lieu.ville.nom }}</p>
-
-        </div>
-        <br>
-        <div>
-            <label for="latitudeSortie">Latitude : </label>{{ sortie.lieu.latitude }} <label for="longitudeSortie"> Longitude : </label>{{ sortie.lieu.longitude }}
-        </div>
-
-
-
-        <br>
-
-        <div >
-            {% if sortie.etat.id==6 %}
-                <h1>Sortie annulée</h1>
-            {% else %}
+            <div class="div2">
                 <div>
-                    <table class="tab">
-                        <caption>Liste des participants inscrits :</caption>
-                        <tr>
-                            <th>Pseudo</th>
-                            <th>Nom</th>
-                        </tr>
-                        {% for u in sortie.users %}
-                            <tr>
-                                <td><a href="{{ path('user_details', {'id': u.id}) }}">{{ u.pseudo }}</a></td>
-                                <td>{{ u.nom }} {{ u.prenom }}</td>
-                            </tr>
-                        {% endfor %}
-                    </table>
+                    <label for="dateSortie">Date et heure de la sortie : </label>
+                    <div>{{ sortie.dateHeureDebut |date ("d/m/Y H:i") }}</div>
                 </div>
+                <br>
+                <div>
+                    <label for="dateLimite">Date limite d'inscription : </label>
+                    <div>{{ sortie.dateLimiteInscription | date ("d/m/Y H:i") }}</div>
+                </div>
+                <br>
+                <div>
+                    <label for="nbLimiteParticipants">Nombre de participants : </label>
+                    <div>{{ sortie.nbInscriptionsMax }} participants maximum</div>
+                </div>
+                <br>
+                <div>
+                    <label for="dureeSortie">Durée : </label>
+                    <div>{{ sortie.duree |date ('H:i') }}</div>
+                </div>
+                <br>
+                <div>
+                    <label for="descSortie">Description et infos : </label>
+                    <div>{{ sortie.infosSortie }}</div>
+                </div>
+            </div>
 
-            {% endif %}</div>
-        <br>
+            <div class="div3">
+                <div>
+                    <label for="lieuSortie">Lieu : </label>
+                    <div>
+                        <div>{{ sortie.lieu.nom }}</div>
+                        <div>{{ sortie.lieu.rue }}</div>
+                        <div>{{ sortie.lieu.ville.codePostal }}, {{ sortie.lieu.ville.nom }}</div>
+                        <div>(Latitude : {{ sortie.lieu.latitude }} , Longitude : {{ sortie.lieu.longitude }} )  </div>
+                    </div>
+                </div>
+            </div>
 
-        {% if finInscription == false %}
-            <form action="{{ path('sortie_inscription', {'id': sortie.id}) }}">
-                <input type="hidden" name="_token" value="{{ csrf_token('inscription'~sortie.id) }}">
-                <button>S'inscrire</button>
-            </form>
-        {% endif %}
 
-        {% for user in sortie.users %}
+            <br>
 
-            {% if user.id==app.user.id and finInscription == false %}
-                <form action="{{ path('sortie_desistement',{'id':sortie.id}) }}" method="get">
+            <div class="div4">
+                {% if sortie.etat.id==6 %}
+                    <h1>Sortie annulée</h1>
+                {% else %}
+                    <div>
+                        <table class="tab">
+                            <caption>Liste des participants inscrits :</caption>
+                            <tr>
+                                <th>Pseudo</th>
+                                <th>Nom</th>
+                            </tr>
+                            {% for u in sortie.users %}
+                                <tr>
+                                    <td><a href="{{ path('user_details', {'id': u.id}) }}">{{ u.pseudo }}</a></td>
+                                    <td>{{ u.nom }} {{ u.prenom }}</td>
+                                </tr>
+                            {% endfor %}
+                        </table>
+                    </div>
 
-                    <input type="hidden" name="_token" value="{{ csrf_token('desistement'~sortie.id) }}">
-                    <button>Se désister</button>
-                </form>
+                {% endif %}</div>
+            <br>
+            <div class="div5">
 
-            {% endif %}
-        {% endfor %}
+                {% if finInscription == false %}
+                    <form action="{{ path('sortie_inscription', {'id': sortie.id}) }}">
+                        <input type="hidden" name="_token" value="{{ csrf_token('inscription'~sortie.id) }}">
+                        <button>S'inscrire</button>
+                    </form>
+                {% endif %}
 
-        {% if app.user == sortie.organisateur and sortie.etat.id == 1 or sortie.etat.id == 2 %}
-            <form action="{{ path('sortie_annuler',{'id':sortie.id}) }}">
-                <input type="hidden" name="_token" value="{{ csrf_token('annuler'~sortie.id) }}">
-                <a href="{{ path('sortie_annuler', {'id': sortie.id}) }}"><button>Annuler</button></a>
-            </form>
-        {% endif %}
+                {% for user in sortie.users %}
 
-        {% if app.user == sortie.organisateur and sortie.etat.id ==  1 %}
-            <form action="{{ path('sortie_modifier',{'id':sortie.id}) }}">
-                <input type="hidden" name="_token" value="{{ csrf_token('modifier'~sortie.id) }}">
-                <a href="{{ path('sortie_modifier', {'id' : sortie.id}) }}"><button>Modifier</button></a>
-            </form>
+                    {% if user.id==app.user.id and finInscription == false %}
+                        <form action="{{ path('sortie_desistement',{'id':sortie.id}) }}" method="get">
 
-        {% endif %}
+                            <input type="hidden" name="_token" value="{{ csrf_token('desistement'~sortie.id) }}">
+                            <button>Se désister</button>
+                        </form>
+
+                    {% endif %}
+                {% endfor %}
+
+                {% if app.user == sortie.organisateur and sortie.etat.id == 1 or sortie.etat.id == 2 %}
+                    <form action="{{ path('sortie_annuler',{'id':sortie.id}) }}">
+                        <input type="hidden" name="_token" value="{{ csrf_token('annuler'~sortie.id) }}">
+                        <a href="{{ path('sortie_annuler', {'id': sortie.id}) }}">
+                            <button>Annuler</button>
+                        </a>
+                    </form>
+                {% endif %}
+
+                {% if app.user == sortie.organisateur and sortie.etat.id ==  1 %}
+                    <form action="{{ path('sortie_modifier',{'id':sortie.id}) }}">
+                        <input type="hidden" name="_token" value="{{ csrf_token('modifier'~sortie.id) }}">
+                        <a href="{{ path('sortie_modifier', {'id' : sortie.id}) }}">
+                            <button>Modifier</button>
+                        </a>
+                    </form>
+
+                {% endif %}
+            </div>
+
+
+        </div>
 
     </div>
+
+
+
+
+
 {% endblock %}
 
