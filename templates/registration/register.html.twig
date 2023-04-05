@@ -81,11 +81,20 @@
 
                 {{ form_end(registrationForm) }}
             </div>
-
-
         </div>
-
     </div>
 
+    <form action="{{ path('app_registration_csv') }}" method="post" enctype="multipart/form-data">
+        {{ form_start(CSVForm) }}
 
+        <div>
+            {{ form_label(CSVForm.fichierCSV) }}
+            <div>
+                {{ form_errors(CSVForm.fichierCSV) }}
+                {{ form_widget(CSVForm.fichierCSV) }}
+            </div>
+        </div>
+        <div>{{ form_widget(CSVForm.Enregistrer)}}</div>
+        {{ form_end(CSVForm) }}
+    </form>
 {% endblock %}
