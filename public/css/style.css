@@ -78,11 +78,15 @@ header {
     opacity: 95%;
 }
 
+.sectionFiltre label{
+    margin-left: 10px;
+}
+
 .filtreSortie{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(5, 1fr) ;
-    grid-column-gap: 0px ;
+    grid-column-gap: 0;
     grid-row-gap: 15px;
 
 }
@@ -561,10 +565,10 @@ footer {
 }
  html{
      background-color: #4E6375;
-     background-image: url("../img/Sans titre.png");
+     background-image: url("../img/fondPaul1.jpg");
      background-repeat: no-repeat;
      background-attachment: fixed;
  }
-
-
-
+ body{
+     margin-top: 7vh;
+ }
