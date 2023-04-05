@@ -12,9 +12,10 @@
                 <h1>{{ user.pseudo }}</h1>
             </div>
             <br>
+
             <div class="div2">
                 <div>
-                    <img class="img" src="{{ asset('img/profil/'~user.image) }}" alt="image profil participant">
+                    <img id="imgParticipant" src="{{ asset('img/profil/'~user.image) }}" alt="image profil participant">
                 </div>
             </div>
 
@@ -22,34 +23,45 @@
                 <div>
                     <div>
                         <label for="nom">Nom : </label>
-                        {{ user.nom }}
+                        <div>
+                            {{ user.nom }}
+                        </div>
                     </div>
                     <br>
                     <div>
                         <label for="prenom">Prénom : </label>
-                        {{ user.prenom }}
+                        <div>
+                            {{ user.prenom }}
+                        </div>
                     </div>
                     <br>
                     <div>
                         <label for="tel">Téléphone : </label>
-                        {{ user.telephone }}
+                        <div>
+                            {{ user.telephone }}
+                        </div>
                     </div>
                     <br>
                     <div>
                         <label for="email">Email : </label>
-                        {{ user.email }}
+                        <div>
+                            {{ user.email }}
+                        </div>
                     </div>
                     <br>
                     <div>
                         <label for="site">Site de rattachement :</label>
-                        {{ user.site.nom }}
+                        <div>
+                            {{ user.site.nom }}
+                        </div>
                     </div>
                     <br>
                 </div>
+
                 <div class="div4">
                     <div class="btnDetailParticipant">
-                        <button onclick="precedent()">Retour</button>
-                        <a href="{{ path('main_home') }}">
+                        <button id="btnRetourDetail" onclick="precedent()">Retour</button>
+                        <a id="btnAccueilDetail" href="{{ path('main_home') }}">
                             <button>Accueil</button>
                         </a>
                     </div>
