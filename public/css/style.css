@@ -66,7 +66,9 @@ header {
 .navbar:hover{
     color: #e69a20;
 }
-
+.close{
+    visibility: hidden;
+}
 /*----------------Mise en forme des filtres-----------------------*/
 .sectionFiltre{
     margin: 100px 180px 30px 180px;
@@ -151,7 +153,8 @@ header {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: darkorange;
+    background-color: #011F39;
+    opacity: 80%;
     border-radius: 10px;
     font-size: 1.1em;
     color: whitesmoke;
@@ -467,13 +470,13 @@ footer {
 
 }
 
-.btn {
+.delete {
     background-color: transparent;
     position: relative;
     border: none;
 }
 
-.btn::after {
+.delete::after {
     content: 'supprimer';
     position: absolute;
     top: -130%;
@@ -498,7 +501,7 @@ footer {
     transition: .2s linear;
 }
 
-.btn:hover > .icon {
+.delete:hover > .icon {
     transform: scale(1.5);
 }
 
@@ -506,7 +509,7 @@ footer {
     fill: rgb(168, 7, 7);
 }
 
-.btn:hover::after {
+.delete:hover::after {
     visibility: visible;
     opacity: 1;
     top: -160%;

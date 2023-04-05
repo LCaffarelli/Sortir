@@ -1,2 +1,3 @@
-site;pseudo;password;nom;prenom;telephone;email;image
-1;"CSV";$2y$10$4ntArmVCI7G7.m.Y4ldzguuo1Q6pZsRWGE7O2UPQERwZCKnREtW7W;"csvpolo";"sccbf";"0632154781";"jhdifv@gmail.com";"salut.png"
+"site_id;pseudo;roles;password;nom;prenom;telephone;email;image;actif"
+"3;Pierre;[""ROLE_USER""];Pa$$w0rd;Dupont;Pierre;0504050606;pierre@gmail.com;pierre.png;1"
+"4;Jacques;[""ROLE_USER""];Pa$$w0rd;Martin;Jacques;0504050607;jacques@gmail.com;jacques.png;1"

@@ -39,9 +39,10 @@ class CreationSortieType extends AbstractType
             ->add('infosSortie')
             ->add('lieu', EntityType::class, ['class' => Lieu::class,
                 'choice_label' => 'nom',
+                'placeholder'=> 'Choisissez votre lieu',
                 'query_builder' => function (EntityRepository $er) {
                     return $er->createQueryBuilder('s')
-                        ->orderBy('s.nom', 'ASC');
+                        ->orderBy('s.id', 'ASC');
                 }
                 ,//Choix liste déroulantes
                 'multiple' => false])

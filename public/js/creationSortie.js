@@ -1,3 +1,18 @@
+
+const select = document.querySelector("#creation_sortie_lieu");
+select.addEventListener('change', (event) => {
+    let id = `${event.target.value}` ;
+    let requestURL ='http://localhost/Sortir/public/lieu/'+id;
+    let request = new XMLHttpRequest();
+    request.open('GET', requestURL);
+    request.responseType ='json';
+    request.send();
+    request.onload = function(){
+        let ville = request.response;
+        remplissageDiv(ville);
+    }
+})
+
 function remplissageDiv(jsonObj){
     let article = document.querySelector('article');
     article.innerHTML='';
@@ -21,26 +36,3 @@ function remplissageDiv(jsonObj){
     article.appendChild(longitude);
 }
 
-const select = document.querySelector("#creation_sortie_lieu");
-let id = `${select.value}` ;
-let requestURL ='http://localhost/Sortir/public/lieu/'+id;
-let request = new XMLHttpRequest();
-request.open('GET', requestURL);
-request.responseType ='json';
-request.send();
-request.onload = function(){
-    let ville = request.response;
-    remplissageDiv(ville);
-};
-select.addEventListener('change', (event) => {
-    let id = `${event.target.value}` ;
-    let requestURL ='http://localhost/Sortir/public/lieu/'+id;
-    let request = new XMLHttpRequest();
-    request.open('GET', requestURL);
-    request.responseType ='json';
-    request.send();
-    request.onload = function(){
-        let ville = request.response;
-        remplissageDiv(ville);
-    }
-})
