@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="{{ asset('css/creationUser.css') }}">
     <div class="bodyCreationUser">
         <div class="cardSortie">
+            <h3 style="margin-left: 10px">Enregistrement mauel :</h3>
             <div class="div1">
 
                 {{ form_start(registrationForm) }}
@@ -81,6 +82,7 @@
 
                 {{ form_end(registrationForm) }}
             </div>
+            <hr>
             <br>
             <form action="{{ path('app_registration_csv') }}" method="post" enctype="multipart/form-data" class="ajout-csv">
                 {{ form_start(CSVForm) }}
