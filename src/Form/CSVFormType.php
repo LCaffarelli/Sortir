@@ -22,7 +22,7 @@ class CSVFormType extends AbstractType
                      ],
                          'mimeTypes' => 'text/csv',
                         'mimeTypesMessage' => 'Le fichier doit être au format CSV',
-                         'maxSize' => '10M',
+                         'maxSize' => '10K',
                          'maxSizeMessage' => 'Le fichier est trop gros ({{ size }} {{ suffix }}). La taille maximale autorisée est {{ limit }} {{ suffix }}.'
                      ])
                 ]

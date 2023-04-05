@@ -2,7 +2,7 @@
 {% block title %}{{ parent() }} | Mon profil {% endblock %}
 
 {% block body %}
-    <link rel="stylesheet" href="{{ asset('css/detailProfilUser.css') }}">
+{#    <link rel="stylesheet" href="{{ asset('css/detailProfilUser.css') }}">#}
     <div class="bodyDetailUser">
         <div class="cardSortie">
             <div class="titrePseudo">
@@ -34,6 +34,7 @@
                         {{ form_widget(formUpdate.prenom) }}
                     </div>
                 </div>
+
                 <div>
                     <label for="nom">Nom :</label>
                     <div>
@@ -41,6 +42,7 @@
                         {{ form_widget(formUpdate.nom) }}
                     </div>
                 </div>
+
                 <div>
                     <label for="tel">Téléphone :</label>
                     <div>
@@ -48,6 +50,7 @@
                         {{ form_widget(formUpdate.telephone) }}
                     </div>
                 </div>
+
                 <div>
                     <label for="email">Email :</label>
                     <div>
@@ -82,14 +85,13 @@
                         {{ form_errors(formUpdate.plainPassword) }}
                         {{ form_widget(formUpdate.plainPassword) }}
                     </div>
-
                 </div>
-
             </div>
             <br>
             <div class="div3">
                 <button type="submit">Enregistrer</button>
                 {{ form_end(formUpdate) }}
+
                 <div class="btn_retour_profil">
                     <a id="btnRetourDetail" href="{{ path('main_home') }}">
                         <button>Retour</button>
@@ -97,8 +99,7 @@
                 </div>
             </div>
 
-
-        </div>
+       </div>
     </div>
 
 
