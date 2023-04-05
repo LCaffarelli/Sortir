@@ -75,8 +75,9 @@ header {
     border: none;
     border-radius: 10px;
     padding: 5px;
-    background-color: #d9f5ff;
+    background-color: #f1f7ff;
     opacity: 80%;
+    box-shadow: 1px 5px 20px #999;
 }
 
 .sectionFiltre label{
@@ -519,7 +520,7 @@ footer {
     top: -160%;
 }
  html{
-     background-image: url("../img/fondtransapante.png");
+     background-image: url("../img/TestFondPal.jpg");
      background-repeat: no-repeat;
      background-attachment: fixed;
      background-size: cover;
