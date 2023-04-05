@@ -6,7 +6,6 @@
 .cardSortie {
     margin-bottom: 9%;
     margin-top: 4%;
-
     width: 400px; /*1*/
     background-color: rgba(255, 255, 255, 0.7);
     box-shadow: 1px 5px 20px #999; /*4*/
