@@ -1,13 +1,54 @@
+
+.bodyCreaSortie {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    display: flex;
+    justify-content: center;
+}
+
+.div1 {
+    grid-area: 1 / 1 / 2 / 2;
+    margin-left: 25%;
+    margin-top: 5%;
+}
+
+.div2 {
+    grid-area: 1 / 2 / 2 / 3;
+    margin-left: 25%;
+    margin-top: 5%;
+}
+
+.div3 {
+    grid-area: 2 / 1 / 3 / 3;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-bottom: 5%;
+    margin-top: 5%;
+}
+#sortie{
+    margin-left: -25%;
+}
+#participation{
+    margin-left: -25%;
+
+}
+#ou{
+    margin-left: -25%;
+}
 .cardSortie {
     margin-bottom: 9%;
     margin-top: 4%;
     margin-left: 10px;
     margin-right: 10px;
     width: 400px; /*1*/
-    background-color: white; /*3*/
+    background-color: rgba(255, 255, 255, 0.7);
     box-shadow: 1px 5px 20px #999; /*4*/
     border-radius: 10px;
     opacity: 97%;
-    display: flex;
-    justify-content: center;
+}
+
+.btn_retour_crea {
+
 }

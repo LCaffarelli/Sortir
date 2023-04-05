@@ -4,85 +4,103 @@
 {% block body %}
     <link rel="stylesheet" href="{{ asset('css/detailProfilUser.css') }}">
     <div class="bodyDetailUser">
-
-        <div class="imageP">
-            <img id="imgUser" src="{{ asset('img/profil/'~user.image) }}" alt="photo du profil">
-        </div>
-
-        {{ form_start(formUpdate) }}
-        <div class="champsDetailUser">
-            <label for="pseudo">Pseudo : </label>
-            <div>
-                {{ form_errors(formUpdate.pseudo) }}
-                {{ form_widget(formUpdate.pseudo) }}
-            </div>
-        </div>
-
-
-        <div class="champsDetailUser">
-            <label for="prenom">Prénom :</label>
-            <div>
-                {{ form_errors(formUpdate.prenom) }}
-                {{ form_widget(formUpdate.prenom) }}
-            </div>
-        </div>
-        <div class="champsDetailUser">
-            <label for="nom">Nom :</label>
-            <div>
-                {{ form_errors(formUpdate.nom) }}
-                {{ form_widget(formUpdate.nom) }}
-            </div>
-        </div>
-        <div class="champsDetailUser">
-            <label for="tel">Téléphone :</label>
-            <div>
-                {{ form_errors(formUpdate.telephone) }}
-                {{ form_widget(formUpdate.telephone) }}
-            </div>
-        </div>
-        <div class="champsDetailUser">
-            <label for="email">Email :</label>
-            <div>
-                {{ form_errors(formUpdate.email) }}
-                {{ form_widget(formUpdate.email) }}
-            </div>
-        </div>
-
-
-        <div class="champsDetailUser">
-            <label for="site">Site :</label>
-            <div>
-                {{ form_errors(formUpdate.site) }}
-                {{ form_widget(formUpdate.site) }}
-            </div>
-        </div>
-
-
-        <div class="champsDetailUser">
-            <label for="image">Image de Profil :</label>
-            <div>
-                {{ form_errors(formUpdate.image) }}
-                {{ form_widget(formUpdate.image) }}
-            </div>
-        </div>
-        <div class="champsDetailUser">
-            <label for="mdp"
-                   title="Le mot de passe doit contenir au minimum 8 caractères dont une minuscule, une majuscule, un chiffre et un caractère spécial.">Mot
-                de Passe :</label>
-            <div class="affichagePassword">
-                {{ form_errors(formUpdate.plainPassword) }}
-                {{ form_widget(formUpdate.plainPassword) }}
+        <div class="cardSortie">
+            <div class="titrePseudo">
+                <h1>{{ user.pseudo }}</h1>
             </div>
 
-        </div>
-        {{ form_end(formUpdate) }}
-        <br>
-        <div class="btn_retour_profil">
-            <a id="btnRetourDetail" href="{{ path('main_home') }}"><button>Retour</button></a>
-        </div>
+            <div class="div1">
+                <div class="imageP">
+                    <img id="imgUser" src="{{ asset('img/profil/'~user.image) }}" alt="photo du profil">
+                </div>
+            </div>
+            <br>
+
+            <div class="div2">
+                {{ form_start(formUpdate) }}
+                <div>
+                    <label for="pseudo">Pseudo : </label>
+                    <div>
+                        {{ form_errors(formUpdate.pseudo) }}
+                        {{ form_widget(formUpdate.pseudo) }}
+                    </div>
+                </div>
 
 
+                <div>
+                    <label for="prenom">Prénom :</label>
+                    <div>
+                        {{ form_errors(formUpdate.prenom) }}
+                        {{ form_widget(formUpdate.prenom) }}
+                    </div>
+                </div>
+                <div>
+                    <label for="nom">Nom :</label>
+                    <div>
+                        {{ form_errors(formUpdate.nom) }}
+                        {{ form_widget(formUpdate.nom) }}
+                    </div>
+                </div>
+                <div>
+                    <label for="tel">Téléphone :</label>
+                    <div>
+                        {{ form_errors(formUpdate.telephone) }}
+                        {{ form_widget(formUpdate.telephone) }}
+                    </div>
+                </div>
+                <div>
+                    <label for="email">Email :</label>
+                    <div>
+                        {{ form_errors(formUpdate.email) }}
+                        {{ form_widget(formUpdate.email) }}
+                    </div>
+                </div>
+
+                <br>
+                <div>
+                    <label for="site">Site :</label>
+                    <div>
+                        {{ form_errors(formUpdate.site) }}
+                        {{ form_widget(formUpdate.site) }}
+                    </div>
+                </div>
+
+                <br>
+                <div>
+                    <label for="image">Image de Profil :</label>
+                    <div>
+                        {{ form_errors(formUpdate.image) }}
+                        {{ form_widget(formUpdate.image) }}
+                    </div>
+                </div>
+                <br>
+                <div>
+                    <label for="mdp"
+                           title="Le mot de passe doit contenir au minimum 8 caractères dont une minuscule, une majuscule, un chiffre et un caractère spécial.">Mot
+                        de Passe :</label>
+                    <div class="affichagePassword">
+                        {{ form_errors(formUpdate.plainPassword) }}
+                        {{ form_widget(formUpdate.plainPassword) }}
+                    </div>
+
+                </div>
+
+            </div>
+            <br>
+            <div class="div3">
+                <button type="submit">Enregistrer</button>
+                {{ form_end(formUpdate) }}
+                <div class="btn_retour_profil">
+                    <a id="btnRetourDetail" href="{{ path('main_home') }}">
+                        <button>Retour</button>
+                    </a>
+                </div>
+            </div>
+
+
+        </div>
     </div>
+
 
 
 {% endblock %}

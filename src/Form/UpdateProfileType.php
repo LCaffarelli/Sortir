@@ -67,10 +67,7 @@ class UpdateProfileType extends AbstractType
                 }
                 ,//Choix liste déroulantes
                 'multiple' => false])
-            ->add('save', SubmitType::class, [
-                'label' => 'Enregistrer',
-
-            ]);
+            ;
 
     }
 
