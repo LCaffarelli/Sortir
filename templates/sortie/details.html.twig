@@ -80,7 +80,7 @@
 
                 {% endif %}</div>
             <br>
-            <div class="div5">
+            <div class="boutonDetailSortie">
 
                 {% if finInscription == false %}
                     <form action="{{ path('sortie_inscription', {'id': sortie.id}) }}">
@@ -90,7 +90,7 @@
                 {% endif %}
 
                     {% if estInscrit and peut_se_desister %}
-                        <form action="{{ path('sortie_desistement',{'id':sortie.id}) }}" method="get">
+                        <form action="{{ path('sortie_desistement',{'id':sortie.id}) }}">
                             <input type="hidden" name="_token" value="{{ csrf_token('desistement'~sortie.id) }}">
                             <button>Se désister</button>
                         </form>
@@ -116,15 +116,9 @@
 
                 {% endif %}
             </div>
-
-
         </div>
 
     </div>
-
-
-
-
 
 {% endblock %}
 
