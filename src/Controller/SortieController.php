@@ -72,21 +72,45 @@ class SortieController extends AbstractController
 
         $sortie = $sortieRepository->find($id);
         $finInscription = false;
+        $estInscrit =false;
+        $estOrganisateur = false;
+        $peut_etre_annule =false;
+        $peut_etre_mofifier =false;
+        $peut_se_desister = true;
         $date = new \DateTime("now");
         foreach ($sortie->getUsers() as $user) {
             if ($user->getId() == $this->getUser()->getId()) {
-                $finInscription = true;
+                $estInscrit = true;
             }
         }
-
-        if (count($sortie->getUsers()) == $sortie->getNbInscriptionsMax() || $sortie->getDateLimiteInscription() < $date) {
+        if ($sortie->getDateLimiteInscription() < $date){
+            $peut_se_desister = false;
+            $finInscription = true;
+        }
+        if (count($sortie->getUsers()) == $sortie->getNbInscriptionsMax()) {
             $finInscription = true;
         } else if ($sortie->getEtat()->getId() != 2) {
             $finInscription = true;
         }
+        if ($sortie->getOrganisateur()->getId() == $this->getUser()->getId()){
+            $estOrganisateur = true;
+            if ($sortie->getEtat()->getId() == 2){
+                $peut_etre_annule = true;
+            }
+            if ($sortie->getEtat()->getId() == 1){
+                $peut_etre_annule = true;
+                $peut_etre_mofifier = true;
+            }
+        }
         return $this->render("/sortie/details.html.twig", [
             'sortie' => $sortie,
             'finInscription' => $finInscription,
+            'user_session' => $this->getUser()->getId(),
+            'estInscrit' => $estInscrit,
+            'estOrganisateur'=> $estOrganisateur,
+            'peut_etre_annule' => $peut_etre_annule,
+            'peut_etre_modifier' => $peut_etre_mofifier,
+            'peut_se_desister' => $peut_se_desister,
         ]);
     }
 

@@ -30,7 +30,7 @@ class CreationSortieType extends AbstractType
                 'html5' => true,
                 'widget' => 'single_text'
             ])
-            ->add('dateLimiteInscription', DateType::class, [
+            ->add('dateLimiteInscription', DateTimeType::class, [
                 'html5' => true,
                 'widget' => 'single_text',
 
