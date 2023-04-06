@@ -14,38 +14,38 @@
 
             <div class="InfoDetailSortie">
                 <div>
-                    <label for="labelDetailSortie">Date et heure de la sortie : </label>
+                    <label><b>Date et heure de la sortie : </b></label>
                     <div>{{ sortie.dateHeureDebut |date ("d/m/Y H:i") }}</div>
                     <br>
                 </div>
 
                 <div>
-                    <label for="labelDetailSortie">Date limite d'inscription : </label>
+                    <label><b>Date limite d'inscription : </b></label>
                     <div>{{ sortie.dateLimiteInscription | date ("d/m/Y H:i") }}</div>
                     <br>
                 </div>
 
                 <div>
-                    <label for="labelDetailSortie">Nombre de participants : </label>
+                    <label><b>Nombre de participants : </b></label>
                     <div>{{ sortie.nbInscriptionsMax }} participants maximum</div>
                     <br>
                 </div>
 
                 <div>
-                    <label for="labelDetailSortie">Durée : </label>
+                    <label><b>Durée : </b></label>
                     <div>{{ sortie.duree |date ('H:i') }}</div>
                     <br>
                 </div>
 
                 <div>
-                    <label for="labelDetailSortie">Description et infos : </label>
+                    <label><b>Description et infos : </b></label>
                     <div>{{ sortie.infosSortie }}</div>
                 </div>
             </div>
 
             <div class="lieuDetailSortie">
                 <div>
-                    <label for="labelDetailSortie">Lieu : </label>
+                    <label><b>Lieu : </b></label>
                     <div>
                         <div>{{ sortie.lieu.nom }}</div>
                         <div>{{ sortie.lieu.rue }}</div>
