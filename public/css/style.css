@@ -185,7 +185,9 @@ header {
 
 .btn_Connexion:hover {
     cursor: pointer;
-    background-color: dimgrey;
+    background-color: #818181;
+    color: #e69a20;
+    font-weight: bold;
 }
 
 .detailSortie {
@@ -526,7 +528,7 @@ footer {
     top: -160%;
 }
  html{
-     background-image: url("../img/TestFondPal.jpg");
+     background-image: url("../img/fondEcranFlou.jpg");
      background-repeat: no-repeat;
      background-attachment: fixed;
      background-size: cover;

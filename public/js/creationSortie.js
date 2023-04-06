@@ -16,21 +16,20 @@ select.addEventListener('change', (event) => {
 function remplissageDiv(jsonObj){
     let article = document.querySelector('article');
     article.innerHTML='';
-    let ville = document.createElement('div');
-    let rue = document.createElement('div');
-    let codePostal = document.createElement('div');
-    let latitude = document.createElement('div');
-    let longitude = document.createElement('div');
+    let adresse = document.createElement('h4')
+    let rue = document.createElement('p');
+    let codePostal = document.createElement('p');
+    let latitude = document.createElement('p');
 
-    ville.textContent = jsonObj['ville'];
+
+    adresse.textContent='Adresse :';
     rue.textContent = jsonObj['Rue'];
-    codePostal.textContent =jsonObj['code'];
-    latitude.textContent = '( Latitude : ' + jsonObj['latitude'] +', Longitude : ' + jsonObj['longitude']+')' ;
+    codePostal.textContent =  jsonObj['code'] + ' ' + jsonObj['ville'];
+    latitude.textContent = '( Latitude : ' + jsonObj['latitude'] +', Longitude : ' + jsonObj['longitude']+' )' ;
 
-
+    article.appendChild(adresse);
     article.appendChild(rue);
     article.appendChild(codePostal);
-    article.appendChild(ville);
     article.appendChild(latitude);
 }
 

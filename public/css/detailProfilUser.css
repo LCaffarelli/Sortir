@@ -1,65 +1,101 @@
 
-.bodyDetailUser {
+.ProfilUser {
+    margin: 20px 25vw 20px 25vw;
+    background-color: rgb(245,245,245, 0.80) ;
+    box-shadow: 1px 5px 20px #999;
+    border-radius: 20px;
     display: flex;
     justify-content: center;
+    flex-direction: column;
 }
 
-.cardSortie {
-    margin-bottom: 9%;
-    margin-top: 1%;
-    margin-right:1em;
-    margin-left:1em;
-    width: 30em;
-    background-color: rgba(255, 255, 255, 0.7);
-    box-shadow: 1px 5px 20px #999; /*4*/
+.InfoGlobalUser{
+    margin: 10px 10px 20px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.imageP {
+    text-align: center;
+}
+#imgUser{
+    width: 300px;
+    height: 300px;
     border-radius: 10px;
-    opacity: 97%;
 }
-
 .titrePseudo {
     text-align: center;
 }
-
-.div1 {
-    margin-top: 5%;
+.InfoUser{
+    display: flex;
+    justify-content: center;
+    padding-left:150px;
+    padding-right:150px;
+    text-align: left;
+}
+.labelSortie{
+    margin: 15px auto 5px auto;
+    text-align: left;
+    font-size: 1.1em;
+    padding-bottom: 5px;
+}
+.widgetUser input{
+    margin: auto;
+    width: 40vw;
+    height: 1em;
+    border:none;
+    border-radius: 5px;
+    padding-bottom: 10px;
+    font-size: 1em;
 }
 
-label {
-    font-style: oblique;
+.btnFooter{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 25px;
+    margin-bottom: 15px;
+}
+.btn_profil{
+    width: 150px;
+    height: 25px;
+    line-height: 20px;
+    border-radius: 10px;
+    border:none;
+    background-color: #011F39 ;
+    opacity: 80%;
+    color: white;
     font-weight: bold;
-    padding-bottom: 50px;
 }
-
-.div2 {
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-right:2em;
-    margin-left:2em;
-
+.btn_profil:hover{
+    cursor:pointer;
+    color: #e69a20;
 }
-.divProfil{
-    width: 200px;
-}
-
-.div3 {
+.btn_retour_profil{
     display: flex;
-    justify-content: space-evenly;
-    margin-bottom: 4%;
-    margin-top: 3%;
-}
-
-
-.imageP {
-    display: flex;
-    align-content: center;
+    flex-direction: row;
     justify-content: center;
-    grid-column: 1/2;
-
+    height: 25px;
 }
 
-#imgUser {
-    max-width: 75%;
+/*-------------Responsive-----------------*/
+@media screen and (max-width: 950px) {
+    .ProfilUser{
+        margin: 100px 25vw 20px 25vw;
+    }
 }
 
+@media screen and (max-width: 500px) {
+    .ProfilUser {
+        margin: 100px 2vw 20px 2vw;
+    }
+    .InfoUser{
+        padding-right: 20px;
+        padding-left: 20px;
+    }
+    .widgetUser input{
+        width: 80vw;
+    }
+
+}
 

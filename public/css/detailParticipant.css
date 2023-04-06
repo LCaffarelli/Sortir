@@ -38,17 +38,19 @@
     margin-bottom: 5%;
 }
 
+/*
 #btnRetourDetail {
     margin-left: -13%;
     margin-right: 13%;
 }
+*/
 
 #btnAccueilDetail {
 
 }
 
 label {
-    font-style: oblique;
+
     font-weight: bold;
 }
 

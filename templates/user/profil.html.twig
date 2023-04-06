@@ -2,109 +2,83 @@
 {% block title %}{{ parent() }} | Mon profil {% endblock %}
 
 {% block body %}
-{#    <link rel="stylesheet" href="{{ asset('css/detailProfilUser.css') }}">#}
-    <div class="bodyDetailUser">
-        <div class="cardSortie">
+    <div class="ProfilUser">
+        <div class="InfoGlobalUser">
             <div class="titrePseudo">
                 <h1>{{ user.pseudo }}</h1>
             </div>
 
-            <div class="div1">
+            <div class="EmplacementImg">
                 <div class="imageP">
                     <img id="imgUser" src="{{ asset('img/profil/'~user.image) }}" alt="photo du profil">
                 </div>
             </div>
             <br>
 
-            <div class="div2">
+            <div class="InfoUser">
                 {{ form_start(formUpdate) }}
-                <div>
-                    <label for="pseudo">Pseudo : </label>
-                    <div>
-                        {{ form_errors(formUpdate.pseudo) }}
-                        {{ form_widget(formUpdate.pseudo) }}
-                    </div>
-                </div>
+                <div class="labelSortie">{{ form_label(formUpdate.pseudo)}} :</div>
+                <div class="widgetUser">{{ form_widget(formUpdate.pseudo) }}</div>
+                {{ form_errors(formUpdate.pseudo) }}
 
+                <div class="labelSortie">{{ form_label(formUpdate.prenom)}} :</div>
+                <div class="widgetUser">{{ form_widget(formUpdate.prenom) }}</div>
+                {{ form_errors(formUpdate.prenom) }}
 
-                <div>
-                    <label for="prenom">Prénom :</label>
-                    <div>
-                        {{ form_errors(formUpdate.prenom) }}
-                        {{ form_widget(formUpdate.prenom) }}
-                    </div>
-                </div>
+                <div class="labelSortie">{{ form_label(formUpdate.nom)}} :</div>
+                <div class="widgetUser">{{ form_widget(formUpdate.nom) }}</div>
+                {{ form_errors(formUpdate.nom) }}
 
-                <div>
-                    <label for="nom">Nom :</label>
-                    <div>
-                        {{ form_errors(formUpdate.nom) }}
-                        {{ form_widget(formUpdate.nom) }}
-                    </div>
-                </div>
+                <div class="labelSortie">{{ form_label(formUpdate.telephone)}} :</div>
+                <div class="widgetUser">{{ form_widget(formUpdate.telephone) }}</div>
+                {{ form_errors(formUpdate.telephone) }}
 
-                <div>
-                    <label for="tel">Téléphone :</label>
-                    <div>
-                        {{ form_errors(formUpdate.telephone) }}
-                        {{ form_widget(formUpdate.telephone) }}
-                    </div>
-                </div>
+                <div class="labelSortie">{{ form_label(formUpdate.email)}} :</div>
+                <div class="widgetUser">{{ form_widget(formUpdate.email) }}</div>
+                {{ form_errors(formUpdate.email) }}
 
-                <div>
-                    <label for="email">Email :</label>
-                    <div>
-                        {{ form_errors(formUpdate.email) }}
-                        {{ form_widget(formUpdate.email) }}
-                    </div>
-                </div>
+                <div class="labelSortie">{{ form_label(formUpdate.site)}} :</div>
+                <div class="widgetUser">{{ form_widget(formUpdate.site) }}</div>
+                {{ form_errors(formUpdate.site) }}
 
-                <br>
-                <div>
-                    <label for="site">Site :</label>
-                    <div>
-                        {{ form_errors(formUpdate.site) }}
-                        {{ form_widget(formUpdate.site) }}
-                    </div>
-                </div>
+                <div class="labelSortie">{{ form_label(formUpdate.image)}} :</div>
+                <div class="widgetUser">{{ form_widget(formUpdate.image) }}</div>
+                {{ form_errors(formUpdate.image) }}
 
-                <br>
-                <div>
-                    <label for="image">Image de Profil :</label>
-                    <div>
-                        {{ form_errors(formUpdate.image) }}
-                        {{ form_widget(formUpdate.image) }}
-                    </div>
-                </div>
-                <br>
-                <div>
-                    <label for="mdp"
-                           title="Le mot de passe doit contenir au minimum 8 caractères dont une minuscule, une majuscule, un chiffre et un caractère spécial.">Mot
-                        de Passe :</label>
-                    <div class="affichagePassword">
-                        {{ form_errors(formUpdate.plainPassword) }}
-                        {{ form_widget(formUpdate.plainPassword) }}
-                    </div>
+                <div class="labelSortie">{{ form_label(formUpdate.plainPassword)}} :</div>
+                <div class="widgetUser">{{ form_widget(formUpdate.plainPassword) }}</div>
+                {{ form_errors(formUpdate.plainPassword) }}
+            </div>
+            {#
+            <div>
+                <label for="mdp"
+                       title="Le mot de passe doit contenir au minimum 8 caractères dont une minuscule, une majuscule, un chiffre et un caractère spécial.">Mot
+                    de Passe :</label>
+                <div class="affichagePassword">
+                    {{ form_errors(formUpdate.plainPassword) }}
+                    {{ form_widget(formUpdate.plainPassword) }}
                 </div>
             </div>
+            #}
             <br>
-            <div class="div3">
-                <button type="submit">Enregistrer</button>
+            <div class="btnFooter">
+                <button class="btn_profil" type="submit">Enregistrer</button>
                 {{ form_end(formUpdate) }}
-
-                <div class="btn_retour_profil">
-                    <a id="btnRetourDetail" href="{{ path('main_home') }}">
-                        <button>Retour</button>
-                    </a>
-                </div>
             </div>
-
-       </div>
+            <div class="btn_retour_profil">
+                <a id="btnRetourDetail" href="{{ path('main_home') }}">
+                    <button class="btn_profil">Retour</button>
+                </a>
+            </div>
+        </div>
     </div>
 
 
 
 {% endblock %}
+
+
+
 
 
 

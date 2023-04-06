@@ -1,50 +1,159 @@
 
-.bodyCreaSortie {
+.creaSortie {
+    margin: 20px 25vw 20px 25vw;
+    background-color: rgb(245,245,245, 0.80) ;
+    box-shadow: 1px 5px 20px #999;
+    border-radius: 20px;
     display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.InfoGlobalSortie{
+    margin: 10px 10px 20px 10px;
+    padding: 0 0 0 2vw;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
 }
 
-label {
-    font-style: oblique;
-
+.InfoSortie{
+    text-align: left;
 }
 
-.div1 {
-    margin-left: 25%;
-    margin-top: 5%;
+#sortie{
+    text-align: left;
 }
 
-.div2 {
-    margin-left: 25%;
-    margin-top: 5%;
+.labelSortie{
+    margin: 15px auto 5px auto;
+    text-align: left;
+    font-size: 1.1em;
+    padding-bottom: 5px;
+}
+.widgetSortie input{
+    margin: auto;
+    width: 40vw;
+    height: 1em;
+    border:none;
+    border-radius: 5px;
+    padding-bottom: 10px;
+    font-size: 1em;
+}
+.labelLieu{
+    margin: 15px auto 5px auto;
+    text-align: left;
+    font-size: 1.1em;
+    padding-bottom: 5px;
+}
+.widgetLieu{
+    width: 40vw;
+    height: 1em;
+    border:none;
+    border-radius: 5px;
+    padding-bottom: 10px;
+    font-size: 1em;
+    text-align: left;
+}
+.articleLieu{
+    text-align: center;
 }
 
-.div3 {
+.labelSortieCheckbox {
+    margin: 15px auto 5px auto;
+    text-align: left;
+    padding-bottom: 5px;
+}
+
+
+.btn_sortie{
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
-    margin-bottom: 5%;
-    margin-top: 5%;
+    justify-content: right;
+    height: 25px;
+    margin-bottom: 50px;
 }
 
-#sortie {
-    margin-left: -25%;
-}
-
-#participation {
-    margin-left: -25%;
-
-}
-
-#ou {
-    margin-left: -25%;
-}
-
-.cardSortie {
-    margin: 4% 10px 9%;
-    width: 400px; /*1*/
-    background-color: rgba(255, 255, 255, 0.7);
-    box-shadow: 1px 5px 20px #999; /*4*/
+#creation_sortie_cree{
+    width: 150px;
+    height: 25px;
+    line-height: 20px;
     border-radius: 10px;
-    opacity: 97%;
+    border:none;
+    background-color: #011F39 ;
+    opacity: 80%;
+    color: white;
+    font-weight: bold;
+
+}
+#creation_sortie_cree:hover{
+    cursor:pointer;
+    color: #e69a20;
+}
+
+#creation_sortie_publier{
+    width: 150px;
+    height: 25px;
+    line-height: 20px;
+    border-radius: 10px;
+    border:none;
+    background-color: #011F39 ;
+    opacity: 80%;
+    color: white;
+    font-weight: bold;
+    margin-right: 30px;
+}
+#creation_sortie_publier:hover{
+    cursor:pointer;
+    color: #e69a20;
+}
+
+.btn_retour_crea{
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    height: 25px;
+}
+
+
+
+@media screen and (max-width: 950px) {
+    .creaSortie{
+        margin: 100px 25vw 20px 25vw;
+    }
+    .InfoGlobalSortie{
+        padding:0;
+    }
+    .InfoSortie{
+        padding-right: 20px;
+        padding-left: 20px;
+    }
+    .widgetLieu {
+        width: 80vw;
+    }
+}
+
+
+@media screen and (max-width: 550px) {
+    .InfoGlobalSortie{
+        padding:0;
+    }
+    .creaSortie {
+        margin: 100px 2vw 20px 2vw;
+    }
+    .InfoSortie{
+        padding-right: 20px;
+        padding-left: 20px;
+    }
+    .widgetLieu {
+        width: 80vw;
+    }
+    #creation_sortie_publier{
+        width: 150px;
+        font-size: 0.8em;
+    }
+    #creation_sortie_cree{
+        width: 100px;
+        font-size: 0.8em;
+    }
 }
