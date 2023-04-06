@@ -21,8 +21,7 @@ function remplissageDiv(jsonObj){
     let codePostal = document.createElement('p');
     let latitude = document.createElement('p');
 
-
-    adresse.textContent='Adresse :';
+    adresse.textContent = 'Adresse : '
     rue.textContent = jsonObj['Rue'];
     codePostal.textContent =  jsonObj['code'] + ' ' + jsonObj['ville'];
     latitude.textContent = '( Latitude : ' + jsonObj['latitude'] +', Longitude : ' + jsonObj['longitude']+' )' ;
