@@ -89,8 +89,6 @@
                     </form>
                 {% endif %}
 
-                {% for user in sortie.users %}
-
                     {% if estInscrit and peut_se_desister %}
                         <form action="{{ path('sortie_desistement',{'id':sortie.id}) }}" method="get">
                             <input type="hidden" name="_token" value="{{ csrf_token('desistement'~sortie.id) }}">
@@ -98,7 +96,6 @@
                         </form>
 
                     {% endif %}
-                {% endfor %}
 
                 {% if estOrganisateur and peut_etre_annule %}
                     <form action="{{ path('sortie_annuler',{'id':sortie.id}) }}">
