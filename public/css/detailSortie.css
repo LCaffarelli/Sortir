@@ -7,6 +7,15 @@
     justify-content: center;
     flex-direction: column;
 }
+th,td{
+    border: none;
+    border-radius: 20px;
+}
+
+.tableau-donnee{
+    text-align: center;
+}
+
 
 .InfoGlobalSortie {
     margin: 10px 10px 20px 10px;
@@ -34,6 +43,7 @@
 .tableParticipant {
     display: flex;
     justify-content: center;
+    flex-direction: column;
 }
 
 .boutonDetailSortie {
