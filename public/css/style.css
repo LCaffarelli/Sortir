@@ -559,3 +559,6 @@ html * {
     border-radius: 5px;
     margin-left: 145px;
 }
+.ProfilUser li{
+    color: red;
+}
