@@ -3,17 +3,20 @@
 {% block title %}{{ parent() }} | Modifier sa sortie {% endblock %}
 {% block body %}
     <script src="{{ asset('js/modificationSortie.js') }}" defer></script>
-    <div class="bodyModifierSortie">
-        <div class="cardSortie">
-            <h2>Modifier votre sortie : </h2>
+    <div class="ModifierSortie">
+        <div class="InfoGlobalModifSortie">
+            <div class="TitreModifSortie">
+                <h2>Modifier votre sortie : </h2>
+            </div>
+
             {{ form_start(sortieModif) }}
 
             <form action="{{ path('sortie_modifier',{'id':sortie.id}) }}">
                 <input type="hidden" name="_token" value="{{ csrf_token('modifier'~sortie.id) }}">
-                <div class="div1">
+                <div class="infoModifSortie">
                     <div>
                         <div>
-                            <label id="labelNom" for="nom">Nom : </label>
+                            <label id="labelModifSortie" for="nom">Nom : </label>
                             <div>
                                 {{ form_errors(sortieModif.nom) }}
                                 {{ form_widget(sortieModif.nom) }}
@@ -22,7 +25,7 @@
 
 
                         <div>
-                            <label id="labelDateHeureDebut" for="dateHeureDebut"> Date début de la sortie : </label>
+                            <label id="labelModifSortie" for="dateHeureDebut"> Date début de la sortie : </label>
                             <div>
                                 {{ form_errors(sortieModif.dateHeureDebut) }}
                                 {{ form_widget(sortieModif.dateHeureDebut) }}
@@ -31,7 +34,7 @@
                         </div>
 
                         <div>
-                            <label id="labelDuree" for="duree">Durée : </label>
+                            <label id="labelModifSortie" for="duree">Durée : </label>
                             <div>
                                 {{ form_errors(sortieModif.duree) }}
                                 {{ form_widget(sortieModif.duree) }}
@@ -40,7 +43,7 @@
 
 
                         <div>
-                            <label id="labeldateLimiteInscription" for="dateLimiteInscription">Date limite d'inscription
+                            <label id="labelModifSortie" for="dateLimiteInscription">Date limite d'inscription
                                 : </label>
                             <div>
                                 {{ form_errors(sortieModif.dateLimiteInscription) }}
@@ -50,7 +53,7 @@
                         </div>
 
                         <div>
-                            <label id="labelNbInscriptionsMax" for="nbInscriptionsMax">Nombre maximum de participants
+                            <label id="labelModifSortie" for="nbInscriptionsMax">Nombre maximum de participants
                                 : </label>
                             <div>
                                 {{ form_errors(sortieModif.nbInscriptionsMax) }}
@@ -59,7 +62,7 @@
                         </div>
 
                         <div>
-                            <label id="labelDescription" for="infosSortie">Description et informations : </label>
+                            <label id="labelModifSortie" for="infosSortie">Description et informations : </label>
                             <div>
                                 {{ form_errors(sortieModif.infosSortie) }}
                                 {{ form_widget(sortieModif.infosSortie) }}
@@ -69,15 +72,15 @@
                 </div>
                 <br>
 
-                <div class="div2">
+                <div class="lieuModifSortie">
                     <div>
-                        <label id="labelLieu" for="lieu">Lieu : </label>
+                        <label id="labelModifSortie" for="lieu">Lieu : </label>
                         {{ form_errors(sortieModif.lieu) }}
                         {{ form_widget(sortieModif.lieu) }}
 
                     </div>
                     <br>
-                    <div>Adresse :</div>
+                    <p>Adresse :</p>
                     <br>
                     <article>
 
@@ -88,13 +91,13 @@
                 </div>
 
                 <br>
-                <div class="div3">
+                <div class="boutonModifSortieForm">
                     {{ form_widget(sortieModif) }}
                 </div>
             </form>
 
             {{ form_end(sortieModif) }}
-            <div class="div4">
+            <div class="autreBoutonModif">
 
                     <a href="{{ path('main_home') }}">
                         <button>Retour</button>

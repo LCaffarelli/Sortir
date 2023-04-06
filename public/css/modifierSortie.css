@@ -1,39 +1,44 @@
-.bodyModifierSortie {
+
+.ModifierSortie {
+    margin: 20px 35vw 20px 35vw;
+    background-color: rgb(245, 245, 245, 0.80);
+    box-shadow: 1px 5px 20px #999;
+    border-radius: 20px;
     display: flex;
     justify-content: center;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(5, 1fr);
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
+    flex-direction: column;
 }
 
-h2 {
+.InfoGlobalModifSortie {
+    margin: 10px 10px 20px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.TitreModifSortie {
     text-align: center;
 }
 
-.div1 {
-    grid-area: 1 / 1 / 2 / 2;
-    margin-bottom: 5%;
-    margin-left: 10%;
-}
-
-.div2 {
-    grid-area: 2 / 1 / 3 / 2;
-    margin-bottom: 5%;
-    margin-left: 10%;
-}
-
-.div3 {
-    grid-area: 3 / 1 / 4 / 2;
-    margin-bottom: 5%;
-}
-
-.div4 {
-    grid-area: 4 / 1 / 5 / 2;
+.infoModifSortie {
     display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    margin-bottom: 5%;
+    justify-content: center;
+    padding-left: 150px;
+    padding-right: 150px;
+    text-align: left;
+}
+
+#labelModifSortie {
+    margin: 15px auto 5px auto;
+    text-align: left;
+    font-size: 1.1em;
+    padding-bottom: 5px;
+}
+
+.lieuModifSortie {
+    display: flex;
+    flex-direction: column;
+    margin-top: 3%;
 }
 
 #modif {
@@ -50,63 +55,36 @@ h2 {
     margin-left: 40%;
 }
 
-.cardSortie {
-    margin-bottom: 2%;
+.autreBoutonModif {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 33%;
+    margin-left: 33%;
     margin-top: 2%;
-    width: 400px; /*1*/
-    background-color: rgba(255, 255, 255, 0.7);
-    box-shadow: 1px 5px 20px #999; /*4*/
-    border-radius: 10px;
-    opacity: 97%;
 }
 
-/*.bodyModifierSortie {*/
-/*    text-align: center;*/
-/*    margin-top: 90px;*/
-/*}*/
+/*-------------Responsive-----------------*/
+@media screen and (max-width: 950px) {
+    .ModifierSortie {
+        margin: 100px 25vw 20px 25vw;
+    }
+}
 
-/*#labelNom {*/
-/*align-content: center;*/
-/*    margin-left: 120px;*/
-/*}*/
+@media screen and (max-width: 500px) {
+    .ModifierSortie {
+        margin: 100px 2vw 20px 2vw;
+    }
 
-/*#labelDateHeureDebut {*/
-/*    align-content: center;*/
-/*}*/
+    .infoModifSortie {
+        padding-right: 20px;
+        padding-left: 20px;
+    }
 
-/*#labelDuree {*/
-/*    align-content: center;*/
-/*}*/
+    .widgetUser input {
+        width: 80vw;
+    }
 
-/*#labeldateLimiteInscription {*/
-/*    align-content: center;*/
-/*    margin-left: -60px;*/
-/*}*/
-
-/*#labelNbInscriptionsMax{*/
-/*    align-content: center;*/
-/*    margin-left: -20px;*/
-/*}*/
-
-/*#labelDescription{*/
-/*    align-content: center;*/
-/*    margin-left: -18px;*/
-/*}*/
-/*#labelLieu{*/
-/*    align-content: center;*/
-/*    margin-left: 180px;*/
-/*}*/
-
-
-/*#modif{*/
-/*    display: flex;*/
-/*    justify-content: space-between;*/
-/*    margin-right: 40%;*/
-/*    margin-left: 40%;*/
-/*}*/
-/*.autreBTN{*/
-/*    display: flex;*/
-/*    justify-content: space-between;*/
-/*    margin-right: 40%;*/
-/*    margin-left: 40%;*/
-/*}*/
+    .autreBoutonModif {
+        margin: -10px 11vw 10px 11vw;
+    }
+}
