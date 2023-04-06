@@ -4,48 +4,53 @@
 {% block title %}{{ parent() }} | Sortie {{ sortie.nom }}{% endblock %}
 
 {% block body %}
-    <div class="bodyDetailSortie">
-        <div class="cardSortie">
+    <div class="DetailSortie">
+        <div class="InfoGlobalSortie">
 
-            <div class="div1">
+            <div class="titreDetailSortie">
                 <h1>{{ sortie.nom }}</h1>
             </div>
+            <br>
 
-            <div class="div2">
+            <div class="InfoDetailSortie">
                 <div>
-                    <label for="dateSortie">Date et heure de la sortie : </label>
+                    <label for="labelDetailSortie">Date et heure de la sortie : </label>
                     <div>{{ sortie.dateHeureDebut |date ("d/m/Y H:i") }}</div>
+                    <br>
                 </div>
-                <br>
+
                 <div>
-                    <label for="dateLimite">Date limite d'inscription : </label>
+                    <label for="labelDetailSortie">Date limite d'inscription : </label>
                     <div>{{ sortie.dateLimiteInscription | date ("d/m/Y H:i") }}</div>
+                    <br>
                 </div>
-                <br>
+
                 <div>
-                    <label for="nbLimiteParticipants">Nombre de participants : </label>
+                    <label for="labelDetailSortie">Nombre de participants : </label>
                     <div>{{ sortie.nbInscriptionsMax }} participants maximum</div>
+                    <br>
                 </div>
-                <br>
+
                 <div>
-                    <label for="dureeSortie">Durée : </label>
+                    <label for="labelDetailSortie">Durée : </label>
                     <div>{{ sortie.duree |date ('H:i') }}</div>
+                    <br>
                 </div>
-                <br>
+
                 <div>
-                    <label for="descSortie">Description et infos : </label>
+                    <label for="labelDetailSortie">Description et infos : </label>
                     <div>{{ sortie.infosSortie }}</div>
                 </div>
             </div>
 
-            <div class="div3">
+            <div class="lieuDetailSortie">
                 <div>
-                    <label for="lieuSortie">Lieu : </label>
+                    <label for="labelDetailSortie">Lieu : </label>
                     <div>
                         <div>{{ sortie.lieu.nom }}</div>
                         <div>{{ sortie.lieu.rue }}</div>
                         <div>{{ sortie.lieu.ville.codePostal }}, {{ sortie.lieu.ville.nom }}</div>
-                        <div>(Latitude : {{ sortie.lieu.latitude }} , Longitude : {{ sortie.lieu.longitude }} )  </div>
+                        <div>(Latitude : {{ sortie.lieu.latitude }} , Longitude : {{ sortie.lieu.longitude }} )</div>
                     </div>
                 </div>
             </div>
@@ -53,12 +58,12 @@
 
             <br>
 
-            <div class="div4">
+            <div class="tableParticipant">
                 {% if sortie.etat.id==6 %}
                     <h1>Sortie annulée</h1>
                 {% else %}
                     <div style="border-radius: 10px">
-                        <table class="tab" >
+                        <table class="tab">
                             <caption>Liste des participants inscrits :</caption>
                             <tr>
                                 <th>Pseudo</th>

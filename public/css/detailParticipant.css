@@ -1,60 +1,64 @@
-.bodyDetailParticipant {
+.ProfilParticipant {
+    margin: 20px 25vw 20px 25vw;
+    background-color: rgb(245, 245, 245, 0.80);
+    box-shadow: 1px 5px 20px #999;
+    border-radius: 20px;
     display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.InfoGlobalParticipant {
+    margin: 10px 10px 20px 10px;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
 }
 
-.cardSortie {
-    margin-bottom: 9%;
-    margin-top: 4%;
-    width: 400px; /*1*/
-    background-color: rgba(255, 255, 255, 0.7);
-    box-shadow: 1px 5px 20px #999; /*4*/
-    border-radius: 10px;
-    opacity: 97%;
-}
-
-.div1 {
+.titrePseudoP {
     text-align: center;
 }
 
-.div2 {
-    margin-bottom: 10%;
+.imageParticipant {
     text-align: center;
 }
 
 #imgParticipant {
-    max-width: 75%;
+    width: 40%;
+    margin-bottom: 3%;
 }
 
-.div3 {
-    text-align: center;
+.InfoP {
+    display: flex;
+    justify-content: center;
+    padding-left: 150px;
+    padding-right: 150px;
+    text-align: left;
 }
 
-.div4 {
+.boutonFooter {
     display: flex;
     flex-direction: row;
-    margin-top: 5%;
     justify-content: center;
-    margin-bottom: 5%;
+    height: 25px;
 }
 
-/*
-#btnRetourDetail {
-    margin-left: -13%;
-    margin-right: 13%;
-}
-*/
-
-#btnAccueilDetail {
-
+/*-------------Responsive-----------------*/
+@media screen and (max-width: 950px) {
+    .ProfilParticipant {
+        margin: 100px 25vw 20px 25vw;
+    }
 }
 
-label {
+@media screen and (max-width: 500px) {
+    .ProfilParticipant {
+        margin: 100px 2vw 20px 2vw;
+    }
 
-    font-weight: bold;
-}
+    .InfoP {
+        padding-right: 20px;
+        padding-left: 20px;
+    }
 
-.img {
-    max-width: 250px;
-    padding-right: 50px;
+
 }
