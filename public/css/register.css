@@ -1,0 +1,95 @@
+.bodyCreationUser {
+    margin: 20px 30vw 20px 30vw;
+    background-color: rgb(245,245,245, 0.80) ;
+    box-shadow: 1px 5px 20px #999;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.titreH3User{
+    margin-bottom: 30px;
+}
+
+.creationUser {
+    margin: 10px 10px 20px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.InfoCreaUser{
+    display: flex;
+    justify-content: center;
+    padding-left:150px;
+    padding-right:150px;
+    text-align: left;
+}
+
+.labelCreaUser {
+    margin: 15px auto 5px auto;
+    text-align: left;
+    font-size: 1em;
+    padding-bottom: 5px;
+}
+
+.widgetRegister input{
+    width: 30vw;
+    height: 1.5em;
+    border:none;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-size: 1em;
+}
+
+#registration_form_site{
+    margin-bottom: 20px;
+}
+
+.btn_Enregistrer_User{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 25px;
+    margin-bottom: 20px;
+}
+
+#csv_form_Enregistrer{
+    width: 150px;
+    height: 25px;
+    line-height: 20px;
+    border-radius: 5px;
+    border:none;
+    background-color: #011F39 ;
+    opacity: 80%;
+    color: white;
+    font-weight: bold;
+}
+
+#csv_form_Enregistrer:hover{
+    cursor:pointer;
+    color: #e69a20;
+}
+
+/*-------------Responsive-----------------*/
+@media screen and (max-width: 950px) {
+    .bodyCreationUser{
+        margin: 100px 25vw 20px 25vw;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .bodyCreationUser {
+        margin: 100px 2vw 20px 2vw;
+    }
+    .InfoCreaUser{
+        padding-right: 20px;
+        padding-left: 20px;
+    }
+    .widgetRegister input{
+        width: 80vw;
+    }
+
+}
+

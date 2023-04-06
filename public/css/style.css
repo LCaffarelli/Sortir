@@ -71,7 +71,7 @@ header {
 }
 /*----------------Mise en forme des filtres-----------------------*/
 .sectionFiltre{
-    margin: 100px 180px 30px 180px;
+    margin: 50px 20vw 50px 20vw;
     border: none;
     border-radius: 10px;
     padding: 5px;
@@ -145,9 +145,7 @@ header {
 /*-----------------------END--------------------------*/
 
 .connexionUser {
-    margin: auto;
-    margin-top: 50px;
-    margin-bottom: 50px;
+    margin: 150px auto 230px auto;
     padding: 15px;
     width: 400px;
     height: auto;
@@ -310,6 +308,11 @@ footer {
 
 @media (max-width: 1070px) {
 
+    .sectionFiltre{
+        margin: 60px 20vw 30px 20vw;
+        border: 1px solid black;
+        padding: 10px;
+    }
     .blocNavBar{
         padding-right: 8px;
     }
@@ -321,7 +324,7 @@ footer {
 @media (max-width: 1100px) {
 
     .sectionFiltre{
-        margin: 60px 10px 30px 10px;
+        margin: 60px 20vw 30px 20vw;
         border: 1px solid black;
         padding: 10px;
     }
@@ -346,7 +349,7 @@ footer {
 
 @media (max-width: 950px) {
     .sectionFiltre{
-        margin: 125px 10px 30px 10px;
+        margin: 125px 20vw 30px 20vw;
         border: 1px solid black;
         padding: 10px;
     }
@@ -474,8 +477,11 @@ footer {
     }
 
     .sectionFiltre {
-        margin-top: 15vh;
-        margin-bottom: 5vh;
+        /*margin-top: 15vh;
+        margin-bottom: 5vh;*/
+        margin: 125px 2vw 30px 2vw;
+        border: 1px solid black;
+        padding: 10px;
     }
 
     .bodyDetailUser{
@@ -555,10 +561,10 @@ html * {
     border-radius: 5px;
 }
 
-.ajout-csv button{
+/*.ajout-csv button{
     border-radius: 5px;
     margin-left: 145px;
-}
+}*/
 .ProfilUser li{
     color: red;
 }

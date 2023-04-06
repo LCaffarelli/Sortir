@@ -3,54 +3,59 @@
 
 {% block body %}
     <script src="{{ asset('js/annulerSortie.js') }}" defer></script>
-    <link rel="stylesheet" href="{{ asset('css/annulerSortie.css') }}">
+
+   <div class="AnnulerSortie">
+
+       <div class="InfoGlobalAnnulerSortie">
+           <div class="TitreAnnulation">
+               <h1>Annuler ma sortie</h1>
+           </div>
+
+           <div class="InfoAnnulationSortie">
+               <div>
+                   <label for="nomSortie">Nom de la sortie : </label>{{ sortie.nom }}
+               </div>
+               <br>
+               <div>
+                   <label for="dateSortie">Date de la sortie : </label>{{ sortie.dateHeureDebut| date ('d/m/Y') }}
+               </div>
+               <br>
+               <div>
+                   <label for="lieuSortie">Lieu de la sortie : </label>
+                   <p>
+                   <div>{{ sortie.lieu.nom }},</div>
+                   <div>{{ sortie.lieu.rue }}, </div>
+                   <div>{{ sortie.lieu.ville.codepostal }} {{ sortie.lieu.ville.nom }}</div>
+                   </p>
+
+               </div>
+           </div>
+
+           {{ form_start(sortieAnnuleeForm) }}
+           <div class="MotifAnnulation">
+               <div>
+                   <label for="">Motif d'annulation : </label>
+                   <div>
+                       {{ form_errors(sortieAnnuleeForm.infosSortie) }}
+                       {{ form_widget(sortieAnnuleeForm.infosSortie) }}
+                   </div>
+               </div>
+               <br>
 
 
-    <div class="bodyAnnulerSortie">
-        <div class="cardSortie">
-            <h1>Annuler ma sortie</h1>
-            <div class="div1">
-                <div>
-                    <label for="nomSortie">Nom de la sortie : </label>{{ sortie.nom }}
-                </div>
-                <br>
-                <div>
-                    <label for="dateSortie">Date de la sortie : </label>{{ sortie.dateHeureDebut| date ('d/m/Y') }}
-                </div>
-                <br>
-                <div>
-                    <label for="lieuSortie">Lieu de la sortie : </label>
-                    <p>
-                    <div>{{ sortie.lieu.nom }},</div>
-                    <div>{{ sortie.lieu.rue }}, </div>
-                    <div>{{ sortie.lieu.ville.codepostal }} {{ sortie.lieu.ville.nom }}</div>
-                    </p>
-
-                </div>
-            </div>
-
-            {{ form_start(sortieAnnuleeForm) }}
-            <div class="div2">
-                <div>
-                    <label for="">Motif d'annulation : </label>
-                    <div>
-                        {{ form_errors(sortieAnnuleeForm.infosSortie) }}
-                        {{ form_widget(sortieAnnuleeForm.infosSortie) }}
-                    </div>
-                </div>
-                <br>
+               <form action="{{ path('sortie_annuler',{'id':sortie.id}) }}">
+                   <input type="hidden" name="_token" value="{{ csrf_token('annuler'~sortie.id) }}">
+                   <button id="btnAnnulation" onclick="annuler()">Annuler Sortie</button>
+               </form>
+               {{ form_end(sortieAnnuleeForm) }}
 
 
-                <form action="{{ path('sortie_annuler',{'id':sortie.id}) }}">
-                    <input type="hidden" name="_token" value="{{ csrf_token('annuler'~sortie.id) }}">
-                    <button id="btnAnnulation" onclick="annuler()">Annuler Sortie</button>
-                </form>
-                {{ form_end(sortieAnnuleeForm) }}
+           </div>
+       </div>
 
 
-            </div>
-        </div>
-    </div>
+   </div>
+
 
 {% endblock %}
 

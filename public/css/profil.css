@@ -33,7 +33,7 @@
     padding-right:150px;
     text-align: left;
 }
-.labelSortie{
+.labelUs{
     margin: 15px auto 5px auto;
     text-align: left;
     font-size: 1.1em;
@@ -78,6 +78,9 @@
     height: 25px;
 }
 
+#update_profile_pseudo{
+    padding-top: 5px;
+}
 /*-------------Responsive-----------------*/
 @media screen and (max-width: 950px) {
     .ProfilUser{

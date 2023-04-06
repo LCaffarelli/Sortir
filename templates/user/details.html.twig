@@ -3,20 +3,22 @@
 
 
 {% block body %}
-    <div class="bodyDetailParticipant">
-        <div class="cardSortie">
-            <div class="div1">
+    <script src="{{ asset('js/profilParticipant.js') }}" defer></script>
+    <div class="ProfilParticipant">
+        <div class="InfoGlobalParticipant">
+            <div class="titrePseudoP">
                 <h1>{{ user.pseudo }}</h1>
             </div>
             <br>
 
-            <div class="div2">
-                <div>
+            <div class="EmplacementImageP">
+                <div class="imageParticipant">
                     <img id="imgParticipant" src="{{ asset('img/profil/'~user.image) }}" alt="image profil participant">
                 </div>
             </div>
+            <br>
 
-            <div class="div3">
+            <div class="InfoP">
                 <div>
                     <div>
                         <label for="nom">Nom : </label>
@@ -54,19 +56,17 @@
                     </div>
                     <br>
                 </div>
-
-                <div class="div4">
-                    <div class="btnDetailParticipant">
-                        <button id="btnRetourDetail" onclick="precedent()">Retour</button>
-                        <a id="btnAccueilDetail" href="{{ path('main_home') }}">
-                            <button>Accueil</button>
-                        </a>
-                    </div>
-                </div>
-
+                <br>
 
             </div>
-
+            <div class="boutonFooter">
+                <div class="btnDetailParticipant">
+                    <button id="btnRetourDetail" onclick="precedent()">Retour</button>
+                    <a id="btnAccueilDetail" href="{{ path('main_home') }}">
+                        <button>Accueil</button>
+                    </a>
+                </div>
+            </div>
         </div>
 
     </div>
