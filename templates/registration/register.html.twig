@@ -5,97 +5,58 @@
 {% block body %}
 
     <div class="bodyCreationUser">
-        <div class="cardSortie">
-            <h3 style="margin-left: 10px">Enregistrement manuel :</h3>
-            <div class="div1">
-
+        <div class="creationUser">
+            <div class="InfoCreaUser">
                 {{ form_start(registrationForm) }}
+                <h3 class="titreH3User">Enregistrement manuel :</h3>
+                <div><label class="labelCreaUser" for="pseudo">Pseudo de l'élève : </label><div>
+                <div class="widgetRegister">{{ form_widget(registrationForm.pseudo) }}</div>
+                {{ form_errors(registrationForm.pseudo) }}
+
+                <div><label class="labelCreaUser" for="pseudo">Nom de l'élève : </label><div>
+                <div class="widgetRegister">{{ form_widget(registrationForm.nom) }}</div>
+                {{ form_errors(registrationForm.nom) }}
+
+                <div><label class="labelCreaUser" for="pseudo">Prénom de l'élève : </label><div>
+                <div class="widgetRegister">{{ form_widget(registrationForm.prenom) }}</div>
+                {{ form_errors(registrationForm.prenom) }}
+
+                <div><label class="labelCreaUser" for="pseudo">Numéro de téléphone de l'élève : </label><div>
+                <div class="widgetRegister">{{ form_widget(registrationForm.telephone) }}</div>
+                {{ form_errors(registrationForm.telephone) }}
+
+                <div><label class="labelCreaUser" for="pseudo">Email de l'élève : </label><div>
+                <div class="widgetRegister">{{ form_widget(registrationForm.email) }}</div>
+                {{ form_errors(registrationForm.email) }}
+
+                <div><label class="labelCreaUser" for="pseudo">Site d'affectation : </label><div>
+                <div class="widgetRegister">{{ form_widget(registrationForm.site) }}</div>
+                {{ form_errors(registrationForm.site) }}
+
+                <div><label class="labelCreaUser" for="pseudo">Mot de passe : </label><div>
+                <div class="widgetRegister">{{ form_widget(registrationForm.plainPassword) }}</div>
+                {{ form_errors(registrationForm.plainPassword) }}
+
+            </div>
+
+            <div class="btn_Enregistrer_User">
                 <div>
-                    <label for="pseudo">Pseudo de l'élève :</label>
-                    <div>
-                        {{ form_errors(registrationForm.pseudo) }}
-                        {{ form_widget(registrationForm.pseudo) }}
-                    </div>
+                    <button class="btn_profil" type="submit" style="border-radius: 5px">Enregistrer</button>
                 </div>
-                <br>
-
-                <div>
-                    <label for="nom">Nom de l'élève :</label>
-                    <div>
-                        {{ form_errors(registrationForm.nom) }}
-                        {{ form_widget(registrationForm.nom) }}
-                    </div>
-                </div>
-                <br>
-
-                <div>
-                    <label for="prenom">Prénom de l'élève :</label>
-                    <div>
-                        {{ form_errors(registrationForm.prenom) }}
-                        {{ form_widget(registrationForm.prenom) }}
-                    </div>
-                </div>
-                <br>
-
-                <div>
-                    <label for="tel">Numéro de téléphone de l'élève :</label>
-                    <div>
-                        {{ form_errors(registrationForm.telephone) }}
-                        {{ form_widget(registrationForm.telephone) }}
-                    </div>
-                </div>
-                <br>
-
-                <div>
-                    <label for="email">Email de l'élève :</label>
-                    <div>
-                        {{ form_errors(registrationForm.email) }}
-                        {{ form_widget(registrationForm.email) }}
-                    </div>
-                </div>
-                <br>
-
-                <div>
-                    <label for="site">Site d'affectation :</label>
-                    <div>
-                        {{ form_errors(registrationForm.site) }}
-                        {{ form_widget(registrationForm.site) }}
-                    </div>
-
-                </div>
-                <br>
-
-                <div>
-                    <label for="nom">Mot de passe provisoire :</label>
-                    <div>
-                        {{ form_errors(registrationForm.plainPassword) }}
-                        {{ form_widget(registrationForm.plainPassword) }}
-                    </div>
-                </div>
-                <br>
-                <div class="div2">
-                    <div>
-                        <button class="btn_profil" type="submit" style="border-radius: 5px">Enregistrer</button>
-                    </div>
-                </div>
-
-
+            </div>
                 {{ form_end(registrationForm) }}
             </div>
             <hr>
-            <br>
+
             <form action="{{ path('app_registration_csv') }}" method="post" enctype="multipart/form-data" class="ajout-csv">
+
                 {{ form_start(CSVForm) }}
 
-                <div>
-                    {{ form_label(CSVForm.fichierCSV) }}
-                    <div>
-                        <br>
-                        {{ form_errors(CSVForm.fichierCSV) }}
-                        {{ form_widget(CSVForm.fichierCSV) }}
-                    </div>
-                </div>
-                <div>{{ form_widget(CSVForm.Enregistrer)}}</div>
+                <h3>{{ form_label(CSVForm.fichierCSV) }}</h3>
+                <div class="widgetRegister">{{ form_widget(CSVForm.fichierCSV) }}</div>
+                {{ form_errors(CSVForm.fichierCSV) }}
+                <div class="btn_Enregistrer_User">{{ form_widget(CSVForm.Enregistrer)}}</div>
+
                 {{ form_end(CSVForm) }}
             </form>
         </div>
