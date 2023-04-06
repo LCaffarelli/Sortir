@@ -87,9 +87,7 @@ class SortieController extends AbstractController
             $peut_se_desister = false;
             $finInscription = true;
         }
-        if (count($sortie->getUsers()) == $sortie->getNbInscriptionsMax()) {
-            $finInscription = true;
-        } else if ($sortie->getEtat()->getId() != 2) {
+        if ($sortie->getEtat()->getId() != 2) {
             $finInscription = true;
         }
         if ($sortie->getOrganisateur()->getId() == $this->getUser()->getId()){

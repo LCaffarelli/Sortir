@@ -77,7 +77,7 @@
             <br>
             <div class="div5">
 
-                {% if finInscription == false %}
+                {% if finInscription == false and estInscrit == false %}
                     <form action="{{ path('sortie_inscription', {'id': sortie.id}) }}">
                         <input type="hidden" name="_token" value="{{ csrf_token('inscription'~sortie.id) }}">
                         <button>S'inscrire</button>
