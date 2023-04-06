@@ -86,9 +86,8 @@
 
                 {% for user in sortie.users %}
 
-                    {% if user.id==app.user.id and finInscription == false %}
+                    {% if estInscrit and peut_se_desister %}
                         <form action="{{ path('sortie_desistement',{'id':sortie.id}) }}" method="get">
-
                             <input type="hidden" name="_token" value="{{ csrf_token('desistement'~sortie.id) }}">
                             <button>Se désister</button>
                         </form>
@@ -96,7 +95,7 @@
                     {% endif %}
                 {% endfor %}
 
-                {% if app.user == sortie.organisateur and sortie.etat.id == 1 or sortie.etat.id == 2 %}
+                {% if estOrganisateur and peut_etre_annule %}
                     <form action="{{ path('sortie_annuler',{'id':sortie.id}) }}">
                         <input type="hidden" name="_token" value="{{ csrf_token('annuler'~sortie.id) }}">
                         <a href="{{ path('sortie_annuler', {'id': sortie.id}) }}">
@@ -105,7 +104,7 @@
                     </form>
                 {% endif %}
 
-                {% if app.user == sortie.organisateur and sortie.etat.id ==  1 %}
+                {% if estOrganisateur and peut_etre_modifier %}
                     <form action="{{ path('sortie_modifier',{'id':sortie.id}) }}">
                         <input type="hidden" name="_token" value="{{ csrf_token('modifier'~sortie.id) }}">
                         <a href="{{ path('sortie_modifier', {'id' : sortie.id}) }}">
