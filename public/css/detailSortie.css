@@ -8,7 +8,8 @@
     flex-direction: column;
 }
 th,td{
-    border: none;
+    border: solid 1px;
+    padding: 10px 10px 10px 10px;
     border-radius: 20px;
 }
 
@@ -43,9 +44,10 @@ th,td{
 .tableParticipant {
     display: flex;
     justify-content: center;
-    flex-direction: column;
 }
-
+.tableParticipant{
+    text-align: center;
+}
 .boutonDetailSortie {
     display: flex;
     flex-direction: row;

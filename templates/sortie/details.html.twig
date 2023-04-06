@@ -59,6 +59,7 @@
             <br>
 
             <div class="tableParticipant">
+                <div>
                 {% if sortie.etat.id==6 %}
                     <h1>Sortie annulée</h1>
                 {% else %}
@@ -68,20 +69,21 @@
                             <thead>
                             <tr>
                                 <th>Pseudo</th>
-                                <th>Nom / Prénom</th>
+                                <th>Nom  Prénom</th>
                             </tr>
                             </thead>
                             <tbody>
                             {% for u in sortie.users %}
                                 <tr>
                                     <td class="tableau-donnee"><a href="{{ path('user_details', {'id': u.id}) }}">{{ u.pseudo }}</a></td>
-                                    <td class="tableau-donnee">{{ u.nom }} / {{ u.prenom }}</td>
+                                    <td class="tableau-donnee">{{ u.nom }}  {{ u.prenom }}</td>
                                 </tr>
                             {% endfor %}
                             </tbody>
                         </table>
 
                 {% endif %}
+                </div>
             </div>
             <br>
             <div class="boutonDetailSortie">
