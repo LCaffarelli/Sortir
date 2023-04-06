@@ -1,5 +1,5 @@
 
-const select = document.querySelector("#creation_sortie_lieu");
+const select = document.getElementById('creation_sortie_lieu');
 select.addEventListener('change', (event) => {
     let id = `${event.target.value}` ;
     let requestURL ='http://localhost/Sortir/public/lieu/'+id;
