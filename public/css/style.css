@@ -69,6 +69,7 @@ header {
 .close{
     visibility: hidden;
 }
+
 /*----------------Mise en forme des filtres-----------------------*/
 .sectionFiltre{
     margin: 50px 20vw 50px 20vw;
