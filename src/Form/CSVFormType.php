@@ -17,11 +17,8 @@ class CSVFormType extends AbstractType
             ->add('fichierCSV', FileType::class, [
                 'label'=> 'Enregistrement par fichier CSV : ',
                 'constraints' => [
-                     new File(['mimeTypes' => [
-                         'text/csv',
-                     ],
-                         'mimeTypes' => 'text/csv',
-                        'mimeTypesMessage' => 'Le fichier doit être au format CSV',
+                     new File([
+                         'extensionsMessage' => 'Le fichier doit être au format CSV',
                          'maxSize' => '10K',
                          'maxSizeMessage' => 'Le fichier est trop gros ({{ size }} {{ suffix }}). La taille maximale autorisée est {{ limit }} {{ suffix }}.'
                      ])

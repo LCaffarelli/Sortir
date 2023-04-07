@@ -23,25 +23,30 @@
 </head>
 <body>
 
-    <header>
-        {% include  'inc/nav.html.twig' %}
-    </header>
+<header>
+    {% include  'inc/nav.html.twig' %}
+</header>
 
-    {% for label, messages in app.flashes %}
-        {% for message in messages %}
-            <div class="flash-{{ label }}">
-                {{ message }}
-            </div>
-        {% endfor %}
+{% for label, messages in app.flashes %}
+    {% for message in messages %}
+        <div style="
+        background-color: greenyellow;
+        width: 300px;
+        border-radius: 50px;
+        text-align: center;
+" class="flash-{{ label }}">
+            {{ message }}
+        </div>
     {% endfor %}
+{% endfor %}
 
-    <main>
-        {% block body %}{% endblock %}
-    </main>
+<main>
+    {% block body %}{% endblock %}
+</main>
 
-    <footer>
-        {{ "now" | date('Y') }} &copy;Sortir.com
-    </footer>
+<footer>
+    {{ "now" | date('Y') }} &copy;Sortir.com
+</footer>
 
 </body>
 </html>
